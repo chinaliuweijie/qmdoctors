@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/ll_add_patient"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/selector_color_list_bg"
+        android:gravity="center_vertical"
+        >
+
+        <com.qingmiao.qmdoctor.widget.IconFontTextview
+            android:id="@+id/medata_icon_iv"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginLeft="10dp"
+            android:layout_centerVertical="true"
+            android:text="@string/icons_addfriend"
+            android:textColor="@color/white"
+            android:background="@color/yellow"
+            android:gravity="center"
+            android:textSize="31dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="添加患者"
+            android:textSize="@dimen/tv_sitem_title"
+            android:layout_marginLeft="15dp"
+            android:layout_gravity="center"
+            android:textColor="@color/black_1"
+            />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/text"
+        />
+
+
+    <LinearLayout
+        android:id="@+id/ll_label"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/selector_color_list_bg"
+        android:gravity="center_vertical"
+        >
+
+        <com.qingmiao.qmdoctor.widget.IconFontTextview
+            android:id="@+id/iv_labll"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:text="@string/icons_label"
+            android:textColor="@color/white"
+            android:background="@color/blue"
+            android:gravity="center"
+            android:textSize="31dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="标签"
+            android:textSize="@dimen/tv_sitem_title"
+            android:layout_marginLeft="15dp"
+            android:layout_gravity="center"
+            android:textColor="@color/black_1"
+            />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/text"
+        />
+</LinearLayout>

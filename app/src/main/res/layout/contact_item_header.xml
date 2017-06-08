@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/headerText"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:background="#E0E0E0"
+    android:textColor="#454545"
+    android:paddingLeft="5dip"
+    android:paddingTop="5dip"
+    android:paddingBottom="5dip"
+    android:layout_gravity="center_vertical"
+    android:textSize="@dimen/tv_sview_data"
+    />

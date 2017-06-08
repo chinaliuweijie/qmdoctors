@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:search="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/backdrop"
+    android:orientation="vertical" >
+    <RelativeLayout
+        android:id="@+id/layout_default"
+        android:layout_width="match_parent"
+        android:background="@color/backdrop"
+        android:layout_height="wrap_content">
+        <com.qingmiao.qmdoctor.widget.SearchView
+            android:id="@+id/filter_edit"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_margin="10dp"
+            android:drawablePadding="3dp"
+            android:gravity="center"
+            search:textSize="@dimen/tv_sview_title_detail"
+            search:textColor="@color/text"
+            android:background="@drawable/edittext_common" />
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/frameLayout"
+        >
+
+     </FrameLayout>
+
+</LinearLayout>

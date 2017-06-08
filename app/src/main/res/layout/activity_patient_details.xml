@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_patient_details"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backdrop"
+    android:orientation="vertical"
+    tools:context="com.qingmiao.qmdoctor.activity.PatientDetailActivity">
+
+    <com.github.jdsjlzx.recyclerview.LRecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/lRecycleView_sick_desc"
+        >
+    </com.github.jdsjlzx.recyclerview.LRecyclerView>
+
+</LinearLayout>

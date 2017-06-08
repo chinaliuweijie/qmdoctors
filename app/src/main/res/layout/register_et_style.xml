@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:showIn="@layout/activity_register">
+
+   <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="52dp"
+        android:layout_marginTop="10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.qingmiao.qmdoctor.widget.IconFontTextview
+                android:id="@+id/iv_me"
+                style="@style/login_iv_me_style"
+                android:text="@string/icons_phone"
+                android:textColor="@color/text" />
+
+
+            <EditText
+                android:id="@+id/register_phone_et"
+                style="@style/login_et_style"
+                android:hint="请输入手机号码"
+                android:textSize="@dimen/tv_sitem_title"
+                android:lines="1"
+                android:maxLength="11"
+                android:inputType="number"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/iv_me"
+                android:layout_toRightOf="@+id/iv_me" />
+        </RelativeLayout>
+
+        <View style="@style/line_style" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="52dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.qingmiao.qmdoctor.widget.IconFontTextview
+                android:id="@+id/iv_verify"
+                style="@style/login_iv_me_style"
+                android:text="@string/icons_verify"
+                android:textColor="@color/text" />
+
+
+            <EditText
+                android:id="@+id/register_verify_et"
+                style="@style/login_et_style"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/iv_verify"
+                android:hint="请输入验证码"
+                android:inputType="number"
+                android:lines="1"
+                android:maxLength="6"
+                android:textSize="@dimen/tv_sitem_title" />
+
+
+
+            <com.qingmiao.qmdoctor.widget.IconFontTextview
+                android:id="@+id/iv_cancel"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="8dp"
+                android:layout_toLeftOf="@+id/register_bnt_getVerify"
+                android:background="@drawable/shape_green_ok"
+                android:gravity="center"
+                android:text="@string/icons_cha"
+                android:textColor="@color/black_1"
+                android:textSize="10dp"
+                android:visibility="gone" />
+
+
+            <TextView
+                android:id="@+id/register_bnt_getVerify"
+                android:layout_width="83dp"
+                android:layout_height="31dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="10dp"
+                android:layout_marginRight="21dp"
+                android:gravity="center"
+                android:background="@drawable/validate_code_normal_bg"
+                android:text="获取验证码"
+                android:textColor="@color/white"
+                android:textSize="@dimen/tv_sview_title" />
+        </RelativeLayout>
+
+
+        <View style="@style/line_style" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="52dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <com.qingmiao.qmdoctor.widget.IconFontTextview
+                android:id="@+id/iv_password"
+                style="@style/login_iv_me_style"
+                android:text="@string/icons_pwd"
+                android:textColor="@color/text" />
+
+            <EditText
+                android:id="@+id/register_pwd_et"
+                style="@style/login_et_style"
+                android:hint="请输入密码"
+                android:password="true"
+                android:textSize="@dimen/tv_sitem_title"
+                android:lines="1"
+                android:maxLength="16"
+                android:layout_alignParentBottom="true"
+                android:layout_toEndOf="@+id/iv_password"
+                android:layout_toRightOf="@+id/iv_password" />
+
+            <com.qingmiao.qmdoctor.widget.IconFontTextview
+                android:id="@+id/iv_eye"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="21dp"
+                android:text="@string/icons_eye"
+                android:textColor="@color/text"
+                android:textSize="18dp" />
+        </RelativeLayout>
+
+        <View style="@style/line_style" />
+    </RelativeLayout>
+</merge>

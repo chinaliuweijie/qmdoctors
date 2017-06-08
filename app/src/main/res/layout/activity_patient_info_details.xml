@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@color/bg"
+    android:layout_height="match_parent">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/text" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/bg">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="26dp"
+            android:text="备注"
+            android:textColor="@color/black_1"
+            android:textSize="@dimen/tv_sview_title_detail" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="110dp"
+            android:text=""
+            android:id="@+id/et_tags"
+            android:hint="请输入备注名称"
+            android:textColor="@color/text"
+            android:textSize="@dimen/tv_sview_title_detail"
+            android:background="@drawable/edittext_common"
+            android:gravity="left|center_vertical"
+            />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/text" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/bg">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="26dp"
+            android:text="性别"
+            android:textColor="@color/black_1"
+            android:textSize="@dimen/tv_sview_title_detail"  />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="110dp"
+            android:text="女"
+            android:id="@+id/tv_sex"
+            android:textColor="@color/text"
+            android:textSize="@dimen/tv_sview_title_detail" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/text" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/bg">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="26dp"
+            android:text="城市"
+            android:textColor="@color/black_1"
+            android:textSize="@dimen/tv_sview_title_detail"  />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="110dp"
+            android:text="陕西 西安"
+            android:id="@+id/tv_address"
+            android:textColor="@color/text"
+            android:textSize="@dimen/tv_sview_title_detail"  />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/text" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/bg">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="26dp"
+            android:text="生日"
+            android:textColor="@color/black_1"
+            android:textSize="@dimen/tv_sview_title_detail" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="110dp"
+            android:text="2017-09-22"
+            android:id="@+id/tv_birthday"
+            android:textColor="@color/text"
+            android:textSize="@dimen/tv_sview_title_detail"  />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/text" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/bg">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="26dp"
+            android:text="患者关系"
+            android:textColor="@color/black_1"
+            android:textSize="@dimen/tv_sview_title_detail" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="110dp"
+            android:text="本人"
+            android:id="@+id/tv_relation"
+            android:textColor="@color/text"
+            android:textSize="@dimen/tv_sview_title_detail" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/text" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/bg">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="26dp"
+            android:text="是否就诊"
+            android:textColor="@color/black_1"
+            android:textSize="@dimen/tv_sview_title_detail"  />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="110dp"
+            android:text="未就诊"
+            android:textColor="@color/text"
+            android:id="@+id/tv_jiuzhen"
+            android:textSize="@dimen/tv_sview_title_detail" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/text" />
+</LinearLayout>

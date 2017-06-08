@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_complain"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backdrop"
+    android:orientation="vertical"
+    tools:context="com.qingmiao.qmdoctor.activity.ComplainActivity">
+
+    <EditText
+        android:id="@+id/complain_title_et"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/bg"
+        android:hint="请输入投诉该账号的原因"
+        android:maxLength="20"
+        android:paddingLeft="28dp"
+        android:singleLine="true"
+        android:textColor="@color/black_1"
+        android:textColorHint="@color/text"
+        android:textSize="@dimen/tv_sview_title" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/text" />
+
+    <EditText
+        android:id="@+id/complain_content_et"
+        android:layout_width="match_parent"
+        android:layout_height="260dp"
+        android:background="@color/bg"
+        android:gravity="start"
+        android:maxLength="200"
+        android:paddingLeft="28dp"
+        android:paddingTop="5dp"
+        android:textColor="@color/black_1"
+        android:textSize="@dimen/tv_sview_title_detail" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/text" />
+
+    <TextView
+        android:id="@+id/complain_number_tv"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/bg"
+        android:gravity="end|center_vertical"
+        android:paddingRight="26dp"
+        android:text="0/200"
+        android:textSize="@dimen/tv_sview_title"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/text" />
+</LinearLayout>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_feed_back"
+    android:layout_width="match_parent"
+    android:background="@color/bg"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="您的意见是我们宝贵的动力"
+        android:textColor="@color/text"
+        android:textSize="@dimen/tv_sitem_title" />
+
+    <EditText
+        android:id="@+id/et_opinion"
+        android:layout_width="match_parent"
+        android:layout_height="265dp"
+        android:layout_margin="20dp"
+        android:background="@drawable/shape_bnt_circle_normal"
+        android:gravity="start"
+        android:hint="意见填写内容"
+        android:padding="12dp"
+        android:textColor="@color/black_1"
+        android:textSize="@dimen/tv_sitem_title" />
+
+    <EditText
+        android:id="@+id/et_phone"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:maxLength="11"
+        android:inputType="phone"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/shape_bnt_circle_normal"
+        android:hint="输入手机号码"
+        android:lines="1"
+        android:paddingLeft="20dp"
+        android:textColor="@color/black_1"
+        android:textSize="@dimen/tv_sitem_title" />
+
+    <TextView
+        android:id="@+id/tv_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="请填写您的手机号码,以便及时与您沟通!"
+        android:textColor="@color/black_1"
+        android:textSize="@dimen/tv_sitem_content" />
+
+    <Button
+        android:id="@+id/btn_submit"
+        style="@style/bnt_login_style"
+        android:text="确认提交"  />
+
+</LinearLayout>

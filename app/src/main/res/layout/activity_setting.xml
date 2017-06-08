@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_setting"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/backdrop"
+    >
+
+    <RelativeLayout
+        android:id="@+id/rl_password_anew"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/setting_item_height"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/selector_color_list_bg">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/text"
+            android:layout_alignParentBottom="true"
+            ></View>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="21dp"
+            android:text="密码重置"
+            android:textColor="@color/character"
+            android:textSize="@dimen/tv_sview_title_detail" />
+
+        <com.qingmiao.qmdoctor.widget.IconFontTextview
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:text="@string/icons_back_right"
+            android:textColor="@color/text"
+            android:textSize="13dp" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rl_opinion"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/setting_item_height"
+        android:background="@drawable/selector_color_list_bg">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="21dp"
+            android:text="意见反馈"
+            android:textColor="@color/character"
+            android:textSize="@dimen/tv_sview_title_detail" />
+
+        <com.qingmiao.qmdoctor.widget.IconFontTextview
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:text="@string/icons_back_right"
+            android:textColor="@color/text"
+            android:textSize="13dp" />
+    </RelativeLayout>
+
+
+
+
+    <RelativeLayout
+        android:id="@+id/rl_clear_cache"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/setting_item_height"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/selector_color_list_bg">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/text"
+            android:layout_alignParentBottom="true"
+            ></View>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="21dp"
+            android:text="清除缓存"
+            android:textColor="@color/character"
+            android:textSize="@dimen/tv_sview_title_detail" />
+
+        <com.qingmiao.qmdoctor.widget.IconFontTextview
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:text="@string/icons_back_right"
+            android:textColor="@color/text"
+            android:textSize="13dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_evaluate_we"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/setting_item_height"
+        android:background="@drawable/selector_color_list_bg">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/text"
+            android:layout_alignParentBottom="true"
+            ></View>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="21dp"
+            android:text="评价我们"
+            android:textColor="@color/character"
+            android:textSize="@dimen/tv_sview_title_detail" />
+
+        <com.qingmiao.qmdoctor.widget.IconFontTextview
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:text="@string/icons_back_right"
+            android:textColor="@color/text"
+            android:textSize="13dp" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rl_correlation_we"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/setting_item_height"
+        android:background="@drawable/selector_color_list_bg">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="21dp"
+            android:text="关于我们"
+            android:textColor="@color/character"
+            android:textSize="@dimen/tv_sview_title_detail" />
+
+        <com.qingmiao.qmdoctor.widget.IconFontTextview
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:text="@string/icons_back_right"
+            android:textColor="@color/text"
+            android:textSize="13dp" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rl_quit_login"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/setting_item_height"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/selector_color_list_bg">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="退出登陆"
+            android:textColor="@color/character"
+            android:textSize="@dimen/tv_sview_title_detail" />
+
+    </RelativeLayout>
+
+</LinearLayout>

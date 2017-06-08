@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/backdrop"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:background="@drawable/selector_color_list_bg"
+        android:id="@+id/patient_more_setStar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <com.qingmiao.qmdoctor.widget.IconFontTextview
+            android:id="@+id/icon_star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textView"
+            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
+            android:text="@string/icons_star_soft"
+            android:textColor="@color/text"
+            android:textSize="23dp" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"
+            android:layout_toRightOf="@id/icon_star"
+            android:text="标为星标"
+            android:textColor="@color/black_1"
+            android:textSize="@dimen/tv_sview_title_detail" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/text" />
+
+    <RelativeLayout
+        android:background="@drawable/selector_color_list_bg"
+        android:id="@+id/patient_more_complain"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <com.qingmiao.qmdoctor.widget.IconFontTextview
+            android:id="@+id/icon_who"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:text="@string/icons_who"
+            android:textColor="@color/text"
+            android:textSize="23dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"
+            android:layout_toRightOf="@id/icon_who"
+            android:text="投诉"
+            android:textColor="@color/black_1"
+            android:textSize="@dimen/tv_sview_title_detail" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/text" />
+
+    <RelativeLayout
+        android:background="@drawable/selector_color_list_bg"
+        android:id="@+id/patient_more_delete"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <com.qingmiao.qmdoctor.widget.IconFontTextview
+            android:id="@+id/icon_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:text="@string/icons_delete"
+            android:textColor="@color/text"
+            android:textSize="23dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"
+            android:layout_toRightOf="@id/icon_delete"
+            android:text="删除"
+            android:textColor="@color/black_1"
+            android:textSize="@dimen/tv_sview_title_detail" />
+    </RelativeLayout>
+
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/selector_color_list_bg"
+        android:text="取消"
+        android:textColor="@color/black_1"
+        android:textSize="@dimen/tv_sview_title_detail"
+        android:id="@+id/btn_cancel"
+        android:layout_marginTop="10dp"
+        />
+</LinearLayout>

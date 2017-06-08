@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/backdrop"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:id="@+id/ll_documents"
+            android:background="@drawable/selector_color_list_bg"
+            android:paddingBottom="20dp"
+            android:paddingTop="20dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <com.qingmiao.qmdoctor.widget.IconFontTextview
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/icons_book"
+                    android:textColor="@color/light_green_book"
+                    android:textSize="21dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="规范解读"
+                    android:textColor="@color/title"
+                    android:layout_marginLeft="11dp"
+                    android:layout_marginRight="11dp"
+                    android:textSize="@dimen/tv_sitem_title" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center"
+                    >
+
+                    <com.qingmiao.qmdoctor.widget.IconFontTextview
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="@string/icons_subscript_1"
+                        android:layout_centerInParent="true"
+                        android:textColor="@color/orange"
+                        android:textSize="22dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="荐"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/tv_sview_title" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:text="最新文献 随时更新"
+                android:layout_marginTop="5dp"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:textColor="@color/text"
+                android:textSize="@dimen/tv_sitem_title" />
+        </LinearLayout>
+
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="12dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/text" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/ll_institute"
+            android:orientation="vertical"
+            android:paddingBottom="20dp"
+            android:background="@drawable/selector_color_list_bg"
+            android:paddingTop="20dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <com.qingmiao.qmdoctor.widget.IconFontTextview
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/icons_circle"
+                    android:textColor="@color/light_green_book"
+                    android:textSize="21dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="讲座预告"
+                    android:layout_marginLeft="11dp"
+                    android:layout_marginRight="11dp"
+                    android:textColor="@color/title"
+                    android:textSize="@dimen/tv_sitem_title" />
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <com.qingmiao.qmdoctor.widget.IconFontTextview
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="@string/icons_subscript"
+                        android:textColor="@color/main_head_red"
+                        android:textSize="21dp" />
+
+                </FrameLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="专家讲座 提前通知"
+                android:layout_marginTop="5dp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/text"
+                android:textSize="@dimen/tv_sitem_title" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/text" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="134dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingLeft="17dp"
+        android:paddingRight="17dp"
+        android:background="@color/bg"
+        >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:id="@+id/ll_docuter_talk"
+            android:background="@drawable/selector_color_list_bg"
+            >
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/ic_main_head_0"
+                android:layout_gravity="center"
+                android:id="@+id/imageView2" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="医生交流"
+                android:textColor="@color/text"
+                android:textSize="@dimen/tv_sitem_title"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:id="@+id/ll_learning_talk"
+            android:background="@drawable/selector_color_list_bg"
+            android:gravity="center"
+            >
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/ic_main_head_1"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="学术交流"
+                android:textColor="@color/text"
+                android:textSize="@dimen/tv_sitem_title"
+                android:layout_marginTop="20dp"
+                />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:id="@+id/ll_case_talk"
+            android:background="@drawable/selector_color_list_bg"
+            android:gravity="center"
+            >
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/ic_main_head_2"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="病例讨论"
+                android:textColor="@color/text"
+                android:textSize="@dimen/tv_sitem_title"
+                android:layout_marginTop="20dp"
+                />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:id="@+id/ll_tools"
+            android:layout_weight="1"
+            android:background="@drawable/selector_color_list_bg"
+            >
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/ic_main_head_3"
+                android:layout_gravity="center"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="工具箱"
+                android:textColor="@color/text"
+                android:textSize="@dimen/tv_sitem_title"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:id="@+id/frameViewPager"
+        android:background="@color/alpha"
+        android:layout_height="80dp">
+        <com.qingmiao.qmdoctor.widget.CycleViewPager
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/viewpager"
+            ></com.qingmiao.qmdoctor.widget.CycleViewPager>
+
+    </FrameLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/text"
+        android:layout_marginTop="10dp"
+        ></View>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="@drawable/selector_color_list_bg"
+        android:gravity="center_vertical"
+        android:id="@+id/rl_documents_more"
+        >
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="文章精选"
+           android:textColor="@color/black_1"
+           android:textSize="@dimen/tv_sitem_title"
+           android:id="@+id/tv_wzjx"
+           />
+
+        <com.qingmiao.qmdoctor.widget.IconFontTextview
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/icons_tuijian"
+            android:textColor="@color/main_head_red"
+            android:layout_toRightOf="@+id/tv_wzjx"
+            android:layout_marginLeft="10dp"
+            android:textSize="18dp" />
+
+        <com.qingmiao.qmdoctor.widget.IconFontTextview
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="@string/icons_back_right"
+            android:textColor="@color/text"
+            android:id="@+id/it_back"
+            android:textSize="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="更多"
+            android:textColor="@color/text"
+            android:textSize="@dimen/tv_sitem_content"
+            android:layout_toLeftOf="@+id/it_back"
+            android:layout_centerVertical="true"
+            />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/text"
+        ></View>
+</LinearLayout>

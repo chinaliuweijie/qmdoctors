@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@color/backdrop"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:id="@+id/ll_item"
+        android:background="@drawable/selector_color_list_bg"
+        >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:id="@+id/iv_path"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="我是标题我是标题我是标题我是标题我是标题我是标题我是标题我是标题我是标题我是标题我是标题我是标题"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:textSize="@dimen/tv_sview_title"
+            android:layout_alignParentBottom="true"
+            android:background="@color/alpha"
+            android:id="@+id/tv_title"
+            android:textColor="@color/white"
+            />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:background="@color/bg"
+        >
+        <com.qingmiao.qmdoctor.widget.IconFontTextview
+            android:id="@+id/iv_pwd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/icons_location"
+            android:textColor="@color/text"
+            android:textSize="@dimen/tv_sview_data" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text"
+            android:textSize="@dimen/tv_sview_data"
+            android:text="中国.陕西.西安"
+            android:layout_weight="1"
+            android:id="@+id/iv_location"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text"
+            android:textSize="@dimen/tv_sview_data"
+            android:id="@+id/iv_time"
+            android:text="2017-05-25"
+            />
+    </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

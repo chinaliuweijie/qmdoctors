@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rlTitle"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:background="@color/green">
+
+        <TextView
+            android:id="@+id/base_tvtitle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_toRightOf="@+id/base_ivLeft"
+            android:layout_toLeftOf="@+id/base_ivRight_v"
+            android:text="肾一生"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/tv_sitem_base_title" />
+
+        <com.qingmiao.qmdoctor.widget.IconFontTextview
+            android:id="@+id/base_ivLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="13dp"
+            android:background="@drawable/shape_circle_bg_null"
+            android:gravity="center"
+            android:text="@string/icons_back"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
+
+        <com.qingmiao.qmdoctor.widget.IconFontTextview
+            android:id="@+id/base_ivRightBig"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="13dp"
+            android:text="@string/icons_share"
+            android:textColor="@color/white"
+            android:textSize="31dp"
+            android:visibility="gone" />
+
+
+
+        <com.qingmiao.qmdoctor.widget.IconFontTextview
+            android:id="@+id/base_ivRightBig2"
+            android:layout_width="31dp"
+            android:layout_height="31dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:textColor="@color/white"
+            android:layout_marginRight="13dp"
+            android:gravity="center"
+            android:textSize="20dp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/base_tvRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:text="确定"
+            android:textColor="@color/white"
+            android:textSize="@dimen/tv_sitem_base_title"
+            android:visibility="gone" />
+
+        <RelativeLayout
+            android:id="@+id/base_rlRight"
+            android:layout_width="21dp"
+            android:layout_height="21dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="13dp">
+
+            <com.qingmiao.qmdoctor.widget.IconFontTextview
+                android:id="@+id/base_ivRight"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/icons_message"
+                android:textColor="@color/white"
+                android:textSize="21dp"
+                android:visibility="gone" />
+
+
+            <ImageView
+                android:id="@+id/base_ivRight_red"
+                android:layout_width="7dp"
+                android:layout_height="7dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="2dp"
+                android:layout_marginTop="1dp"
+                android:background="@drawable/shape_red_dat"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+
+        <com.qingmiao.qmdoctor.widget.IconFontTextview
+            android:id="@+id/base_ivRight_v"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="13dp"
+            android:background="@drawable/shape_circle_bg_null"
+            android:gravity="center"
+            android:text="@string/icons_back"
+            android:textColor="@color/white"
+            android:visibility="invisible"
+            android:textSize="20dp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg"
+        android:layout_below="@id/rlTitle">
+
+        <com.qingmiao.qmdoctor.widget.customdialog.LoadingView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:visibility="gone"
+            android:id="@+id/spinview"
+            android:layout_centerInParent="true" />
+
+        <FrameLayout
+            android:id="@+id/flContent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </FrameLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="点击屏幕，重新加载"
+            android:gravity="center"
+            android:id="@+id/tv_error"
+            android:textColor="@color/text"
+            android:textSize="@dimen/tv_sitem_title"
+            android:visibility="gone"
+            />
+    </RelativeLayout>
+</RelativeLayout>

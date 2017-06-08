@@ -1,0 +1,647 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_me_data"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5">
+
+                <ImageView
+                    android:id="@+id/medata_icon_iv"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:src="@drawable/ic_doctor_avatar" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="5">
+            <EditText
+                android:id="@+id/medata_name_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="16dp"
+                android:background="#0000"
+                android:hint="请输入昵称"
+                android:maxLength="12"
+                android:textColor="@color/black_1"
+                android:textSize="@dimen/tv_sview_title_detail" />
+
+            <com.qingmiao.qmdoctor.widget.IconFontTextview
+                android:id="@+id/iv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="16dp"
+                android:layout_toRightOf="@id/medata_name_tv"
+                android:text="@string/icons_input"
+                android:textColor="@color/text"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/tv_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/medata_name_tv"
+                android:layout_marginLeft="20dp"
+                android:text=""
+                android:textColor="@color/text"
+                android:textSize="@dimen/tv_sview_title_detail" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="(已绑定)"
+                    android:textSize="@dimen/tv_sview_title"
+                    android:textColor="@color/text"
+                    android:layout_alignLeft="@+id/iv_title"
+                    android:layout_below="@id/medata_name_tv"
+                    />
+
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/text" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp">
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1.5">
+
+            <TextView
+                android:id="@+id/medata_tv1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:text="姓名"
+                android:textColor="@color/black_1"
+                android:textSize="@dimen/tv_sview_title_detail"/>
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_weight="5"
+            >
+            <EditText
+                android:id="@+id/et_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@id/medata_tv1"
+                android:background="#0000"
+                android:hint="请输入姓名"
+                android:textSize="@dimen/tv_sview_title_detail"
+                android:textColor="@color/text" />
+        </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/text" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp">
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1.5">
+
+                <TextView
+                    android:id="@+id/medata_tv2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:text="性别"
+                    android:textColor="@color/black_1"
+                    android:textSize="@dimen/tv_sview_title_detail" />
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_weight="5"
+                android:id="@+id/ll_sex"
+                >
+                <TextView
+                    android:id="@+id/tv_sex"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_toRightOf="@id/medata_tv2"
+                    android:background="#0000"
+                    android:textSize="@dimen/tv_sview_title_detail"
+                    android:text=""
+                    android:textColor="@color/text" />
+
+                <com.qingmiao.qmdoctor.widget.IconFontTextview
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp"
+                    android:text="@string/icons_back_right"
+                    android:textColor="@color/text"
+                    android:textSize="16dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/text" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp">
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1.5">
+
+                <TextView
+                    android:id="@+id/medata_tv3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:text="医院"
+                    android:textColor="@color/black_1"
+                    android:textSize="@dimen/tv_sview_title_detail" />
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_weight="5"
+                >
+                <EditText
+                    android:id="@+id/et_hospital"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_toRightOf="@id/medata_tv3"
+                    android:background="#0000"
+                    android:textSize="@dimen/tv_sview_title_detail"
+                    android:textColor="@color/text" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/text" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp">
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1.5">
+
+                <TextView
+                    android:id="@+id/medata_tv4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:text="科室"
+                    android:textColor="@color/black_1"
+                    android:textSize="@dimen/tv_sview_title_detail" />
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_weight="5"
+                >
+
+                <EditText
+                    android:id="@+id/et_course"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_toRightOf="@id/medata_tv4"
+                    android:background="#0000"
+                    android:textSize="@dimen/tv_sview_title_detail"
+                    android:textColor="@color/text" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/text" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp">
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1.5">
+
+                <TextView
+                    android:id="@+id/medata_tv5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:text="职称"
+                    android:textColor="@color/black_1"
+                    android:textSize="@dimen/tv_sview_title_detail" />
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:id="@+id/ll_nichen"
+                android:layout_weight="5"
+                >
+
+                <TextView
+                    android:id="@+id/tv_position"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_toRightOf="@id/medata_tv5"
+                    android:background="#0000"
+                    android:textSize="@dimen/tv_sview_title_detail"
+                    android:textColor="@color/text" />
+
+                <com.qingmiao.qmdoctor.widget.IconFontTextview
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp"
+                    android:text="@string/icons_back_right"
+                    android:textColor="@color/text"
+                    android:textSize="16dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/text" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp">
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1.5">
+
+                <TextView
+                    android:id="@+id/medata_tv8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:text="擅长领域"
+                    android:textColor="@color/black_1"
+                    android:textSize="@dimen/tv_sview_title_detail" />
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_weight="5"
+                android:id="@+id/ll_down"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_toRightOf="@id/medata_tv8"
+                    android:text="(可多选)"
+                    android:textSize="@dimen/tv_sview_title_detail"
+                    android:textColor="@color/text" />
+
+                <com.qingmiao.qmdoctor.widget.IconFontTextview
+                    android:id="@+id/tv_down"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp"
+                    android:text="@string/icons_back_right"
+                    android:textColor="@color/text"
+                    android:textSize="16dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/text" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/ll_check"
+            android:visibility="gone"
+            >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="24dp"
+                android:layout_weight="1"
+                android:id="@+id/ll_field0"
+                android:orientation="vertical">
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:id="@+id/ll_field1"
+                android:orientation="vertical">
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/text" />
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp">
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1.5">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:text="证件照片"
+                    android:textColor="@color/black_1"
+                    android:textSize="@dimen/tv_sview_title_detail" />
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_weight="5"
+                android:id="@+id/ll_photo"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    />
+
+                <com.qingmiao.qmdoctor.widget.IconFontTextview
+                    android:id="@+id/tv_photo_down"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="20dp"
+                    android:text="@string/icons_back_right"
+                    android:textColor="@color/text"
+                    android:textSize="16dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/ll_hide_photo"
+            android:padding="5dp">
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5">
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="5"
+                >
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/icon_photo"
+                    android:id="@+id/iv_photo"
+                    android:layout_marginLeft="20dp"
+                    android:scaleType="center"
+                    android:gravity="center"
+                    />
+
+                <TextView
+                    android:id="@+id/textview"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="请上传医院星牌或执业医师证,完成实名认证.\n信息仅供医师认证并严格保密 "
+                    android:textColor="@color/text"
+                    android:textSize="@dimen/tv_sview_data"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/text" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp">
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1.5">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:text="个人简介"
+                    android:textColor="@color/black_1"
+                    android:textSize="@dimen/tv_sview_title_detail" />
+            </RelativeLayout>
+
+
+
+
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="5"
+                >
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    >
+                    <EditText
+                        android:id="@+id/et_opinion"
+                        android:layout_width="match_parent"
+                        android:layout_height="104dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="5dp"
+                        android:padding="2dp"
+                        android:gravity="top|left"
+                        android:textSize="@dimen/tv_sview_title_detail"
+                        android:singleLine="false"
+                        android:cursorVisible="true"
+                        android:clickable="true"
+                        android:background="@drawable/shape_check_bg"
+                        android:textColor="@color/black_1"
+                        />
+
+                    <TextView
+                        android:id="@+id/te"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="请填写个人相关信息及资历 "
+                        android:layout_marginTop="12dp"
+                        android:layout_marginLeft="20dp"
+                        android:textColor="@color/text"
+                        android:textSize="@dimen/tv_sview_data"
+                        android:gravity="center"/>
+                </LinearLayout>
+
+                <com.qingmiao.qmdoctor.widget.IconFontTextview
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    android:layout_marginRight="20dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:text="@string/icons_down"
+                    android:textColor="@color/text"
+                    android:textSize="16dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/text" />
+        <Button
+            android:id="@+id/btn_affirm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="21dp"
+            android:background="@drawable/shape_bnt_normal"
+            android:text="确认完成"
+            android:textColor="@color/white"
+            android:textSize="@dimen/tv_sview_title_detail" />
+
+    </LinearLayout>
+</ScrollView>

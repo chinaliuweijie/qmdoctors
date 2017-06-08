@@ -1,0 +1,64 @@
+<resources>
+    <string name="app_name">肾一生医生端</string>
+
+    <string name="text_boy">男</string>
+    <string name="text_woman">女</string>
+    <string name="icons_message">&#xe619;</string>
+    <string name="icons_back_right">&#xe78b;</string>
+    <string name="icons_doctor_me">&#xe637;</string>
+    <string name="icons_star">&#xe683;</string>
+    <string name="icons_star_soft">&#xe626;</string>
+    <string name="icons_set">&#xe737;</string>
+    <string name="icons_input">&#xe638;</string>
+    <string name="icons_ok">&#xe612;</string>
+    <string name="icons_clock">&#xe61c;</string>
+    <string name="icons_medicine">&#xe6f2;</string>
+    <string name="icons_medicine_circle">&#xe629;</string>
+    <string name="icons_time">&#xe67c;</string>
+    <string name="icons_add">&#xe78a;</string>
+    <string name="icons_home">&#xe652;</string>
+    <string name="icons_who">&#xe9e9;</string>
+    <string name="icons_delete">&#xe655;</string>
+    <string name="icons_doctor">&#xe693;</string>
+    <string name="icons_case">&#xe60c;</string>
+    <string name="icons_me">&#xe611;</string>
+    <string name="icons_pwd">&#xe617;</string>
+    <string name="icons_more">&#xe618;</string>
+    <string name="icons_eye">&#xe63a;</string>
+    <string name="icons_sina">&#xe603;</string>
+    <string name="icons_wexin">&#xe60a;</string>
+    <string name="icons_qq">&#xe640;</string>
+    <string name="icons_down">&#xe604;</string>
+    <string name="icons_photo">&#xe669;</string>
+    <string name="icons_document">&#xe789;</string>
+    <string name="icons_news">&#xe692;</string>
+    <string name="icons_patient">&#xe637;</string>
+    <string name="icons_seach">&#xe67a;</string>
+    <string name="icons_qr">&#xe641;</string>
+    <string name="icons_me_fragmrnt">&#xe611;</string>
+    <string name="icons_addfriend">&#xe7dc;</string>
+    <string name="icons_label">&#xe658;</string>
+    <string name="icons_back">&#xe601;</string>
+    <string name="icons_left">&#xe78d;</string>
+    <string name="icons_right">&#xe605;</string>
+    <string name="icons_head">&#xe62b;</string>
+    <string name="icons_laugh">&#xe61b;</string>
+    <string name="icons_share">&#xe631;</string>
+    <string name="icons_cha">&#xe66c;</string>
+    <string name="icons_phone">&#xe606;</string>
+    <string name="icons_verify">&#xe62a;</string>
+    <string name="icons_me_click">&#xe608;</string>
+    <string name="icons_book">&#xe60b;</string>
+    <string name="icons_subscript_1">&#xe9ea;</string>
+    <string name="icons_circle">&#xe694;</string>
+    <string name="icons_subscript">&#xe624;</string>
+    <string name="icons_tuijian">&#xe610;</string>
+    <string name="icons_location">&#xe7a5;</string>
+    <string name="icons_outher">&#xe609;</string>
+
+    <string name="text_phone">手机号码非法</string>
+    <string name="text_numberpassword">账号和密码不能为空</string>
+    <string name="loading">数据加载中...</string>
+    <string name="aboutText">西安青苗生物科技有限公司版权所以</string>
+
+</resources>

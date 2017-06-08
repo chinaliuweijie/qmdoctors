@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_register"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:orientation="vertical">
+
+    <include layout="@layout/register_et_style" />
+
+    <Button
+        android:id="@+id/register_bnt"
+        style="@style/bnt_login_style"
+        android:text="注册" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv"
+            style="@style/text_style"
+            android:layout_marginLeft="21dp"
+            android:text="注册即为同意" />
+
+        <TextView
+            android:id="@+id/register_tvBnt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/tv"
+            android:text="《肾一生用户协议》"
+            android:textColor="@color/green"
+            android:textSize="@dimen/tv_sview_data" />
+
+        <TextView
+            android:id="@+id/register_tvBnt1"
+            style="@style/text_style"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="21dp"
+            android:text="遇到问题?" />
+    </RelativeLayout>
+</LinearLayout>

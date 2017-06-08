@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_about_us"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backdrop"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="软件许可及服务协议"
+            android:id="@+id/tv_rule"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/tv_sview_title_detail"  />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:gravity="center_horizontal"
+            android:text="@string/aboutText"
+            android:textColor="@color/character"
+            android:textSize="@dimen/tv_sview_title_detail" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <ImageView
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:layout_marginTop="20dp"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="肾一生 TVer.1.0.0"
+            android:textColor="@color/character"
+            android:id="@+id/tv_version"
+            android:textSize="@dimen/tv_sview_title_detail"/>
+
+        <RelativeLayout
+            android:id="@+id/ll_about_notification"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/setting_item_height"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/selector_color_list_bg">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/text"
+                android:layout_alignParentBottom="true"
+                ></View>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="21dp"
+                android:text="系统通知"
+                android:textColor="@color/character"
+                android:textSize="@dimen/tv_sview_title_detail" />
+
+            <com.qingmiao.qmdoctor.widget.IconFontTextview
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                android:text="@string/icons_back_right"
+                android:textColor="@color/text"
+                android:textSize="13dp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/ll_about_intro"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/setting_item_height"
+            android:background="@drawable/selector_color_list_bg">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/text"
+                android:layout_alignParentBottom="true"
+                ></View>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="21dp"
+                android:text="功能介绍"
+                android:textColor="@color/character"
+                android:textSize="@dimen/tv_sview_title_detail" />
+
+            <com.qingmiao.qmdoctor.widget.IconFontTextview
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                android:text="@string/icons_back_right"
+                android:textColor="@color/text"
+                android:textSize="13dp" />
+        </RelativeLayout>
+
+
+
+
+        <RelativeLayout
+            android:id="@+id/ll_about_updata"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/setting_item_height"
+            android:background="@drawable/selector_color_list_bg">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="21dp"
+                android:text="检测更新"
+                android:textColor="@color/character"
+                android:textSize="@dimen/tv_sview_title_detail" />
+
+            <com.qingmiao.qmdoctor.widget.IconFontTextview
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                android:text="@string/icons_back_right"
+                android:textColor="@color/text"
+                android:textSize="13dp" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

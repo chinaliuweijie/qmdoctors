@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_renal_circle"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backdrop"
+    android:orientation="vertical"
+   >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:background="@color/bg"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/RenalCircle_Title_left"
+            style="@style/RenalCircle_Title_tv"
+            android:text="健康知识" />
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/text" />
+
+        <TextView
+            android:id="@+id/RenalCircle_Title_right"
+            style="@style/RenalCircle_Title_tv"
+            android:text="我的圈子" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/renal_srl"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.qingmiao.qmdoctor.widget.RefreshListView
+                android:id="@+id/health_listView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="18dp"
+                android:visibility="gone">
+
+            </com.qingmiao.qmdoctor.widget.RefreshListView>
+
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/renalCircle_ll"
+            >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="16dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+
+                <com.qingmiao.qmdoctor.widget.IconFontTextview
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="@string/icons_head"
+                    android:textColor="@color/green"
+                    android:textSize="25dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="推荐圈子"
+                    android:textColor="@color/black_1"
+                    android:textSize="16dp" />
+            </LinearLayout>
+
+            <com.qingmiao.qmdoctor.widget.FullListView
+                android:id="@+id/circlr_listView_tuijian"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:divider="@color/alpha"
+                android:dividerHeight="0dip"></com.qingmiao.qmdoctor.widget.FullListView>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="48dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/icon_else"
+                    android:id="@+id/imageView" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="其他圈子"
+                    android:textColor="@color/black_1"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <com.qingmiao.qmdoctor.widget.FullListView
+                android:id="@+id/circlr_listView_all"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:divider="@color/alpha"
+                android:dividerHeight="0dip"></com.qingmiao.qmdoctor.widget.FullListView>
+
+        </LinearLayout>
+        </ScrollView>
+    </FrameLayout>
+
+</LinearLayout>

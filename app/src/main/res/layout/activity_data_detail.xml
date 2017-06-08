@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_data_detail"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/ll"
+        android:layout_width="match_parent"
+        android:layout_height="41dp"
+        android:layout_alignParentTop="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="27dp"
+            android:layout_weight="2"
+            android:text="检测项目"
+            android:textColor="@color/black_1"
+            android:textSize="@dimen/tv_sview_title" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="检测结果"
+            android:textColor="@color/black_1"
+            android:textSize="@dimen/tv_sview_title" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@id/ll"
+        android:background="@color/text" />
+
+
+    <RelativeLayout
+        android:id="@+id/rl"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/green">
+
+        <TextView
+            android:id="@+id/datadetail_bottom_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:gravity="center_horizontal"
+            android:minWidth="110dp"
+            android:text="尿蛋白定量"
+            android:textColor="@color/bg"
+            android:textSize="@dimen/tv_sitem_title"/>
+
+        <com.qingmiao.qmdoctor.widget.IconFontTextview
+            android:id="@+id/datadetail_tvLeft"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="1dp"
+            android:layout_toLeftOf="@id/datadetail_bottom_name"
+            android:gravity="center"
+            android:text="@string/icons_left"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
+
+        <com.qingmiao.qmdoctor.widget.IconFontTextview
+            android:id="@+id/datadetail_tvRight"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="1dp"
+            android:layout_toRightOf="@id/datadetail_bottom_name"
+            android:gravity="center"
+            android:text="@string/icons_right"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/datadetail_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/datadetail_bottom_name"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="1dp"
+            android:text="2017/11/11 09:34"
+            android:textColor="@color/bg"
+            android:textSize="@dimen/tv_sview_title" />
+    </RelativeLayout>
+
+    <com.github.jdsjlzx.recyclerview.LRecyclerView
+        android:id="@+id/recycleview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/rl"
+        android:layout_below="@id/ll"
+        />
+</RelativeLayout>

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.qingmiao.qmdoctor">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!-- Required -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+   <!-- <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />-->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <application
+        android:name=".global.MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <!-- 设置环信应用的AppKey -->
+        <meta-data
+            android:name="EASEMOB_APPKEY"
+            android:value="1168170220115178#sys" />
+        <!-- 声明SDK所需的service SDK核心功能 -->
+        <service
+            android:name="com.hyphenate.chat.EMChatService"
+            android:exported="true" />
+        <service
+            android:name="com.hyphenate.chat.EMJobService"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+        <!-- 声明SDK所需的receiver -->
+        <receiver android:name="com.hyphenate.chat.EMMonitorReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+            <!-- 可选filter -->
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+            </intent-filter>
+        </receiver>
+        <activity android:name=".activity.SplashActivity"
+            android:theme="@style/SplashTheme"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.WelcomeActivity"/>
+        <activity android:name=".activity.MainActivity"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustPan|stateHidden">
+        </activity>
+        <activity android:name=".activity.LoginActivity" />
+        <activity android:name=".activity.RegisterActivity" />
+        <activity android:name=".activity.DoctorDataActivity" />
+        <activity android:name=".activity.SettingActivity" />
+        <activity android:name=".activity.AddPatientActivity" />
+        <activity android:name=".activity.AddLabelActivity" />
+        <activity android:name=".activity.PatientDataActivity"
+            android:launchMode="singleTask"/>
+        <activity android:name=".activity.ComplainActivity" />
+        <activity android:name=".activity.PatientDetailActivity" />
+        <activity android:name=".activity.RenalCirclePagerActivity" />
+        <activity android:name=".activity.WebViewZActivity" />
+        <activity android:name=".activity.SendMessageActivity" />
+        <activity android:name=".activity.AddMemberActivity"
+            android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity android:name=".activity.LabelListActivity" />
+        <activity android:name=".activity.PatientInfoDetailsActivity"/>
+        <activity android:name=".activity.PatientCaseTestActivity"/>
+        <activity android:name=".activity.PatientBySelfActivity"/>
+        <activity android:name=".activity.CaseDataInfoActivity"/>
+        <activity android:name=".activity.WebViewCircleActivity"/>
+        <activity android:name="com.hyphenate.easeui.ui.EaseShowBigImageActivity"></activity>
+        <activity android:name="com.hyphenate.easeui.ui.EaseShowNormalFileActivity"></activity>
+        <activity android:name=".activity.ResetPwdActivity"/>
+        <activity android:name=".activity.FeedBackActivity"/>
+        <activity android:name=".activity.AboutUsActivity"/>
+        <activity android:name=".activity.MyPatientActivity"/>
+        <activity android:name=".activity.MyCollectDocumentActivity"/>
+        <activity android:name=".activity.FindPwdActivity"/>
+        <activity android:name=".activity.DocumentTalkActivity"/>
+        <activity android:name=".activity.InstitutePrevueActivity"></activity>
+        <activity android:name=".activity.TalkPatientCaseActivity"></activity>
+        <activity android:name=".activity.TalkDocuterActivity"></activity>
+        <activity android:name=".activity.PDFWebViewActivity"></activity>
+
+        <activity android:name="me.iwf.photopicker.PhotoPickerActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            />
+
+        <activity android:name="me.iwf.photopicker.PhotoPagerActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+
+        <activity android:name=".activity.WebCommentActivity"/>
+        <activity android:name=".activity.ChatActivity"
+            android:launchMode="singleTask"/>
+        <activity android:name=".activity.UserRuleWebActivity"/>
+
+        <!--友盟登录分享设置-->
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="5919336b2ae85b29420006bf" >
+        </meta-data>
+
+        <meta-data android:value="Channel ID" android:name="UMENG_CHANNEL"/>
+
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.umeng.qq.tencent.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="tencent1106135146" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.umeng.qq.tencent.AssistActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:configChanges="orientation|keyboardHidden|screenSize"/>
+        <activity
+            android:name="com.umeng.socialize.editorpage.ShareActivity"
+            android:excludeFromRecents="true"
+            />
+        <receiver
+            android:name=".receiver.MyJPushReceiver"
+            android:exported="false"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTRATION" /> <!--Required  用户注册SDK的intent-->
+                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED" /> <!--Required  用户接收SDK消息的intent-->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" /> <!--Required  用户接收SDK通知栏信息的intent-->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" /> <!--Required  用户打开自定义通知栏的intent-->
+                <action android:name="cn.jpush.android.intent.CONNECTION" /><!-- 接收网络变化 连接/断开 since 1.6.3 -->
+                <category android:name="com.qingmiao.qmdoctor" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

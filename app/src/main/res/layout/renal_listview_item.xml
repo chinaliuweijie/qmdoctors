@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/selector_color_list_bg"
+    android:paddingTop="21dp">
+
+    <ImageView
+        style="@style/style_iv_share_circle"
+        android:layout_marginLeft="12dp"
+        android:id="@+id/renal_listView_iv"
+        android:background="@drawable/btn_design_circle"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="13dp"
+        android:layout_marginTop="-3dp"
+        android:layout_toRightOf="@id/renal_listView_iv"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="青苗生物科技"
+            android:textColor="@color/black_1"
+            android:textSize="@dimen/tv_sview_title" />
+
+        <TextView
+            android:id="@+id/tv_futitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="42dp"
+            android:typeface="serif"
+            android:layout_marginTop="4dp"
+            android:maxLines="2"
+            android:text="弄了市场来看那是除了卡爱仕达撒大女上来看能力可是你疯了你卡."
+            android:textColor="@color/black_1"
+            android:textSize="@dimen/tv_sview_title_detail"
+            />
+
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_futitle"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="4dp"
+            android:layout_toRightOf="@+id/iv_print"
+            android:maxLines="2"
+            android:text="弄场来看那是除来看sdsad能力可是你疯了法律考试"
+            android:textColor="@color/text"
+            android:textSize="@dimen/tv_sview_title" />
+
+        <LinearLayout
+            android:id="@+id/ll_photo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_content"
+            android:layout_marginTop="4dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/renal_listView_iv1"
+                android:layout_width="0dp"
+                android:layout_height="156dp"
+                android:layout_weight="1"
+                android:scaleType="centerCrop"  />
+
+            <ImageView
+                android:id="@+id/renal_listView_iv2"
+                android:layout_width="0dp"
+                android:layout_height="156dp"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:scaleType="centerCrop"  />
+
+            <ImageView
+                android:id="@+id/renal_listView_iv3"
+                android:layout_width="0dp"
+                android:layout_height="156dp"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:scaleType="centerCrop"  />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/renal_listView_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ll_photo"
+            android:layout_marginBottom="10dp"
+            android:layout_toRightOf="@+id/iv_print"
+            android:paddingTop="9dp"
+            android:text=""
+            android:textColor="@color/text"
+            android:textSize="@dimen/tv_sview_data" />
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,143 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <style name="RenalCircle_Title_tv">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/tv_sview_big</item>
+    </style>
+
+    <style name="common_dialog" parent="android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:scrollHorizontally">true</item>
+    </style>
+
+    <style name="me_data_tv">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:drawableLeft">@drawable/checkbox_green_selector</item>
+        <item name="android:drawablePadding">9dp</item>
+        <item name="android:textColor">@drawable/text_green_selector</item>
+        <item name="android:button">@null</item>
+        <item name="android:textSize">@dimen/tv_sitem_title</item>
+    </style>
+
+    <style name="me_list_iv">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:drawableLeft">@drawable/checkbox_green_selector</item>
+        <item name="android:drawablePadding">9dp</item>
+        <item name="android:button">@null</item>
+        <item name="android:textSize">@dimen/tv_sitem_title</item>
+    </style>
+
+    <style name="login_et_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:background">#0000</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textColorHint">@color/text</item>
+    </style>
+
+    <style name="line_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0.5dp</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:layout_marginLeft">21dp</item>
+        <item name="android:layout_marginRight">21dp</item>
+        <item name="android:background">@color/text</item>
+    </style>
+
+    <style name="bnt_login_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">42dp</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_margin">21dp</item>
+        <item name="android:background">@drawable/shape_bnt_normal</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/tv_sitem_title</item>
+    </style>
+
+    <style name="text_style">
+        <item name="android:textSize">@dimen/tv_sview_data</item>
+        <item name="android:textColor">@color/text</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+
+    <style name="login_number_style">
+        <item name="android:textSize">@dimen/tv_sview_data</item>
+        <item name="android:textColor">@color/text</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="login_iv_me_style">
+        <item name="android:layout_width">31dp</item>
+        <item name="android:layout_height">31dp</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_marginLeft">21dp</item>
+        <item name="android:textSize">31dp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="dialog" parent="Theme.AppCompat.Dialog">
+        <item name="android:windowBackground">@color/alpha</item>
+    </style>
+
+
+
+    <style name="alert_dialog" parent="android:Theme.Dialog">
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowBackground">@color/alpha</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:backgroundDimAmount">0.4</item>
+    </style>
+
+
+
+
+    <style name="style_iv_share_circle">
+        <item name="android:layout_width">45dp</item>
+        <item name="android:layout_height">45dp</item>
+        <item name="android:gravity">center</item>
+      <!--  <item name="android:src">@mipmap/user_photo</item>-->
+  <!--      <item name="android:background">@drawable/btn_design_circle</item>-->
+        <item name="android:padding">2dp</item>
+    </style>
+
+
+    <style name="SplashTheme" parent="AppTheme">
+        <!-- 将splash图片设置在这，这样这张图片取代白屏 -->
+        <item name="android:windowBackground">@drawable/ic_pic_startpage</item>
+        <item name="android:windowFullscreen">true</item>
+        <!-- 或者是将主题设置成透明，虽然点击图标会有点小小的卡顿，但是用户体验不影响 -->
+        <!-- <item name="android:windowIsTranslucent">true</item> --> <!-- 透明背景不要了 -->
+    </style>
+
+    <style name="dialogWindowAnim" parent="android:Animation" mce_bogus="1">
+        <item name="android:windowEnterAnimation">@anim/dialog_enter_anim</item>
+        <item name="android:windowExitAnimation">@anim/dialog_exit_anim</item>
+    </style>
+
+</resources>
+

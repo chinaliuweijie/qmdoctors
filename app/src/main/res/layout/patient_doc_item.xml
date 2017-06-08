@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@drawable/selector_color_list_bg"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+       >
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentTop="true"
+            android:background="@color/text" />
+
+        <ImageView
+            android:id="@+id/renal_listView_iv"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_marginLeft="13dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/shape_circle_icon_bg" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="13dp"
+            android:layout_marginTop="23dp"
+            android:layout_toRightOf="@id/renal_listView_iv"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="医生姓名"
+                android:textColor="@color/black_1"
+                android:textSize="@dimen/tv_sview_title_detail"/>
+
+            <TextView
+                android:id="@+id/tv_futitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="42dp"
+                android:layout_marginTop="3dp"
+                android:text="10分钟前"
+                android:textColor="@color/text"
+                android:textSize="@dimen/tv_sview_data"
+                android:typeface="serif" />
+
+
+            <TextView
+                android:id="@+id/tv_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_futitle"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="18dp"
+                android:layout_toRightOf="@+id/iv_print"
+                android:text="弄场来看那是除来看sdsad能力可是你疯了法律考试"
+                android:textColor="@color/character"
+                android:textSize="@dimen/tv_sview_title_detail"/>
+        </LinearLayout>
+
+        <com.qingmiao.qmdoctor.widget.IconFontTextview
+            android:id="@+id/icontv_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/icons_delete"
+            android:textColor="@color/text"
+            android:textSize="15dp"
+            android:visibility="visible" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/text" />
+    </RelativeLayout>
+
+</RelativeLayout>

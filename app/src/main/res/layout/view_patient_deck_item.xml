@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:id="@+id/ll_item"
+    android:background="@color/bg">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="12dp"
+        android:text="尿蛋白定量"
+        android:id="@+id/tv_sick_desc"
+        android:textColor="@color/text"
+        android:singleLine="true"
+        android:textSize="@dimen/tv_sview_data" />
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/text" />
+</RelativeLayout>

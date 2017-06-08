@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_send_message"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="42dp">
+
+        <EditText
+            android:id="@+id/sendMessage_title_ed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="28dp"
+            android:background="#0000"
+            android:hint="标题  (可选)"
+            android:textSize="@dimen/tv_sview_title_detail"  />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/text" />
+
+    </RelativeLayout>
+
+    <EditText
+        android:padding="28dp"
+        android:id="@+id/sendMessage_content_ed"
+        android:layout_width="match_parent"
+        android:layout_height="270dp"
+        android:background="#0000"
+        android:textSize="@dimen/tv_sview_title_detail"
+        android:gravity="start" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:background="@drawable/shape_rect_bg">
+
+        <com.qingmiao.qmdoctor.widget.IconFontTextview
+            android:id="@+id/sendMessage_photo_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="28dp"
+            android:text="@string/icons_photo"
+            android:textColor="@color/green"
+            android:textSize="24dp" />
+
+        <com.qingmiao.qmdoctor.widget.IconFontTextview
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="32dp"
+            android:layout_toRightOf="@id/sendMessage_photo_iv"
+            android:text="@string/icons_laugh"
+            android:textColor="@color/text"
+            android:visibility="invisible"
+            android:textSize="24dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/backdrop">
+
+        <HorizontalScrollView
+            android:id="@+id/sendMessage_horizontal_photo"
+            android:layout_width="wrap_content"
+            android:layout_height="107dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="28dp"
+            android:layout_marginTop="42dp"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:id="@+id/sendMessage_photo_content_ll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:id="@+id/sendMessage_selector_iv"
+                    android:layout_width="75dp"
+                    android:layout_height="107dp"
+                    android:background="@drawable/shape_rect_breakpoint">
+
+                    <com.qingmiao.qmdoctor.widget.IconFontTextview
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="@string/icons_add"
+                        android:textColor="@color/text"
+                        android:textSize="30dp" />
+                </RelativeLayout>
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <TextView
+            android:id="@+id/sendMessage_photo_content_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="46dp"
+            android:text="0/9"
+            android:textSize="@dimen/tv_sview_data" />
+    </RelativeLayout>
+
+
+</LinearLayout>

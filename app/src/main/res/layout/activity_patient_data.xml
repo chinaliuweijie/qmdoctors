@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_patient_data"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backdrop"
+    android:orientation="vertical">
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/linearLayout">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/text" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bg"
+            android:id="@+id/rl_patient_info"
+            android:paddingBottom="10dp"
+            android:paddingLeft="12dp"
+            android:paddingTop="10dp">
+
+            <ImageView
+                android:id="@+id/patientdata_icon_iv"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:src="@mipmap/user_photo" />
+
+            <TextView
+                android:id="@+id/patientdata_name_tvT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="6dp"
+                android:layout_toRightOf="@id/patientdata_icon_iv"
+                android:background="#0000"
+                android:textColor="@color/black_1"
+                android:textSize="@dimen/tv_sitem_title" />
+
+            <TextView
+                android:id="@+id/patientdata_name_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/patientdata_name_tvT"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@id/patientdata_icon_iv"
+                android:background="#0000"
+                android:text="账号:"
+                android:textColor="@color/text"
+                android:textSize="@dimen/tv_sview_data" />
+
+            <com.qingmiao.qmdoctor.widget.IconFontTextview
+                android:id="@+id/iv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="18dp"
+                android:text="@string/icons_star"
+                android:textColor="@color/yellow"
+                android:textSize="18dp" />
+
+            <TextView
+                android:id="@+id/tv_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/patientdata_name_tv"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="2dp"
+                android:layout_toRightOf="@id/patientdata_icon_iv"
+                android:text="昵称:"
+                android:textColor="@color/text"
+                android:textSize="@dimen/tv_sview_data" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/text" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/text" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:background="@color/bg"
+            android:id="@+id/ll_label"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginLeft="12dp"
+                android:gravity="center_vertical"
+                android:text="病症标签"
+                android:textColor="@color/character"
+                android:textSize="@dimen/tv_sitem_title"  />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/text" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:minLines="3"
+                android:id="@+id/tv_lable"
+                android:textColor="@color/text"
+                android:textSize="@dimen/tv_sview_data" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/text" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/text" />
+
+        <com.qingmiao.qmdoctor.widget.InterceptTouchLinearLayout
+            android:id="@+id/patientdata_dos_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bg"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginLeft="12dp"
+                android:text="病情描述"
+                android:textColor="@color/character"
+                android:gravity="center_vertical"
+                android:textSize="@dimen/tv_sview_title_detail" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/text" />
+
+            <com.github.jdsjlzx.recyclerview.LRecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="30dp"
+                android:id="@+id/rv_sick_desc"
+                android:nestedScrollingEnabled="false"
+                >
+            </com.github.jdsjlzx.recyclerview.LRecyclerView>
+        </com.qingmiao.qmdoctor.widget.InterceptTouchLinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/text" />
+
+
+
+        <com.qingmiao.qmdoctor.widget.InterceptTouchLinearLayout
+            android:id="@+id/ll_patientdata_case_test"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bg"
+            android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/bg"
+            android:gravity="center_vertical"
+            android:paddingLeft="12dp"
+            android:text="检验结果"
+            android:textColor="@color/character"
+            android:textSize="@dimen/tv_sview_title_detail" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/text" />
+
+        <com.github.jdsjlzx.recyclerview.LRecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/rv_case_test"
+            android:nestedScrollingEnabled="false"
+            android:minHeight="30dp"
+            >
+        </com.github.jdsjlzx.recyclerview.LRecyclerView>
+        </com.qingmiao.qmdoctor.widget.InterceptTouchLinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="51dp"
+            android:visibility="invisible"
+            />
+    </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+    <Button
+        android:id="@+id/btn_addorsend"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/green"
+        android:text="添加好友"
+        android:textColor="@color/white"
+        android:textSize="@dimen/tv_sview_title_detail"
+        android:layout_alignParentBottom="true"
+        />
+</RelativeLayout>

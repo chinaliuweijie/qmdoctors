@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.qingmiao.qmdoctor.widget.SwipeMenuView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/swipe_content"
+    android:clickable="true">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/selector_color_list_bg"
+    android:orientation="horizontal">
+
+    <ImageView
+       style="@style/style_iv_share_circle"
+       android:layout_marginLeft="12dp"
+       android:layout_marginTop="18dp"
+        android:id="@+id/iv_head_portrait"
+        android:background="@drawable/btn_design_circle"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginBottom="18dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="真实姓名"
+            android:textSize="@dimen/tv_sview_title_detail"
+            android:textColor="@color/black"
+            android:id="@+id/tv_name"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1分钟前"
+            android:textSize="@dimen/tv_sview_data"
+            android:textColor="@color/text"
+            android:id="@+id/tv_time"
+            android:layout_marginTop="12dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="12dp"
+            android:text="水肿长以眼睑开始(有部分患者水肿先从下肢开始) 尿频(次数多)、尿急(憋不住尿)、尿痛(排尿时小腹及尿道痛)。"
+            android:textColor="@color/text"
+            android:id="@+id/tv_content"
+            android:textSize="@dimen/tv_sview_title" />
+    </LinearLayout>
+</LinearLayout>
+
+    <Button
+        android:id="@+id/btnDelete"
+        android:layout_width="78dp"
+        android:layout_height="match_parent"
+        android:background="@color/red"
+        android:text="删除"
+        android:textSize="@dimen/tv_sview_title"
+        android:textColor="@color/white" />
+</com.qingmiao.qmdoctor.widget.SwipeMenuView>
+
+
+

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_add_patient"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backdrop"
+    tools:context="com.qingmiao.qmdoctor.activity.AddPatientActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ll_search"
+        android:orientation="horizontal"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        >
+    <EditText
+        android:id="@+id/et_search"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:background="@drawable/edittext_common"
+        android:hint="手机号/昵称"
+        android:paddingLeft="50dp"
+        android:inputType="number"
+        android:textColor="@color/text"
+        android:textSize="@dimen/tv_sview_title_detail"
+        android:gravity="left|center_vertical" />
+
+        <Button
+            android:layout_width="55dp"
+            android:layout_height="50dp"
+            android:id="@+id/btn_search"
+            android:layout_alignParentRight="true"
+            android:text="搜索"
+            android:textSize="@dimen/tv_sview_title_detail"
+            android:gravity="center"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/btn_common"
+            android:textColor="@color/selector_main_menu"
+            />
+    </LinearLayout>
+
+
+
+
+    <com.qingmiao.qmdoctor.widget.IconFontTextview
+        android:id="@+id/iv_default"
+        android:layout_width="30dp"
+        android:layout_height="50dp"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/green"
+        android:text="@string/icons_seach" />
+
+    <TextView
+        android:id="@+id/tv_search_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="该用户不存在"
+        android:layout_below="@+id/ll_search"
+        android:visibility="gone"
+        android:layout_centerHorizontal="true"
+        android:textSize="@dimen/tv_sitem_big"
+        android:textColor="@color/black_1"
+        android:padding="8dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/ll_search"
+        android:padding="8dp"
+        android:gravity="center_vertical"
+        >
+     <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="我的手机号:15656565656"
+         android:id="@+id/tvPhone"
+         android:textSize="@dimen/tv_sview_data"
+         android:textColor="@color/black_1"
+         />
+
+        <com.qingmiao.qmdoctor.widget.IconFontTextview
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginLeft="5dp"
+            android:textColor="@color/green"
+            android:text="@string/icons_qr" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

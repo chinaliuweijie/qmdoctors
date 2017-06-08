@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@color/backdrop">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="42dp"
+    android:layout_margin="10dp"
+    android:padding="10dp">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true">
+
+        <ProgressBar
+            android:id="@+id/loading_progressbar"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:indeterminateDrawable="@drawable/progress_small" />
+
+        <TextView
+            android:id="@+id/loading_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/loading_progressbar"
+            android:textColor="@color/text"
+            android:text="正在加载" />
+    </RelativeLayout>
+</RelativeLayout>
+</RelativeLayout>
+<!--原来的布局文件
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:id="@+id/loading_view"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:gravity="center"
+android:orientation="horizontal">
+
+<com.github.jdsjlzx.view.SimpleViewSwitcher
+    android:id="@+id/loading_progressbar"
+    android:layout_width="30dip"
+    android:layout_height="30dip"
+    android:visibility="visible" />
+
+<TextView
+    android:id="@+id/loading_text"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/dp_10"
+    android:text="@string/list_footer_loading"
+    android:textColor="@color/colorAccent"
+    android:textSize="@dimen/sp_14" />
+</LinearLayout>-->

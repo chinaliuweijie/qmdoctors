@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/empty"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="80dp"
+    android:orientation="vertical">
+    <com.qingmiao.qmdoctor.widget.IconFontTextview
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/icons_back_right"
+        android:textColor="@color/text"
+        android:id="@+id/image"
+        android:textSize="60dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/text"
+        android:text="暂无关注"
+        android:id="@+id/text"
+        android:layout_marginTop="40dp"
+        android:textSize="@dimen/tv_sview_big"
+        android:layout_gravity="center"
+        />
+
+
+
+
+
+    </LinearLayout>

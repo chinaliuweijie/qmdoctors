@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backdrop"
+    android:orientation="vertical">
+
+
+
+        <FrameLayout
+            android:id="@+id/fl_realcontent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/line">
+
+        </FrameLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:id="@+id/line"
+        android:layout_above="@+id/RadioGroup"
+        android:background="@color/text" />
+
+     <LinearLayout
+         android:id="@+id/RadioGroup"
+         android:layout_width="match_parent"
+         android:layout_height="51dp"
+         android:paddingLeft="20dp"
+         android:paddingRight="20dp"
+         android:layout_alignParentBottom="true"
+         android:background="@color/white"
+         android:orientation="horizontal"
+         >
+
+         <RelativeLayout
+             android:layout_width="0dp"
+             android:layout_height="match_parent"
+             android:gravity="center"
+             android:layout_weight="1">
+
+             <RadioButton
+                 android:id="@+id/test_icon0"
+                 android:layout_width="25dp"
+                 android:layout_height="25dp"
+                 android:layout_centerHorizontal="true"
+                 android:button="@null"
+                 android:clickable="false"
+                 android:background="@drawable/bottom_icon_document_selector"
+                 />
+             <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_below="@id/test_icon0"
+                 android:layout_centerHorizontal="true"
+                 android:text="首页"
+                 android:textColor="@color/green"
+                 android:textSize="@dimen/tv_main_bottom" />
+         </RelativeLayout>
+
+         <RelativeLayout
+             android:layout_width="0dp"
+             android:layout_height="match_parent"
+             android:gravity="center"
+             android:layout_weight="1">
+
+             <RadioButton
+                 android:id="@+id/test_icon1"
+                 android:layout_width="25dp"
+                 android:layout_height="25dp"
+                 android:button="@null"
+                 android:clickable="false"
+                 android:background="@drawable/bottom_icon_message_selector"
+                 android:layout_alignParentTop="true"
+                 android:layout_centerHorizontal="true" />
+             <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_below="@id/test_icon1"
+                 android:layout_centerHorizontal="true"
+                 android:text="消息"
+                 android:textColor="@color/green"
+                 android:textSize="@dimen/tv_main_bottom" />
+
+
+         </RelativeLayout>
+
+         <RelativeLayout
+             android:layout_width="0dp"
+             android:layout_height="match_parent"
+             android:gravity="center"
+             android:layout_weight="1">
+
+
+             <RadioButton
+                 android:id="@+id/test_icon2"
+                 android:layout_width="25dp"
+                 android:layout_height="25dp"
+                 android:button="@null"
+                 android:clickable="false"
+                 android:layout_centerHorizontal="true"
+                 android:background="@drawable/bottom_icon_patient_selector"
+                 />
+
+             <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_below="@id/test_icon2"
+                 android:layout_centerHorizontal="true"
+                 android:text="患者"
+                 android:textColor="@color/green"
+                 android:textSize="@dimen/tv_main_bottom" />
+         </RelativeLayout>
+
+         <RelativeLayout
+             android:layout_width="0dp"
+             android:layout_height="match_parent"
+             android:gravity="center"
+             android:layout_weight="1">
+
+             <RadioButton
+                 android:id="@+id/test_icon3"
+                 android:layout_width="25dp"
+                 android:layout_height="25dp"
+                 android:button="@null"
+                 android:clickable="false"
+                 android:layout_centerHorizontal="true"
+                 android:background="@drawable/bottom_icon_me_selector"
+                 />
+
+             <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_below="@id/test_icon3"
+                 android:layout_centerHorizontal="true"
+                 android:text="我"
+                 android:textColor="@color/green"
+                 android:textSize="@dimen/tv_main_bottom" />
+         </RelativeLayout>
+
+     </LinearLayout>
+
+</RelativeLayout>

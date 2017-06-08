@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+ <!--   <color name="alpha">#00000000</color>
+    <color name="white">#ffffff</color>
+    <color name="red">#ff4949</color>
+    <color name="green">#1ed06d</color>
+    <color name="greenT">#FF33B66D</color>
+    <color name="text">#999999</color>
+    <color name="bg">#fdfdfd</color>
+    <color name="list_bg">#eeeeee</color>
+    <color name="black_1">#333333</color>
+    <color name="black_2">#666666</color>
+    <color name="yellow">#f7ba2a</color>
+    <color name="blue">#58b7ff</color>
+    <color name="gray">#777</color>-->
+
+
+    <color name="colorPrimary">#1ed06d</color>
+    <color name="colorPrimaryDark">#1ed06d</color>
+    <color name="colorAccent">#1ed06d</color>
+    <color name="bg">#fdfdfd</color>
+    <color name="theme_red">#D90000</color>
+    <color name="red">#F00</color>
+    <color name="light_red">#3F00</color>
+    <color name="green">#1ed06d</color>
+    <color name="blue">#59B7FF</color>
+    <color name="black">#000</color>
+    <color name="white">#ffffff</color>
+    <color name="light_gray">#cccccc</color>
+    <color name="gray">#777</color>
+    <color name="backdrop">#eeeeee</color>
+    <color name="character">#666666</color>
+    <color name="title">#333333</color>
+    <color name="text">#999999</color>
+    <color name="black_1">#333333</color>
+    <color name="yellow">#f7ba2a</color>
+    <color name="alpha">#0000</color>
+    <drawable name="green">#1ed06d</drawable>
+    <drawable name="gray">#777</drawable>
+</resources>
