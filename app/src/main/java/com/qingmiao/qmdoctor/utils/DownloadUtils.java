@@ -124,13 +124,11 @@ public class DownloadUtils {
     /**
      */
     private void installAPK() {
-        File apkFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "shenyisheng.apk");
+        File apkFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "shenyishengyishengduan.apk");
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.setDataAndType(Uri.fromFile(apkFile), "applicationnd.android.package-archive");
+        intent.setDataAndType(Uri.fromFile(apkFile), "application/vnd.android.package-archive");
         mContext.startActivity(intent);
-
     }
-
 
 }

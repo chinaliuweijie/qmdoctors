@@ -12,10 +12,14 @@
         <attr name="leftSwipe" format="boolean"/>
     </declare-styleable>
 
+    <attr name="textSize" format="dimension" />
+    <attr name="textColor" format="reference|color" />
 
     <declare-styleable name="searchedit">
         <attr name="imagewidth" format="dimension" />
-        <attr name="textSize" format="dimension" />
-        <attr name="textColor" format="color" />
+        <attr name="textSize"/>
+        <attr name="textColor"/>
     </declare-styleable>
+
+
 </resources>

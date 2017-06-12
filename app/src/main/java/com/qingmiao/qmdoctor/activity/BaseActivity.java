@@ -1,27 +1,24 @@
 package com.qingmiao.qmdoctor.activity;
 
-import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentActivity;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import com.github.jdsjlzx.progressindicator.AVLoadingIndicatorView;
 import com.qingmiao.qmdoctor.R;
 import com.qingmiao.qmdoctor.global.MyApplication;
 import com.qingmiao.qmdoctor.presenter.SimplePresenter;
@@ -31,7 +28,6 @@ import com.qingmiao.qmdoctor.utils.PrefUtils;
 import com.qingmiao.qmdoctor.utils.ToastUtils;
 import com.qingmiao.qmdoctor.view.IBaseView;
 import com.qingmiao.qmdoctor.widget.IconFontTextview;
-import com.qingmiao.qmdoctor.widget.customdialog.LoadingView;
 import com.qingmiao.qmdoctor.widget.customdialog.SweetAlertDialog;
 import com.umeng.analytics.MobclickAgent;
 
@@ -60,7 +56,7 @@ public class BaseActivity extends FragmentActivity implements IBaseView,View.OnC
     public MyApplication app;
     private SweetAlertDialog loadingDialog;
    // private ProgressBar pbBase;
-    private LoadingView spinView;
+    private AVLoadingIndicatorView circleLoader;
     private TextView tvError;
     private SimplePresenter presenter;
     FrameLayout flContent ;
@@ -94,8 +90,7 @@ public class BaseActivity extends FragmentActivity implements IBaseView,View.OnC
         ivRight = (IconFontTextview) baseView.findViewById(R.id.base_ivRight);
         ivRightRed = (ImageView) baseView.findViewById(R.id.base_ivRight_red);
         rlRightBnt = (RelativeLayout) baseView.findViewById(R.id.base_rlRight);
-    //    pbBase = (ProgressBar) baseView.findViewById(R.id.pb_base);
-        spinView = (LoadingView) baseView.findViewById(R.id.spinview);
+        circleLoader = (AVLoadingIndicatorView) baseView.findViewById(R.id.circleView);
         tvError = (TextView) baseView.findViewById(R.id.tv_error);
         ivRightBig2 = (IconFontTextview) baseView.findViewById(R.id.base_ivRightBig2);
         // 设置默认状态，默认状态一般根据最常见的状态为主
@@ -217,7 +212,7 @@ public class BaseActivity extends FragmentActivity implements IBaseView,View.OnC
     @Override
     public void showProgress() {
        // pbBase.setVisibility(View.VISIBLE);
-        spinView.setVisibility(View.VISIBLE);
+        circleLoader.setVisibility(View.VISIBLE);
         tvError.setVisibility(View.GONE);
         flContent.setVisibility(View.GONE);
     }
@@ -225,7 +220,7 @@ public class BaseActivity extends FragmentActivity implements IBaseView,View.OnC
     @Override
     public void hideProgress() {
        // pbBase.setVisibility(View.GONE);
-        spinView.setVisibility(View.GONE);
+        circleLoader.setVisibility(View.GONE);
         tvError.setVisibility(View.GONE);
         flContent.setVisibility(View.VISIBLE);
     }
@@ -239,7 +234,7 @@ public class BaseActivity extends FragmentActivity implements IBaseView,View.OnC
     public void showLoadFailMsg(Exception e) {
       //  pbBase.setVisibility(View.GONE);
         dismissLoadDialog();
-        spinView.setVisibility(View.GONE);
+        circleLoader.setVisibility(View.GONE);
      //   tvError.setVisibility(View.VISIBLE);
         // 设置子view 不可用
         flContent.setVisibility(View.VISIBLE);

@@ -8,7 +8,6 @@ import android.os.Environment;
 import android.support.v4.app.DialogFragment;
 import android.text.TextUtils;
 import android.view.View;
-import android.webkit.WebSettings;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -71,7 +70,7 @@ public class PDFWebViewActivity extends BaseActivity implements OnPageChangeList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test);
+        setContentView(R.layout.activity_pdfview);
         pdfView = (PDFView) findViewById(R.id.pdfView);
         Intent intent = getIntent();
         url = intent.getStringExtra("url");

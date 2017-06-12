@@ -9,7 +9,7 @@ public class UrlGlobal {
     //服务器根地址  http://192.168.20.47
     // public static final String SERVER_URL = "http://192.168.199.193";
     // 新的测试地址
- //   public static final String SERVER_URL = "http://192.168.20.47";
+    //public static final String SERVER_URL = "http://192.168.20.47";
 
     //医生登录接口
     public static final String LOGIN_URL = SERVER_URL + "/Api/Doctor/login";
