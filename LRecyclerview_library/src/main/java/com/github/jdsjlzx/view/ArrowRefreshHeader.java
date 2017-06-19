@@ -179,13 +179,14 @@ public class ArrowRefreshHeader extends LinearLayout implements IRefreshHeader {
 
     @Override
     public void refreshComplete(){
-        mHeaderTimeView.setText(friendlyTime(new Date()));
+        mHeaderTimeView.setText(friendlyTime(oldDate));
         setState(STATE_DONE);
         new Handler().postDelayed(new Runnable(){
             public void run() {
                 reset();
             }
         }, 200);
+        oldDate = new Date();
     }
 
     @Override
@@ -285,7 +286,12 @@ public class ArrowRefreshHeader extends LinearLayout implements IRefreshHeader {
         animator.start();
     }
 
+    private Date oldDate;
+
     public String friendlyTime(Date time) {
+        if(time == null){
+            time = new Date();
+        }
         int ct = (int) ((System.currentTimeMillis() - time.getTime()) / 1000);
 
         if (ct == 0) {

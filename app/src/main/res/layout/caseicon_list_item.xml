@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/caseicon_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="8dp"
+        android:text="尿素氮"
+        android:textColor="@color/black_1"
+        android:textSize="@dimen/tv_sview_title_detail" />
+0
+    <com.qingmiao.qmdoctor.widget.LineView
+        android:id="@+id/line_view"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        />
+
+</LinearLayout>

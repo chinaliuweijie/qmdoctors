@@ -63,6 +63,22 @@ public class PatientCaseTestActivity extends BaseActivity {
         lRecyclerView.setPullRefreshEnabled(false);
         mLRecyclerViewAdapter.removeFooterView();
         tvCenter.setText("病例检查");
+        ivRightBig.setText(R.string.icons_data);
+        ivRightBig.setVisibility(View.VISIBLE);
+        ivRightBig.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(patientCaseTestDetailedAdapter.getDataList().size()>0){
+                    Intent intent = new Intent(PatientCaseTestActivity.this, CaseIconActivity.class);
+                    intent.putExtra("uid",uid);
+                    startActivity(intent);
+                }else{
+                    ToastUtils.showLongToast(PatientCaseTestActivity.this,"当前患者没有病例");
+                }
+            }
+        });
+
+
         mLRecyclerViewAdapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {

@@ -37,12 +37,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/listview_header_last_time"
+                    android:textColor="#B5B5B5"
                     android:textSize="12sp" />
 
                 <TextView
                     android:id="@+id/last_refresh_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="#B5B5B5"
                     android:textSize="12sp" />
             </LinearLayout>
         </LinearLayout>

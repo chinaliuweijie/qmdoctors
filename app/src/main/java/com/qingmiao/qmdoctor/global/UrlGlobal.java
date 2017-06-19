@@ -5,11 +5,11 @@ package com.qingmiao.qmdoctor.global;
  */
 public class UrlGlobal {
     //服务器根地址
-    public static final String SERVER_URL = "https://api.green-bud.cn";
+   // public static final String SERVER_URL = "https://api.green-bud.cn";
     //服务器根地址  http://192.168.20.47
     // public static final String SERVER_URL = "http://192.168.199.193";
     // 新的测试地址
-    //public static final String SERVER_URL = "http://192.168.20.47";
+    public static final String SERVER_URL = "http://192.168.20.47";
 
     //医生登录接口
     public static final String LOGIN_URL = SERVER_URL + "/Api/Doctor/login";
@@ -112,6 +112,10 @@ public class UrlGlobal {
     public static final String TOOLS = SERVER_URL +"/html_statics/medical_tools.html";
     // 获取医生圈子分类
     public static final String GETDOCCIRCLE_CATE = SERVER_URL + "/Api/Community/getDocCircleCate" ;
+    //获取病况列表
+    public static final String GET_SICKLIST = SERVER_URL + "/Api/Doctor/getSickList" ;
+    //获取用户某一病况的检查项目
+    public static final String GET_CHECK_ITEM_DATA = SERVER_URL + "/Api/Doctor/getUserCheckItemData" ;
 
 
 }

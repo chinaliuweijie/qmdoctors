@@ -104,6 +104,10 @@
         <activity android:name=".activity.TalkPatientCaseActivity"></activity>
         <activity android:name=".activity.TalkDocuterActivity"></activity>
         <activity android:name=".activity.PDFWebViewActivity"></activity>
+        <activity android:name=".activity.CaseIconActivity"></activity>
+        <activity android:name=".activity.BigCaseIconActivity"
+            android:screenOrientation="landscape"
+            ></activity>
 
         <activity android:name="me.iwf.photopicker.PhotoPickerActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"
