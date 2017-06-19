@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/activity_big_case_icon"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-    <com.qingmiao.qmdoctor.widget.LineView
-        android:id="@+id/lineBigView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
 
     <TextView
         android:id="@+id/tvCase"
@@ -17,5 +13,13 @@
         android:layout_marginTop="40dp"
         android:text="肾功能"
         android:textColor="@color/black_1"
-        android:textSize="20sp" />
-</RelativeLayout>
+        android:textSize="@dimen/tv_sview_big" />
+
+    <com.qingmiao.qmdoctor.widget.LineView
+        android:id="@+id/lineBigView"
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+</LinearLayout>

@@ -212,7 +212,7 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="51dp"
+            android:layout_height="45dp"
             android:visibility="invisible"
             />
     </LinearLayout>
@@ -220,11 +220,9 @@
     <Button
         android:id="@+id/btn_addorsend"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@color/green"
+        android:layout_height="45dp"
         android:text="添加好友"
-        android:textColor="@color/white"
-        android:textSize="@dimen/tv_sview_title_detail"
+        style="@style/btn_style"
         android:layout_alignParentBottom="true"
         />
 </RelativeLayout>

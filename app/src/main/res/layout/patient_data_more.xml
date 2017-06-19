@@ -103,7 +103,7 @@
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="45dp"
         android:background="@drawable/selector_color_list_bg"
         android:text="取消"
         android:textColor="@color/black_1"

@@ -635,13 +635,8 @@
             android:background="@color/text" />
         <Button
             android:id="@+id/btn_affirm"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="21dp"
-            android:background="@drawable/shape_bnt_normal"
-            android:text="确认完成"
-            android:textColor="@color/white"
-            android:textSize="@dimen/tv_sview_title_detail" />
+            style="@style/bnt_login_style"
+            android:text="确认完成" />
 
     </LinearLayout>
 </ScrollView>
