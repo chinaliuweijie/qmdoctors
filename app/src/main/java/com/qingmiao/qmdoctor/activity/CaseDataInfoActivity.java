@@ -137,7 +137,15 @@ public class CaseDataInfoActivity extends BaseActivity implements ILibelInfoView
                 TextView title = holder.getView(R.id.tv_title);
                 TextView content = holder.getView(R.id.tv_content);
                 title.setText(getDataList().get(position).field_cn);
-                content.setText(getDataList().get(position).data + getDataList().get(position).unit);
+                content.setText(getDataList().get(position).data);
+                TextView fanwei = holder.getView(R.id.tv_fanwei);
+                if(getDataList().get(position).demo!=null && getDataList().get(position).demo.contains("阴性") ){
+                    fanwei.setText("阴性");
+                }else{
+                    fanwei.setText(getDataList().get(position).demo + getDataList().get(position).unit);
+                }
+
+
             }
         };
         LRecyclerViewAdapter mLRecyclerViewAdapter = new LRecyclerViewAdapter(userSickDataListBaseAdapter);

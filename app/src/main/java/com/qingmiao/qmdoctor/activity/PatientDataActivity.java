@@ -507,7 +507,7 @@ public class PatientDataActivity extends BaseActivity implements View.OnClickLis
                                 userData.setDoctordid(did);
                                 userData.save();
                             }
-                            // 通知联系人列表界面刷新
+                            // 添加好友 通知联系人列表界面刷新
                             EventBus.getDefault().post("updata_patient");
                         }else{
                         }

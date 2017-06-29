@@ -22,16 +22,7 @@
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
-            <CheckBox
-                android:id="@+id/cbChecked"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginRight="10dp"
-                android:background="@drawable/selector_checkbox_contact"
-                android:button="@null"
-                android:clickable="false"
-                android:focusable="false"
-                android:visibility="visible" />
+
 
 
             <LinearLayout
@@ -55,26 +46,30 @@
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
                     android:layout_marginLeft="16dp"
-                    android:orientation="vertical">
+                    android:layout_marginRight="16dp"
+                    android:orientation="horizontal">
 
                     <TextView
                         android:id="@+id/title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:text="患者姓名"
                         android:singleLine="true"
                         android:textColor="@color/black_1"
+                        android:layout_marginRight="16dp"
                         android:textSize="@dimen/tv_sview_title_detail"  />
 
                     <TextView
-                        android:id="@+id/tv_tags"
+                        android:id="@+id/tv_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:text=""
+                        android:text="2017-06-22 16:54:44"
                         android:singleLine="true"
                         android:textColor="@color/text"
                         android:textSize="@dimen/tv_sview_data"  />
+
+
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

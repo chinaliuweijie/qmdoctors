@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.qingmiao.qmdoctor.R;
 import com.qingmiao.qmdoctor.adapter.ContactAdapter;
@@ -39,7 +40,6 @@ import java.util.List;
 
 public class AddLabelActivity extends BaseActivity implements ILibelInfoView {
     EditText etSetLabel;
-    TextView tvAddUser;
     TextView tvContentSize;
     private ContactRecyclerFragment contactRecyclerFragment;
     private static final int START_ADDMEMBER_ACTIVITY_REQUEST = 200;
@@ -60,7 +60,7 @@ public class AddLabelActivity extends BaseActivity implements ILibelInfoView {
         switch (view.getId()) {
             case R.id.et_set_label:
                 break;
-            case R.id.tv_add_user:
+            case R.id.ll_add_user:
                 Intent intent = new Intent(AddLabelActivity.this,AddMemberActivity.class);
                 intent.putExtra("bundle", (Serializable) contactRecyclerFragment.getDataList());
                 startActivityForResult(intent,START_ADDMEMBER_ACTIVITY_REQUEST);
@@ -126,9 +126,9 @@ public class AddLabelActivity extends BaseActivity implements ILibelInfoView {
         contactRecyclerFragment.setOpenSwipeButton(true);
         contactRecyclerFragment.setShowSideBar(false);
         etSetLabel = (EditText) view.findViewById(R.id.et_set_label);
-        tvAddUser = (TextView) view.findViewById(R.id.tv_add_user);
+        LinearLayout ll_add_user = (LinearLayout) view.findViewById(R.id.ll_add_user);
         tvContentSize = (TextView) view.findViewById(R.id.tv_conntent_size);
-        tvAddUser.setOnClickListener(this);
+        ll_add_user.setOnClickListener(this);
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction transaction = fm.beginTransaction();
         //显示点中的Fragment对象

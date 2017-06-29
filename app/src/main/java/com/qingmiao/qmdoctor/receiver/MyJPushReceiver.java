@@ -4,9 +4,14 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
+
+import com.qingmiao.qmdoctor.bean.JpushBean;
+import com.qingmiao.qmdoctor.utils.GsonUtil;
 import com.qingmiao.qmdoctor.utils.LogUtil;
 import com.qingmiao.qmdoctor.utils.ToastUtils;
 
+import org.greenrobot.eventbus.EventBus;
 import org.json.JSONObject;
 import cn.jpush.android.api.JPushInterface;
 
@@ -37,16 +42,14 @@ public class MyJPushReceiver extends BroadcastReceiver {
             processCustomMessage(context, bundle);
         } else if (JPushInterface.ACTION_NOTIFICATION_RECEIVED.equals(intent.getAction())) {
             LogUtil.LogShitou(TAG, "接受到推送下来的通知");
-
             receivingNotification(context,bundle);
-
         } else if (JPushInterface.ACTION_NOTIFICATION_OPENED.equals(intent.getAction())) {
             LogUtil.LogShitou(TAG, "用户点击打开了通知");
 
             openNotification(context,bundle);
 
         } else {
-            LogUtil.LogShitou(TAG, "qingmiao +++ Unhandled intent - " + intent.getAction());
+            LogUtil.LogShitou(TAG, "qingmiao +++ Unhandled i ntent - " + intent.getAction());
 
         }
     }
@@ -71,6 +74,15 @@ public class MyJPushReceiver extends BroadcastReceiver {
         LogUtil.LogShitou(TAG, "message : " + message);
         String extras = bundle.getString(JPushInterface.EXTRA_EXTRA);
         LogUtil.LogShitou(TAG, "extras : " + extras);
+        if(!TextUtils.isEmpty(extras)){
+            JpushBean jpushBean = GsonUtil.getInstance().fromJson(extras, JpushBean.class);
+
+
+        }else{
+            // 添加好友的推送
+            // 通知患者界面刷新
+            EventBus.getDefault().post("updata_patient");
+        }
     }
 
     private void openNotification(Context context, Bundle bundle){

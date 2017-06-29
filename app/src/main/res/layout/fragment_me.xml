@@ -99,6 +99,7 @@
             android:id="@+id/rl_me_patient"
             android:layout_width="match_parent"
             android:layout_height="@dimen/setting_item_height"
+            android:visibility="gone"
             android:background="@drawable/selector_color_list_bg">
 
             <View

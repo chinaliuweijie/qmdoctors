@@ -212,6 +212,7 @@ public class MyApplication extends LitePalApplication {
         PlatformConfig.setSinaWeibo("3147166331","25947efb7e676285c7428ed8d271a9f4","http://open.weibo.com/apps/2419969020/privilege/oauth");
         // 极光推送初始化
         JPushInterface.setDebugMode(true);
+       // JPushInterface.setAlias();
         JPushInterface.init(this);
     }
 

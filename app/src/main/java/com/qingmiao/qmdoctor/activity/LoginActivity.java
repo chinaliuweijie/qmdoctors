@@ -44,13 +44,17 @@ import org.greenrobot.eventbus.ThreadMode;
 import org.litepal.crud.DataSupport;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import cn.jpush.android.api.JPushInterface;
+import cn.jpush.android.api.TagAliasCallback;
 import okhttp3.Call;
 
 public class LoginActivity extends BaseActivity implements ILibelInfoView {
@@ -103,6 +107,15 @@ public class LoginActivity extends BaseActivity implements ILibelInfoView {
                         // 通知患者界面刷新
                         EventBus.getDefault().post("updata_patient");
                         finish();
+                        // 设置极光的别名和标签
+                        Set<String> strings = new HashSet<String>();
+                        strings.add("did");
+                        JPushInterface.setAliasAndTags(LoginActivity.this, response.did, strings, new TagAliasCallback() {
+                            @Override
+                            public void gotResult(int i, String s, Set<String> set) {
+                                LogUtil.LogShitou(i + s + set);
+                            }
+                        });
                     }
                   break;
             }

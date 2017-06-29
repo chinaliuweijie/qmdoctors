@@ -28,6 +28,7 @@
     <color name="white">#ffffff</color>
     <color name="light_gray">#cccccc</color>
     <color name="gray">#777</color>
+   <color name="heavy_white">#E4E4E4</color>
     <color name="backdrop">#eeeeee</color>
     <color name="character">#666666</color>
     <color name="title">#333333</color>

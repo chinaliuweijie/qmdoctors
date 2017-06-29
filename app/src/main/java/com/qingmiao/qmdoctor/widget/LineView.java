@@ -51,6 +51,8 @@ public class LineView extends View {
 
     private List<Point> scorePoints;
     private int textSize = dipToPx(15);
+    private double maxValue;
+
 
     public LineView(Context context) {
         this(context, null);
@@ -63,6 +65,10 @@ public class LineView extends View {
     public LineView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
+    }
+
+    public void setMaxValue(double maxValue) {
+        this.maxValue = maxValue;
     }
 
     private void init() {
@@ -114,9 +120,9 @@ public class LineView extends View {
             }
 
             point.x = coordinateX;
-            if (score.get(i) - maxScore >= (maxScore - minScore) / 5) {
-                point.y = (int) (maxScoreYCoordinate - 0.2f * (minScoreYCoordinate - maxScoreYCoordinate));
-            } else if (score.get(i) - minScore <= -(maxScore - minScore) / 5) {
+            if (score.get(i) > maxScore) {
+                point.y = (int) (((float) (maxScore - score.get(i)) / (maxValue - maxScore)) * (0.2f * (minScoreYCoordinate - maxScoreYCoordinate))
+                        + maxScoreYCoordinate - 0.05f * (minScoreYCoordinate - maxScoreYCoordinate));} else if (score.get(i) - minScore <= -(maxScore - minScore) / 5) {
                 point.y = (int) (minScoreYCoordinate + 0.2f * (minScoreYCoordinate - maxScoreYCoordinate));
             } else {
                 point.y = (int) (((float) (maxScore - score.get(i)) / (maxScore - minScore)) * (minScoreYCoordinate - maxScoreYCoordinate) + maxScoreYCoordinate);
@@ -179,6 +185,7 @@ public class LineView extends View {
                 }
             }
         }
+/*
 
         //月份触摸区域
         //计算每个月份X坐标的中心点
@@ -200,6 +207,7 @@ public class LineView extends View {
                 }
             }
         }
+*/
 
         return false;
     }
@@ -368,10 +376,10 @@ public class LineView extends View {
                 r2.right = coordinateX + textSize + dipToPx(15);
                 r2.bottom = viewHeight * 0.8f + dipToPx(4) + textSize + dipToPx(10);
                 canvas.drawRoundRect(r2, 10, 10, textPaint);
+                //绘制时间
+                canvas.drawText(timeText.get(i), coordinateX, viewHeight * 0.8f + dipToPx(4) + textSize + dipToPx(5), textPaint);
 
             }
-            //绘制时间
-            canvas.drawText(timeText.get(i), coordinateX, viewHeight * 0.8f + dipToPx(4) + textSize + dipToPx(5), textPaint);
 
             textPaint.setColor(textNormalColor);
         }

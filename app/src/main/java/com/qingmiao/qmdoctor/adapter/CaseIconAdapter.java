@@ -12,6 +12,7 @@ import com.qingmiao.qmdoctor.widget.LineView;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -105,6 +106,8 @@ public class CaseIconAdapter extends BaseAdapter {
 
             viewHolder.lineView.setMaxScore(maxValue);
             viewHolder.lineView.setMinScore(minValue);
+            double max = (double) Collections.max(integerArrayList);
+            viewHolder.lineView.setMaxValue(max);
             viewHolder.lineView.setScore(integerArrayList);
         }
         viewHolder.lineView.setDate();

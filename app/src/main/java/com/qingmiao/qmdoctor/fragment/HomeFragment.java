@@ -70,7 +70,6 @@ import okhttp3.Call;
 
 
 public class HomeFragment extends BaseFragment implements View.OnClickListener{
-    private View homeView ;
     @BindView(R.id.recycleview)
     LRecyclerView lRecyclerView;
     LinearLayout llDocuments,llInstitute,llDocuterTalk,llLearningTalk,llCaseTalk,llTools;
@@ -98,10 +97,8 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener{
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        if(homeView == null){
-            homeView = View.inflate(mActivity, R.layout.view_recycleview, null);
-            ButterKnife.bind(this, homeView);
-        }
+        View homeView = View.inflate(mActivity, R.layout.view_recycleview, null);
+        ButterKnife.bind(this, homeView);
         return homeView;
     }
 

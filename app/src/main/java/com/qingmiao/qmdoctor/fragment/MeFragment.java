@@ -27,6 +27,7 @@ import com.qingmiao.qmdoctor.global.KeyOrValueGlobal;
 import com.qingmiao.qmdoctor.global.UrlGlobal;
 import com.qingmiao.qmdoctor.utils.GetTime;
 import com.qingmiao.qmdoctor.utils.GsonUtil;
+import com.qingmiao.qmdoctor.utils.LogUtil;
 import com.qingmiao.qmdoctor.utils.MD5Util;
 import com.qingmiao.qmdoctor.utils.PrefUtils;
 import com.qingmiao.qmdoctor.utils.ToastUtils;
@@ -172,6 +173,31 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
 						}
 					}
 				});
+
+//		LinkedHashMap<String,String> linkedHashMap1 = new LinkedHashMap<>();
+//		linkedHashMap1.put("uid",81+"");
+//		linkedHashMap1.put("token","4db3852e394704a49ae8b8beb3e34e7be3b9cf67");
+//		linkedHashMap1.put("sign", MD5Util.MD5(GetTime.getTimestamp()));
+//		linkedHashMap1.put("sick_id",27+"");
+//		linkedHashMap1.put("check_item","降钙素原(PCT):5:red");
+//		linkedHashMap1.put("bl_id","452");
+//		linkedHashMap1.put("field_pct_pct","5");
+//		linkedHashMap1.put("time","1480000000");
+//		OkHttpUtils.post()
+//				.url(UrlGlobal.text)
+//				.params(linkedHashMap1)
+//				.build()
+//				.execute(new StringCallback() {
+//					@Override
+//					public void onError(Call call, Exception e, int id) {
+//						LogUtil.LogShitou(e.getMessage());
+//					}
+//
+//					@Override
+//					public void onResponse(String response, int id) {
+//						LogUtil.LogShitou(response);
+//					}
+//				});
 	}
 
 	private void setViewData(DoctorDataBean doctorDataBean) {

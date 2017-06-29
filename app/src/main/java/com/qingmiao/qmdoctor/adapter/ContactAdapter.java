@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.gson.internal.LinkedTreeMap;
 import com.hyphenate.easeui.utils.GlideUtils;
 import com.qingmiao.qmdoctor.R;
 import com.qingmiao.qmdoctor.bean.ContactModel;
@@ -19,6 +20,7 @@ import com.qingmiao.qmdoctor.fragment.ContactRecyclerFragment;
 import com.qingmiao.qmdoctor.widget.SwipeMenuView;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class ContactAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
@@ -193,6 +195,7 @@ public class ContactAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                     notifyDataSetChanged();
                 }
             });
+            ((ContactHolder) holder).setTVLible(mContactNames.get(position).friend.tags);
         }
     }
 
@@ -228,7 +231,7 @@ public class ContactAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         boolean isShowCheck ;
         ImageView ivPhoto;
         Button btnDelete;
-
+        TextView tvtags;
 
         ContactHolder(View view,boolean isShowCheck) {
             super(view);
@@ -244,8 +247,45 @@ public class ContactAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             }
             this.isShowCheck  = isShowCheck;
             btnDelete = (Button) view.findViewById(R.id.btnDelete);
+            tvtags = (TextView) view.findViewById(R.id.tv_tags);
+        }
+
+        public void setTVLible(Object u_tag){
+            if(u_tag!=null){
+                StringBuffer sb = new StringBuffer();
+                if(u_tag instanceof List){
+                    List<String> stringList = (List<String>) u_tag;
+                    for (int i = 0; i <stringList.size() ; i++) {
+                        sb.append(stringList.get(i)+",");
+                    }
+                    if(!TextUtils.isEmpty(sb)){
+                        sb.deleteCharAt(sb.length() - 1);
+                    }
+                }else if(u_tag instanceof LinkedTreeMap){
+                    LinkedTreeMap linkedTreeMap = (LinkedTreeMap) u_tag;
+                    Iterator it = linkedTreeMap.keySet().iterator();
+                    while (it.hasNext()) {
+                        //it.next()得到的是key，tm.get(key)得到obj
+                        sb.append(linkedTreeMap.get(it.next())+",");
+                    }
+                    if(!TextUtils.isEmpty(sb)){
+                        sb.deleteCharAt(sb.length() - 1);
+                    }
+                }else if(u_tag instanceof  String){
+                    sb.append(u_tag);
+                }
+                tvtags.setText(sb.toString());
+            }
         }
     }
+
+
+
+
+
+
+
+
 
     public int getScrollPosition(String character) {
         if (characterList.contains(character)) {

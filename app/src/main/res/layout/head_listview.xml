@@ -1,7 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:search="http://schemas.android.com/apk/res-auto"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/layout_default"
+        android:layout_width="match_parent"
+        android:background="@color/backdrop"
+        android:layout_height="wrap_content">
+        <com.qingmiao.qmdoctor.widget.SearchView
+            android:id="@+id/filter_edit"
+            android:layout_width="fill_parent"
+            android:layout_height="30dp"
+            android:layout_margin="10dp"
+            android:drawablePadding="3dp"
+            android:gravity="center"
+            search:textSize="@dimen/tv_sview_title_detail"
+            android:imeOptions="actionSearch"
+            android:singleLine="true"
+            android:inputType="text"
+            search:textColor="@color/text"
+            android:background="@drawable/edittext_common" />
+    </RelativeLayout>
+
 
     <LinearLayout
         android:id="@+id/ll_add_patient"
@@ -78,4 +102,35 @@
         android:layout_height="0.5dp"
         android:background="@color/text"
         />
+
+    <LinearLayout
+        android:id="@+id/ll_tag"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/selector_color_list_bg"
+        android:gravity="center_vertical"
+        >
+
+        <com.qingmiao.qmdoctor.widget.IconFontTextview
+            android:id="@+id/iv_tag"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:text="@string/icons_tag"
+            android:textColor="@color/white"
+            android:background="@color/green"
+            android:gravity="center"
+            android:textSize="31dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="新增患者"
+            android:textSize="@dimen/tv_sitem_title"
+            android:layout_marginLeft="15dp"
+            android:layout_gravity="center"
+            android:textColor="@color/black_1"
+            />
+    </LinearLayout>
 </LinearLayout>

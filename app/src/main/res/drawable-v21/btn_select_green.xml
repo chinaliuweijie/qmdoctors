@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ripple xmlns:android="http://schemas.android.com/apk/res/android"
-android:color="@color/heavy_white">
+android:color="@color/light_green">
     <item>
         <selector xmlns:android="http://schemas.android.com/apk/res/android">
-            <item android:drawable="@drawable/shape_bnt_normal_pressed" android:state_pressed="true"/>
+            <!--<item android:drawable="@drawable/shape_bnt_normal_pressed" android:state_pressed="true"/>-->
             <item android:drawable="@drawable/shape_bnt_normal" android:state_pressed="false"/>
             <item android:drawable="@drawable/shape_bnt_normal"/>
         </selector>

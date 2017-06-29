@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backdrop"
@@ -10,8 +10,8 @@
         <FrameLayout
             android:id="@+id/fl_realcontent"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@+id/line">
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
 
         </FrameLayout>
 
@@ -20,7 +20,6 @@
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
         android:id="@+id/line"
-        android:layout_above="@+id/RadioGroup"
         android:background="@color/text" />
 
      <LinearLayout
@@ -29,7 +28,6 @@
          android:layout_height="51dp"
          android:paddingLeft="20dp"
          android:paddingRight="20dp"
-         android:layout_alignParentBottom="true"
          android:background="@color/white"
          android:orientation="horizontal"
          >
@@ -141,4 +139,4 @@
 
      </LinearLayout>
 
-</RelativeLayout>
+</LinearLayout>

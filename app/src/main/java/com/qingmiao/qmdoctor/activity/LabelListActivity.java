@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,8 +47,8 @@ public class LabelListActivity extends BaseActivity implements ILibelInfoView {
     private List<TagsListBean.Tags> tagsList;
     LabelInfoAdapter labelInfoAdapter;
     LibelInfoPresenter libelInfoPresenter;
-    @BindView(R.id.tv_add_user)
-    TextView tvAddLabel;
+    @BindView(R.id.ll_addlible)
+    LinearLayout llAddLabel;
     int deletePosition;
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -127,7 +128,7 @@ public class LabelListActivity extends BaseActivity implements ILibelInfoView {
     }
 
     private void initView() {
-        tvAddLabel.setOnClickListener(new View.OnClickListener() {
+        llAddLabel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //添加新标签

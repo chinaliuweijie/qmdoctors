@@ -14,7 +14,7 @@ public class UserFriendBean extends BaseBean {
     public String remark_names;
     public String uid;
     public String user_name;
-
+    public Object tags;
 
     public String getShowName(){
         if(!TextUtils.isEmpty(remark_names)){

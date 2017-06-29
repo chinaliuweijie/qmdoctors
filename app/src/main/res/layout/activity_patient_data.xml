@@ -25,7 +25,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/bg"
+            android:background="@drawable/selector_color_list_bg"
             android:id="@+id/rl_patient_info"
             android:paddingBottom="10dp"
             android:paddingLeft="12dp"
@@ -122,7 +122,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="12dp"
                 android:layout_marginRight="15dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="16dp"
                 android:minLines="3"
                 android:id="@+id/tv_lable"
                 android:textColor="@color/text"

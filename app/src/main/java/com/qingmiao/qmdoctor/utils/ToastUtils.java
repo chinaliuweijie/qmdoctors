@@ -34,20 +34,23 @@ public class ToastUtils {
     }
 
     public static void showShortToast(Context context, CharSequence msg) {
+        if(context!=null  && context.getApplicationContext()!=null)
         showToast(context.getApplicationContext(), msg, Toast.LENGTH_SHORT);
     }
 
     public static void showShortToast(Context context, int resId) {
+        if(context!=null  && context.getApplicationContext()!=null)
         showToast(context.getApplicationContext(), resId, Toast.LENGTH_SHORT);
     }
 
     public static void showLongToast(Context context, CharSequence msg) {
-        if(!android.text.TextUtils.isEmpty(msg)){
+        if(!android.text.TextUtils.isEmpty(msg) && context!=null  && context.getApplicationContext()!=null){
         showToast(context.getApplicationContext(), msg, Toast.LENGTH_SHORT);
         }
     }
 
     public static void showLongToast(Context context, int resId) {
+        if(context!=null  && context.getApplicationContext()!=null)
         showToast(context.getApplicationContext(), resId, Toast.LENGTH_LONG);
     }
 

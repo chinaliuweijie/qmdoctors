@@ -35,11 +35,15 @@ import com.zhy.http.okhttp.callback.StringCallback;
 
 import org.greenrobot.eventbus.EventBus;
 
+import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Set;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import cn.jpush.android.api.JPushInterface;
+import cn.jpush.android.api.TagAliasCallback;
 import okhttp3.Call;
 
 public class RegisterActivity extends BaseActivity {
@@ -327,6 +331,15 @@ public class RegisterActivity extends BaseActivity {
                             PrefUtils.putString(RegisterActivity.this, "did",loginBean.did);
                             PrefUtils.putString(RegisterActivity.this, "token",loginBean.token);
                             PrefUtils.putString(RegisterActivity.this, "username",usernames);
+                            // 设置极光的别名和标签
+                            Set<String> strings = new HashSet<String>();
+                            strings.add("did");
+                            JPushInterface.setAliasAndTags(RegisterActivity.this, loginBean.did, strings, new TagAliasCallback() {
+                                @Override
+                                public void gotResult(int i, String s, Set<String> set) {
+                                    LogUtil.LogShitou(i + s + set);
+                                }
+                            });
                         }
                     }
                 });

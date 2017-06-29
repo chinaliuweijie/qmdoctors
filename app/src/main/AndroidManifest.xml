@@ -108,6 +108,8 @@
         <activity android:name=".activity.BigCaseIconActivity"
             android:screenOrientation="landscape"
             ></activity>
+        <activity android:name=".activity.NewPatientListActivity"></activity>
+
 
         <activity android:name="me.iwf.photopicker.PhotoPickerActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"

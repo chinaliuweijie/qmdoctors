@@ -3,7 +3,7 @@
     android:color="@color/heavy_white">
     <item>
         <selector xmlns:android="http://schemas.android.com/apk/res/android">
-            <item android:drawable="@color/backdrop" android:state_pressed="true" />
+            <!--<item android:drawable="@color/backdrop" android:state_pressed="true" />-->
             <item android:drawable="@color/bg" />
         </selector>
     </item>

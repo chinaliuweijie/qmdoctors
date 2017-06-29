@@ -9,6 +9,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
@@ -22,6 +23,8 @@ import com.github.jdsjlzx.interfaces.OnNetWorkErrorListener;
 import com.github.jdsjlzx.interfaces.OnRefreshListener;
 import com.github.jdsjlzx.view.ArrowRefreshHeader;
 import com.github.jdsjlzx.view.LoadingFooter;
+
+import java.util.logging.Logger;
 
 /**
  *
@@ -243,6 +246,7 @@ public class LRecyclerView extends RecyclerView {
                 startX = ev.getX();
                 // 初始化标记
                 mIsVpDragger = false;
+
                 break;
             case MotionEvent.ACTION_MOVE:
                 // 如果viewpager正在拖拽中，那么不拦截它的事件，直接return false；
@@ -286,6 +290,7 @@ public class LRecyclerView extends RecyclerView {
                 mLastY = ev.getRawY();
                 sumOffSet += deltaY;
                 if (isOnTop() && mPullRefreshEnabled && !mRefreshing && (appbarState == AppBarStateChangeListener.State.EXPANDED)) {
+                    Log.i("my Recyckle",deltaY + "  ********************       " + sumOffSet);
                     mRefreshHeader.onMove(deltaY, sumOffSet);
                     if (mRefreshHeader.getVisibleHeight() > 0) {
                         return false;

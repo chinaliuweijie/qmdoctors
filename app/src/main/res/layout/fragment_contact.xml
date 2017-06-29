@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/bg"
-    android:orientation="vertical">
-
-    <FrameLayout
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:background="@color/bg"
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
 
@@ -14,7 +8,6 @@
             android:id="@+id/contact_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"
             />
 
  <!--       <TextView
@@ -33,6 +26,7 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_gravity="center"
+            android:layout_centerInParent="true"
             android:background="@drawable/contact_anno_bg"
             android:gravity="center"
             android:alpha="0.5"
@@ -46,7 +40,8 @@
             android:id="@+id/sidrbar"
             android:layout_width="30.0dip"
             android:layout_height="match_parent"
-            android:layout_gravity="center_vertical|right"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
             />
-    </FrameLayout>
-</LinearLayout>
+</RelativeLayout>
+

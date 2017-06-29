@@ -55,7 +55,7 @@ public class MyConnectionListener implements EMConnectionListener {
                     EventBus.getDefault().post("updata_patient");
                 } else if (error == EMError.USER_LOGIN_ANOTHER_DEVICE) {
                     // 显示帐号在其他设备登录
-                    ToastUtils.showLongToast(context, "帐号在其他设备登录,被迫下线");
+
                     EMClient.getInstance().logout(true, new EMCallBack() {
                         @Override
                         public void onSuccess() {
@@ -82,6 +82,7 @@ public class MyConnectionListener implements EMConnectionListener {
                     EventBus.getDefault().post("changeData");
                     // 通知患者界面刷新
                     EventBus.getDefault().post("updata_patient");
+                    ToastUtils.showLongToast(context, "帐号在其他设备登录,被迫下线");
                 } else {
                     if (NetUtils.hasNetwork(context)) {
 //                        //连接不到聊天服务器

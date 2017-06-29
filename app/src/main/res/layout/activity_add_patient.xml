@@ -12,8 +12,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/ll_search"
         android:orientation="horizontal"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_marginTop="5dp"
         >
     <EditText
@@ -22,7 +22,7 @@
         android:layout_height="50dp"
         android:layout_weight="1"
         android:background="@drawable/edittext_common"
-        android:hint="手机号/昵称"
+        android:hint="手机号"
         android:paddingLeft="50dp"
         android:inputType="number"
         android:textColor="@color/text"

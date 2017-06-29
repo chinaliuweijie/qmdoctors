@@ -11,18 +11,24 @@ import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.github.jdsjlzx.interfaces.OnRefreshListener;
 import com.qingmiao.qmdoctor.R;
 import com.qingmiao.qmdoctor.activity.AddPatientActivity;
 import com.qingmiao.qmdoctor.activity.LabelListActivity;
 import com.qingmiao.qmdoctor.activity.LoginActivity;
+import com.qingmiao.qmdoctor.activity.MainActivity;
+import com.qingmiao.qmdoctor.activity.NewPatientListActivity;
 import com.qingmiao.qmdoctor.activity.PatientDataActivity;
 import com.qingmiao.qmdoctor.adapter.ContactAdapter;
 import com.qingmiao.qmdoctor.bean.HXUserData;
@@ -43,17 +49,13 @@ import com.qingmiao.qmdoctor.bean.ContactModel;
 import com.qingmiao.qmdoctor.widget.SearchView;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
-
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 import org.litepal.crud.DataSupport;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
-import butterknife.BindView;
 import butterknife.ButterKnife;
 import okhttp3.Call;
 
@@ -67,7 +69,6 @@ public class PatientFragment extends BaseFragment {
 	private String did;
 	private String token;
 	ContactRecyclerFragment contactRecyclerFragment;
-	@BindView(R.id.filter_edit)
 	SearchView filterEdit;
 	LinearLayout llAddPatient,llLabel;
 	boolean isInit = false;
@@ -106,6 +107,19 @@ public class PatientFragment extends BaseFragment {
 				Log.i("",s.toString());
 			}
 		});
+		filterEdit.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+			@Override
+			public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+				if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+					MainActivity mainActivity = (MainActivity) getActivity();
+					mainActivity.hideSoftKeyboard();
+					return true;
+				}
+				return false;
+			}
+		});
+
+
 		contactRecyclerFragment.setOnItemClickListener(new ContactRecyclerFragment.OnContactItemClickListener() {
 			@Override
 			public void onItemClick(View view, int position, ContactModel model) {
@@ -140,6 +154,12 @@ public class PatientFragment extends BaseFragment {
 		contactRecyclerFragment = new ContactRecyclerFragment();
 		View childview = View.inflate(this.getContext(),R.layout.head_listview,null);
 		contactRecyclerFragment.addHeaderView(childview);
+//		contactRecyclerFragment.setRefreshListener(new OnRefreshListener() {
+//			@Override
+//			public void onRefresh() {
+//				initHttp();
+//			}
+//		});
 		contactRecyclerFragment.setOpenSwipeButton(false);
 		contactRecyclerFragment.setShowSideBar(true);
 		FragmentManager fm =  getChildFragmentManager();
@@ -149,6 +169,7 @@ public class PatientFragment extends BaseFragment {
 		transaction.commit();
 		llAddPatient = (LinearLayout) childview.findViewById(R.id.ll_add_patient);
 		llLabel = (LinearLayout) childview.findViewById(R.id.ll_label);
+		filterEdit = (SearchView) childview.findViewById(R.id.filter_edit);
 		llAddPatient.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -171,6 +192,14 @@ public class PatientFragment extends BaseFragment {
 					Intent intent = new Intent(getActivity(), LabelListActivity.class);
 					startActivity(intent);
 				}
+			}
+		});
+		LinearLayout llTag = (LinearLayout) childview.findViewById(R.id.ll_tag);
+		llTag.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(getActivity(),NewPatientListActivity.class);
+				startActivity(intent);
 			}
 		});
 		ButterKnife.bind(this, gView);
@@ -211,6 +240,13 @@ public class PatientFragment extends BaseFragment {
 		}
 	}
 
+
+	private void setRefreshComplete(){
+		if(contactRecyclerFragment!=null){
+			contactRecyclerFragment.setRefreshComplete();
+		}
+	}
+
 	public void initHttp() {
 		did = PrefUtils.getString(mActivity, "did", "");
 		token = PrefUtils.getString(mActivity, "token", "");
@@ -225,6 +261,7 @@ public class PatientFragment extends BaseFragment {
 					public void onError(Call call, Exception e, int id) {
 						ToastUtils.showLongToast(mActivity, "请求网络失败");
 						System.out.println("response====================+++++++++++++++++++++");
+						setRefreshComplete();
 					}
 
 					@Override
@@ -300,6 +337,7 @@ public class PatientFragment extends BaseFragment {
 							contactRecyclerFragment.getAdapter().setmAllDatas(emptList);
 							ToastUtils.showLongToast(mActivity, patientFriendListBean.msg);
 						}
+						setRefreshComplete();
 					}
 		});
 	}

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="@color/bg"
+    android:background="@color/backdrop"
     >
     <TextView
         android:layout_width="match_parent"
@@ -44,6 +44,8 @@
         android:layout_height="50dp"
         android:orientation="horizontal"
         android:paddingLeft="10dp"
+        android:background="@drawable/selector_color_list_bg"
+        android:id="@+id/ll_add_user"
         >
 
 
@@ -57,7 +59,6 @@
             />
 
     <TextView
-        android:id="@+id/tv_add_user"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:text="添加成员"
@@ -69,7 +70,6 @@
     </LinearLayout>
     <View
         android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:background="@color/text"
+        android:layout_height="0dp"
         />
 </LinearLayout>

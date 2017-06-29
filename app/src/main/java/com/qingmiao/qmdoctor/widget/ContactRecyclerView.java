@@ -1,67 +1,41 @@
-package com.qingmiao.qmdoctor.fragment;
+package com.qingmiao.qmdoctor.widget;
 
-import android.content.Intent;
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.text.TextUtils;
+import android.util.AttributeSet;
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.github.jdsjlzx.ItemDecoration.DividerDecoration;
-import com.github.jdsjlzx.interfaces.OnItemClickListener;
-import com.github.jdsjlzx.interfaces.OnLoadMoreListener;
 import com.github.jdsjlzx.interfaces.OnRefreshListener;
 import com.github.jdsjlzx.recyclerview.LRecyclerView;
 import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter;
 import com.github.jdsjlzx.recyclerview.ProgressStyle;
-import com.hyphenate.easeui.utils.GlideUtils;
 import com.qingmiao.qmdoctor.R;
-import com.qingmiao.qmdoctor.activity.MyCollectDocumentActivity;
-import com.qingmiao.qmdoctor.activity.WebViewCircleActivity;
-import com.qingmiao.qmdoctor.activity.WebViewZActivity;
+import com.qingmiao.qmdoctor.adapter.Contact;
 import com.qingmiao.qmdoctor.adapter.ContactAdapter;
-import com.qingmiao.qmdoctor.base.ListBaseAdapter;
-import com.qingmiao.qmdoctor.base.SuperViewHolder;
-import com.qingmiao.qmdoctor.bean.CollectDocumentBean;
 import com.qingmiao.qmdoctor.bean.ContactModel;
-import com.qingmiao.qmdoctor.bean.PatientFriendListBean;
-import com.qingmiao.qmdoctor.bean.UserFriendBean;
-import com.qingmiao.qmdoctor.global.KeyOrValueGlobal;
-import com.qingmiao.qmdoctor.global.UrlGlobal;
-import com.qingmiao.qmdoctor.utils.GetTime;
-import com.qingmiao.qmdoctor.utils.MD5Util;
+import com.qingmiao.qmdoctor.fragment.BaseFragment;
+import com.qingmiao.qmdoctor.fragment.ContactRecyclerFragment;
 import com.qingmiao.qmdoctor.utils.PrefUtils;
-import com.qingmiao.qmdoctor.utils.TimeUtils;
-import com.qingmiao.qmdoctor.utils.ToastUtils;
-import com.qingmiao.qmdoctor.widget.CharacterParser;
-import com.qingmiao.qmdoctor.widget.PatientDividerDecoration;
-import com.qingmiao.qmdoctor.widget.PinyinComparator;
-import com.qingmiao.qmdoctor.widget.SideBar;
-import com.qingmiao.qmdoctor.widget.SwipeMenuView;
-import com.zhy.http.okhttp.OkHttpUtils;
-import com.zhy.http.okhttp.callback.StringCallback;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import okhttp3.Call;
 
 
-public class ContactRecyclerFragment extends BaseFragment {
+public class ContactRecyclerView extends RelativeLayout {
 
     public String did;
     public String token;
@@ -78,24 +52,38 @@ public class ContactRecyclerFragment extends BaseFragment {
     private boolean isShowSideBar;
     private boolean isShowCheckBox;
     private boolean isOpenSwipeButton;
-    private  OnContactItemClickListener onItemClickListener;
+    private ContactRecyclerFragment.OnContactItemClickListener onItemClickListener;
     private int REQUEST_COUNT = 10;
     private LinearLayoutManager layoutManager;
+    private Context mContext;
 
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = View.inflate(getContext(), R.layout.fragment_contact, null);
-        ButterKnife.bind(this, view);
-        return view;
+
+    public ContactRecyclerView(Context context) {
+        super(context);
+        this.mContext = context;
     }
 
-    @Override
+    public ContactRecyclerView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        this.mContext = context;
+    }
+
+    public ContactRecyclerView(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        this.mContext = context;
+    }
+
+
+
+
     public void initView() {
-        did = PrefUtils.getString(getActivity(), "did", "");
-        token = PrefUtils.getString(getActivity(), "token", "");
+        View view = View.inflate(getContext(), R.layout.fragment_contact, null);
+        this.addView(view);
+        ButterKnife.bind(this, view);
+        did = PrefUtils.getString(mContext, "did", "");
+        token = PrefUtils.getString(mContext, "token", "");
         sideBar.setTextView(dialog);
-        WindowManager wm = getActivity().getWindowManager();
+        WindowManager wm = ((Activity)mContext).getWindowManager();
         Display d = wm.getDefaultDisplay();
         //拿到布局参数
         ViewGroup.LayoutParams l = sideBar.getLayoutParams();
@@ -114,6 +102,8 @@ public class ContactRecyclerFragment extends BaseFragment {
         } else {
             sideBar.setVisibility(View.GONE);
         }
+        initDatas();
+        initRecycleView();
     }
 
     private void initRecycleView() {
@@ -179,7 +169,7 @@ public class ContactRecyclerFragment extends BaseFragment {
 
 
 
-    public void setOnItemClickListener(OnContactItemClickListener onItemClickListener) {
+    public void setOnItemClickListener(ContactRecyclerFragment.OnContactItemClickListener onItemClickListener) {
         this.onItemClickListener = onItemClickListener;
     }
 
@@ -210,11 +200,7 @@ public class ContactRecyclerFragment extends BaseFragment {
         isShowCheckBox = showCheckBox;
     }
 
-    @Override
-    public void initData() {
-        initDatas();
-        initRecycleView();
-    }
+
 
     private void initDatas() {
     }
@@ -261,8 +247,6 @@ public class ContactRecyclerFragment extends BaseFragment {
     }
 
 
-    public interface OnContactItemClickListener{
-        public void onItemClick(View view, int position,ContactModel model);
-    }
+
 
 }

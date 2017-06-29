@@ -255,7 +255,7 @@ public class BaseActivity extends FragmentActivity implements IBaseView,View.OnC
 
     }
 
-    protected void hideSoftKeyboard() {
+    public void hideSoftKeyboard() {
         InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         if (this.getWindow().getAttributes().softInputMode != WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN) {
             if (this.getCurrentFocus() != null)

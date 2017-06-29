@@ -56,11 +56,11 @@
     <string name="icons_location">&#xe7a5;</string>
     <string name="icons_outher">&#xe609;</string>
     <string name="icons_data">&#xe79f;</string>
-
-
+    <string name="icons_tag">&#xe748;</string>
+    <string name="icons_add_mianban">&#xe64a;</string>
     <string name="text_phone">手机号码非法</string>
     <string name="text_numberpassword">账号和密码不能为空</string>
     <string name="loading">数据加载中...</string>
-    <string name="aboutText">西安青苗生物科技有限公司版权所以</string>
+    <string name="aboutText">西安青苗生物科技有限公司版权所有</string>
 
 </resources>

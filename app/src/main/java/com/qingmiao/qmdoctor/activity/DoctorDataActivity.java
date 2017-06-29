@@ -40,6 +40,7 @@ import com.qingmiao.qmdoctor.bean.LoginBean;
 import com.qingmiao.qmdoctor.bean.PicBean;
 import com.qingmiao.qmdoctor.bean.ProfessionalFieldBean;
 import com.qingmiao.qmdoctor.bean.Result;
+import com.qingmiao.qmdoctor.fragment.MeFragment;
 import com.qingmiao.qmdoctor.global.KeyOrValueGlobal;
 import com.qingmiao.qmdoctor.global.UrlGlobal;
 import com.qingmiao.qmdoctor.presenter.LibelInfoPresenter;
@@ -247,6 +248,28 @@ public class DoctorDataActivity extends BaseActivity implements ILibelInfoView{
             tvDown.setText(R.string.icons_back_right);
             ischecked = true;
             }
+        LinkedHashMap<String,String> linkedHashMap = new LinkedHashMap<>();
+        linkedHashMap.put("did",did);
+        linkedHashMap.put("token",token);
+        linkedHashMap.put("sign", MD5Util.MD5(GetTime.getTimestamp()));
+        OkHttpUtils.post()
+                .url(UrlGlobal.GET_PROFESSIONAL_FIELD)
+                .params(linkedHashMap)
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        ToastUtils.showLongToast(DoctorDataActivity.this,"无法连接到网络，请检查网络设置");
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        loadProfessions(response);
+                        llCheck.setVisibility(View.VISIBLE);
+                        tvDown.setText(R.string.icons_back_right);
+                        ischecked = true;
+                    }
+                });
     }
 
 
