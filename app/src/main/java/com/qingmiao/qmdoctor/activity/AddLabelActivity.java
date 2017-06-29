@@ -117,6 +117,7 @@ public class AddLabelActivity extends BaseActivity implements ILibelInfoView {
                 }else{
                     libelInfoPresenter.startLoad(UrlGlobal.ADD_LABEL,linkedHashMap);
                 }
+                EventBus.getDefault().post("updata_patient");
             }
         });
         libelInfoPresenter = new LibelInfoPresenter(this);

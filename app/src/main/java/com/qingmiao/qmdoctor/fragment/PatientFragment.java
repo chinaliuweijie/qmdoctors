@@ -146,6 +146,10 @@ public class PatientFragment extends BaseFragment {
 
 	}
 
+
+
+
+
 	@Nullable
 	@Override
 	public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -203,6 +207,8 @@ public class PatientFragment extends BaseFragment {
 			}
 		});
 		ButterKnife.bind(this, gView);
+
+
 		return gView;
 	}
 

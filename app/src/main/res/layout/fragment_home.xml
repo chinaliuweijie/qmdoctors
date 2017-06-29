@@ -1,21 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="@color/backdrop"
-    android:orientation="vertical" >
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/frameLayout"
-        >
-            <com.qingmiao.qmdoctor.widget.ContactRecyclerView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/contactRecycle"
-                ></com.qingmiao.qmdoctor.widget.ContactRecyclerView>
-     </FrameLayout>
+    android:id="@+id/frameLayout" >
 
 <!--    <com.qingmiao.qmdoctor.widget.ContactRecyclerView
         android:layout_width="match_parent"
@@ -24,5 +13,5 @@
         ></com.qingmiao.qmdoctor.widget.ContactRecyclerView>-->
 
 
-</LinearLayout>
+</FrameLayout>
 

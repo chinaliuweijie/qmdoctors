@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.text.TextUtils;
 import android.view.Display;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -152,6 +153,14 @@ public class ContactRecyclerFragment extends BaseFragment {
         if(onItemClickListener!=null){
             adapter.setOnItemClickListener(onItemClickListener);
         }
+        contactList.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+             //   contactList.clearFocus();
+                return false;
+            }
+        });
     }
 
 

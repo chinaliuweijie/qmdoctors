@@ -104,6 +104,7 @@ public class LabelListActivity extends BaseActivity implements ILibelInfoView {
                 }
                 //且如果想让侧滑菜单同时关闭，需要同时调用 ((CstSwipeDelMenu) holder.itemView).quickClose();
                 labelInfoAdapter.notifyDataSetChanged();
+                EventBus.getDefault().post("updata_patient");
                 break;
             case "1":
 
