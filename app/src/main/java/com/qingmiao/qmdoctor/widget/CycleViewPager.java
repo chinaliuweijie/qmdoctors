@@ -371,7 +371,8 @@ public class CycleViewPager extends RelativeLayout {
 
 				// 使用 ImageView 之前，先将其从父容器移除
 				removeFromParent(imageView);
-				imageView.setScaleType(ScaleType.FIT_XY);
+			//	imageView.setScaleType(ScaleType.FIT_XY);
+			//	imageView.setScaleType(ScaleType.CENTER_CROP);
 				if (mResIds != null && mResIds.size() > 0) {
 					imageView.setImageResource(mResIds.get(pos));
 				} else if (mURLs != null && mURLs.size() > 0) {

@@ -32,13 +32,13 @@ public class GlideUtils {
     public static void LoadImage(Context mContext, String path,
                                  ImageView imageview) {
         if(TextUtils.isEmpty(path)){
-            Glide.with(mContext).load(R.drawable.ic_load_deferent).into(imageview);
+            Glide.with(mContext).load(R.drawable.ic_load_deferent).centerCrop().into(imageview);
             return;
         }
         if(!path.contains("http")){
-            Glide.with(mContext).load(SERVER_URL+path).error(R.drawable.ic_load_deferent).into(imageview);
+            Glide.with(mContext).load(SERVER_URL+path).error(R.drawable.ic_load_deferent).centerCrop().into(imageview);
         }else{
-            Glide.with(mContext).load(path).error(R.drawable.ic_load_deferent)
+            Glide.with(mContext).load(path).error(R.drawable.ic_load_deferent).centerCrop()
                     .into(imageview);
         }
     }
