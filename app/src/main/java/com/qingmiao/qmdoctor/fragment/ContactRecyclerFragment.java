@@ -153,14 +153,11 @@ public class ContactRecyclerFragment extends BaseFragment {
         if(onItemClickListener!=null){
             adapter.setOnItemClickListener(onItemClickListener);
         }
-        contactList.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
+    }
 
-             //   contactList.clearFocus();
-                return false;
-            }
-        });
+
+    public LRecyclerView  getRecycleView(){
+        return contactList;
     }
 
 

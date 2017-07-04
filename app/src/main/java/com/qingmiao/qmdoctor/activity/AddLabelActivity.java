@@ -117,7 +117,6 @@ public class AddLabelActivity extends BaseActivity implements ILibelInfoView {
                 }else{
                     libelInfoPresenter.startLoad(UrlGlobal.ADD_LABEL,linkedHashMap);
                 }
-                EventBus.getDefault().post("updata_patient");
             }
         });
         libelInfoPresenter = new LibelInfoPresenter(this);
@@ -214,6 +213,7 @@ public class AddLabelActivity extends BaseActivity implements ILibelInfoView {
         Result result = GsonUtil.getInstance().fromJson(data,Result.class);
         if(result.code == 0){
             EventBus.getDefault().post("updataLabeList");
+            EventBus.getDefault().post("updata_patient");
             finish();
         }else{
             ToastUtils.showLongToast(this,result.msg);

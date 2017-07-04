@@ -3,22 +3,28 @@ package com.qingmiao.qmdoctor.fragment;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -56,6 +62,8 @@ import org.litepal.crud.DataSupport;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import okhttp3.Call;
 
@@ -158,12 +166,12 @@ public class PatientFragment extends BaseFragment {
 		contactRecyclerFragment = new ContactRecyclerFragment();
 		View childview = View.inflate(this.getContext(),R.layout.head_listview,null);
 		contactRecyclerFragment.addHeaderView(childview);
-//		contactRecyclerFragment.setRefreshListener(new OnRefreshListener() {
-//			@Override
-//			public void onRefresh() {
-//				initHttp();
-//			}
-//		});
+		contactRecyclerFragment.setRefreshListener(new OnRefreshListener() {
+			@Override
+			public void onRefresh() {
+				initHttp();
+			}
+		});
 		contactRecyclerFragment.setOpenSwipeButton(false);
 		contactRecyclerFragment.setShowSideBar(true);
 		FragmentManager fm =  getChildFragmentManager();
@@ -206,9 +214,25 @@ public class PatientFragment extends BaseFragment {
 				startActivity(intent);
 			}
 		});
+
+		filterEdit.setOnTouchListener(new View.OnTouchListener() {
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				switch (event.getAction()){
+					case MotionEvent.ACTION_DOWN:
+						setFilterEditFocus(true);
+					break;
+					case MotionEvent.ACTION_MOVE:
+						break;
+					case MotionEvent.ACTION_UP:
+						break;
+					default:
+						break;
+				}
+				return false;
+			}
+		});
 		ButterKnife.bind(this, gView);
-
-
 		return gView;
 	}
 
@@ -218,6 +242,19 @@ public class PatientFragment extends BaseFragment {
 		super.onDestroy();
 		EventBus.getDefault().unregister(this);//取消注册
 	}
+
+	public void setFilterEditFocus(boolean isFocus){
+		if(isFocus){
+			filterEdit.setFocusable(true);
+			filterEdit.setFocusableInTouchMode(true);
+			filterEdit.requestFocus();
+		}else{
+			filterEdit.setFocusable(false);
+			filterEdit.setFocusableInTouchMode(false);
+			filterEdit.clearFocus();
+		}
+	}
+
 
 
 
@@ -242,6 +279,23 @@ public class PatientFragment extends BaseFragment {
 			if(startCount == 1 && (TextUtils.isEmpty(did)|| TextUtils.isEmpty(token))){
 				Intent intent = new Intent(getActivity(), LoginActivity.class);
 				startActivity(intent);
+			}
+			setFilterEditFocus(false);
+			if(startCount == 1) {
+				contactRecyclerFragment.getRecycleView().setOnScrollListener(new RecyclerView.OnScrollListener() {
+					@Override
+					public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+						super.onScrollStateChanged(recyclerView, newState);
+						if (newState == RecyclerView.SCROLL_STATE_DRAGGING) {
+							setFilterEditFocus(false);
+						}
+					}
+
+					@Override
+					public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+						super.onScrolled(recyclerView, dx, dy);
+					}
+				});
 			}
 		}
 	}

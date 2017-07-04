@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <RelativeLayout
-        android:id="@+id/layout_default"
+        android:id="@+id/rlEdit"
         android:layout_width="match_parent"
         android:background="@color/backdrop"
         android:layout_height="wrap_content">

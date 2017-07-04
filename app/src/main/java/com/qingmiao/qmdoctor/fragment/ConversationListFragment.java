@@ -125,6 +125,11 @@ public class ConversationListFragment extends EaseConversationListFragment {
                 if (username.equals(EMClient.getInstance().getCurrentUser()))
                 ToastUtils.showLongToast(getActivity(), R.string.Cant_chat_with_yourself);
                 else {
+                    if((TextUtils.isEmpty(did)|| TextUtils.isEmpty(token))){
+                        Intent intent = new Intent(getActivity(), LoginActivity.class);
+                        startActivity(intent);
+                        return ;
+                    }
                     // 跳转界面
                     List<HXUserData> userDatas = DataSupport.where("hx_name = ?", username).find(HXUserData.class);
                     if(userDatas!=null&& userDatas.size()>0){

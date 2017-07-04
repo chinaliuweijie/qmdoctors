@@ -99,18 +99,22 @@ public class MyApplication extends LitePalApplication {
             @Override
             public void onMessageReceived(List<EMMessage> messages) {
                 //收到消息----刷新一下当前页面喽
-                ConversationListFragment conversationListFragment = (ConversationListFragment) FragmentFactory.getFragment(1);
-                conversationListFragment.refresh();
-                EMClient.getInstance().chatManager().importMessages(messages);//保存到数据库
-                EMMessage emMessage = messages.get(0);
-                if(TextUtils.isEmpty(did)){
-                    if(login!=null) {
-                        did = login.did;
-                    }else{
-                        did = PrefUtils.getString(MyApplication.this,"did","");
+                try {
+                    ConversationListFragment conversationListFragment = (ConversationListFragment) FragmentFactory.getFragment(1);
+                    conversationListFragment.refresh();
+                    EMClient.getInstance().chatManager().importMessages(messages);//保存到数据库
+                    EMMessage emMessage = messages.get(0);
+                    if(TextUtils.isEmpty(did)){
+                        if(login!=null) {
+                            did = login.did;
+                        }else{
+                            did = PrefUtils.getString(MyApplication.this,"did","");
+                        }
                     }
+                    HXUserCache.getInstance().updataDB(getContext(),emMessage,did);
+                }catch (Exception e){
+                    e.printStackTrace();
                 }
-                HXUserCache.getInstance().updataDB(getContext(),emMessage,did);
             }
 
             @Override
