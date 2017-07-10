@@ -295,14 +295,43 @@ public class LoginActivity extends BaseActivity implements ILibelInfoView {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        ToastUtils.showLongToast(LoginActivity.this,"登录环信失败:"+message);
+                        ToastUtils.showLongToast(LoginActivity.this,"登录即时通信失败:"+message+"请重新登录");
                         dismissLoadDialog();
+                        onLogout();
                     }
                 });
 
             }
         });
     }
+
+
+    /**
+     * 下线按钮
+     *
+     * @param
+     */
+    public void onLogout() {
+        // 环信下线
+        EMClient.getInstance().logout(true, new EMCallBack() {
+            @Override
+            public void onSuccess() {
+
+            }
+
+            @Override
+            public void onError(int i, String s) {
+                Log.e("main", "下线失败了！" + s);
+            }
+
+            @Override
+            public void onProgress(int i, String s) {
+
+            }
+        });//下线
+    }
+
+
 
     public void initHttp() {
         OkHttpUtils.post()

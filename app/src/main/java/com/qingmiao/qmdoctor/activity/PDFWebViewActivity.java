@@ -269,7 +269,10 @@ public class PDFWebViewActivity extends BaseActivity implements OnPageChangeList
                                             webCommentEt.setText("");
                                             flag = false;
                                         } else {
-                                            ToastUtils.showLongToast(PDFWebViewActivity.this, "评论失败");
+                                            String msg = jsonObject.getString("msg");
+                                            if(!TextUtils.isEmpty(msg)){
+                                                ToastUtils.showLongToast(PDFWebViewActivity.this,msg);
+                                            }
                                             webCommentEt.setText("");
                                             flag = false;
                                         }

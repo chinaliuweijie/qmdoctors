@@ -160,7 +160,10 @@ public class WebViewCircleActivity extends BaseActivity {
                                             bottomEd.setText("");
                                             flag = false;
                                         } else {
-                                            ToastUtils.showLongToast(WebViewCircleActivity.this, "评论失败");
+                                            String msg = jsonObject.getString("msg");
+                                            if(!TextUtils.isEmpty(msg)){
+                                                ToastUtils.showLongToast(WebViewCircleActivity.this,msg);
+                                            }
                                             bottomEd.setText("");
                                             flag = false;
                                         }

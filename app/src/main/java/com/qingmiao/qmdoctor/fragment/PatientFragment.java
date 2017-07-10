@@ -395,7 +395,7 @@ public class PatientFragment extends BaseFragment {
 							List<ContactModel> emptList = new ArrayList<ContactModel>();
 							contactRecyclerFragment.getAdapter().updateListView(emptList);
 							contactRecyclerFragment.getAdapter().setmAllDatas(emptList);
-							ToastUtils.showLongToast(mActivity, patientFriendListBean.msg);
+						//	ToastUtils.showLongToast(mActivity, patientFriendListBean.msg);
 						}
 						setRefreshComplete();
 					}

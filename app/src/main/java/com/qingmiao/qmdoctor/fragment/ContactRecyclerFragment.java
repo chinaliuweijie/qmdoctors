@@ -161,23 +161,6 @@ public class ContactRecyclerFragment extends BaseFragment {
     }
 
 
-//    public void setContactPullRefresh(OnRefreshListener listener){
-//        if(contactList!=null) {
-//            contactList.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
-//            contactList.setArrowImageView(R.drawable.ic_pulltorefresh_arrow);
-//            contactList.setPullRefreshEnabled(true);
-//            contactList.setOnRefreshListener(listener);
-//        }
-//    }
-
-//    public boolean isCanRefresh(){
-//        if(contactList!=null) {
-//           return contactList.isOnTop();
-//        }
-//        return false;
-//    }
-
-
     public void setRefreshComplete(){
         // 停止刷新
         contactList.refreshComplete(REQUEST_COUNT);
