@@ -291,7 +291,7 @@ public class RegisterActivity extends BaseActivity {
                             loginBean = response;
                             loginHX(response.hx_uname,MD5Util.MD5(password));
                         }else if(response.code == Code.EXCEED){
-                            ToastUtils.showLongToast(RegisterActivity.this,"登录信息过时，请重新登录");
+                            ToastUtils.showLongToast(RegisterActivity.this,"登录信息过时，请重新登陆");
                             dismissLoadDialog();
                         }else if(response.code == Code.FAIL){
                             ToastUtils.showLongToast(RegisterActivity.this,response.msg);

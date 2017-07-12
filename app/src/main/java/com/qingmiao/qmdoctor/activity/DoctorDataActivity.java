@@ -390,7 +390,10 @@ public class DoctorDataActivity extends BaseActivity implements ILibelInfoView{
                     course = etCourse.getText().toString().trim();
                     position = tvPosition.getText().toString().trim();
                     opinion = etOpinion.getText().toString().trim();
-
+                    if(TextUtils.isEmpty(name)){
+                        ToastUtils.showLongToast(this,"必须填写姓名!");
+                        return;
+                    }
                     for (int i = 0; i <professionalDatas.size() ; i++) {
                         sb.append(professionalDatas.get(i).id+",");
                     }
