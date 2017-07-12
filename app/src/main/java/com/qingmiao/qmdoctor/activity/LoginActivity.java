@@ -87,7 +87,7 @@ public class LoginActivity extends BaseActivity implements ILibelInfoView {
             switch (msg.what){
                 case MSG_LOGIN:
                     if(isLoginHX){
-                        // 登陆成功
+                        // 登录成功
                         isLoginLocal = false;
                         isLoginHX = false;
                         app.saveLogin(response);
@@ -101,7 +101,7 @@ public class LoginActivity extends BaseActivity implements ILibelInfoView {
                             }
                         }
                         PrefUtils.putString(LoginActivity.this, "username",phone);
-                        ToastUtils.showLongToast(LoginActivity.this,"登陆成功");
+                        ToastUtils.showLongToast(LoginActivity.this,"登录成功");
                         dismissLoadDialog();
                         EventBus.getDefault().post("changeData");
                         // 通知患者界面刷新
@@ -152,7 +152,7 @@ public class LoginActivity extends BaseActivity implements ILibelInfoView {
                 pwd = etpassword.getText().toString().trim();
                 if (!TextUtils.isEmpty(phone) && !TextUtils.isEmpty(pwd)) {
                     if(phone.matches(telRegex)) {
-                        showLoadingDialog(UrlGlobal.LOGIN_URL,"登陆中");
+                        showLoadingDialog(UrlGlobal.LOGIN_URL,"登录中");
                         initHttp();
                     } else {
                         ToastUtils.showLongToast(LoginActivity.this,R.string.text_phone);
@@ -356,7 +356,7 @@ public class LoginActivity extends BaseActivity implements ILibelInfoView {
                             isLoginLocal = true;
                             loginHX(loginBean.hx_uname,MD5Util.MD5(pwd));
                         }else if(loginBean.code == Code.EXCEED){
-                            ToastUtils.showLongToast(LoginActivity.this,"登陆信息过时，请重新登陆");
+                            ToastUtils.showLongToast(LoginActivity.this,"登录信息过时，请重新登录");
                             isLoginLocal = false;
                             dismissLoadDialog();
                         }else if(loginBean.code == Code.FAIL){

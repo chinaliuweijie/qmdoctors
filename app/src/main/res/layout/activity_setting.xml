@@ -178,7 +178,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="退出登陆"
+            android:text="退出登录"
             android:textColor="@color/character"
             android:textSize="@dimen/tv_sview_title_detail" />
 

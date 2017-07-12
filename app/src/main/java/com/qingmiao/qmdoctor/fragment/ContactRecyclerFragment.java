@@ -239,7 +239,7 @@ public class ContactRecyclerFragment extends BaseFragment {
             for (int i = 0; i < adapter.getDataList().size(); i++) {
                 ContactModel contactModel = adapter.getDataList().get(i);
                 if (contactModel.type == ContactAdapter.ITEM_TYPE.ITEM_TYPE_CONTACT.ordinal() && contactModel.friend != null) {
-                    if (contactModel.friend.nickname.contains(s)) {
+                    if (contactModel.friend.remark_names.contains(s)) {
                         tempExaple.add(contactModel);
                     }
                 }
