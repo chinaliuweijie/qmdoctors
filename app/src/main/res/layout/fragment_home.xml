@@ -5,13 +5,5 @@
     android:layout_height="match_parent"
     android:background="@color/backdrop"
     android:id="@+id/frameLayout" >
-
-<!--    <com.qingmiao.qmdoctor.widget.ContactRecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/frameLayout"
-        ></com.qingmiao.qmdoctor.widget.ContactRecyclerView>-->
-
-
 </FrameLayout>
 

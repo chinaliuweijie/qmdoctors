@@ -170,6 +170,9 @@ public class PatientFragment extends BaseFragment {
 			@Override
 			public void onRefresh() {
 				initHttp();
+				if(filterEdit!=null){
+					filterEdit.getText().clear();
+				}
 			}
 		});
 		contactRecyclerFragment.setOpenSwipeButton(false);
@@ -263,7 +266,9 @@ public class PatientFragment extends BaseFragment {
 		LogUtil.LogShitou(event);
 		if("updata_patient".equals(event)){
 			isInit = false;
-			initHttp();
+			if(contactRecyclerFragment.getRecycleView()!=null){
+				contactRecyclerFragment.getRecycleView().forceToRefresh();
+			}
 		}
 	}
 
@@ -273,7 +278,9 @@ public class PatientFragment extends BaseFragment {
 		if (hidden) {
 		} else {
 			if(!isInit) {
-				initHttp();
+				if(contactRecyclerFragment.getRecycleView()!=null){
+					contactRecyclerFragment.getRecycleView().forceToRefresh();
+				}
 			}
 			startCount ++ ;
 			if(startCount == 1 && (TextUtils.isEmpty(did)|| TextUtils.isEmpty(token))){
@@ -281,7 +288,7 @@ public class PatientFragment extends BaseFragment {
 				startActivity(intent);
 			}
 			setFilterEditFocus(false);
-			if(startCount == 1) {
+			if(startCount >0) {
 				contactRecyclerFragment.getRecycleView().setOnScrollListener(new RecyclerView.OnScrollListener() {
 					@Override
 					public void onScrollStateChanged(RecyclerView recyclerView, int newState) {

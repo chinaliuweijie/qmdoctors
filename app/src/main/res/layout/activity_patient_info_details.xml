@@ -62,7 +62,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="110dp"
-            android:text="女"
+            android:text=""
             android:id="@+id/tv_sex"
             android:textColor="@color/text"
             android:textSize="@dimen/tv_sview_title_detail" />
@@ -93,7 +93,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="110dp"
-            android:text="陕西 西安"
+            android:text=""
             android:id="@+id/tv_address"
             android:textColor="@color/text"
             android:textSize="@dimen/tv_sview_title_detail"  />
@@ -124,7 +124,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="110dp"
-            android:text="2017-09-22"
+            android:text=""
             android:id="@+id/tv_birthday"
             android:textColor="@color/text"
             android:textSize="@dimen/tv_sview_title_detail"  />
@@ -154,7 +154,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="110dp"
-            android:text="本人"
+            android:text=""
             android:id="@+id/tv_relation"
             android:textColor="@color/text"
             android:textSize="@dimen/tv_sview_title_detail" />
@@ -184,7 +184,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="110dp"
-            android:text="未就诊"
+            android:text=""
             android:textColor="@color/text"
             android:id="@+id/tv_jiuzhen"
             android:textSize="@dimen/tv_sview_title_detail" />

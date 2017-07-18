@@ -61,7 +61,10 @@ import org.greenrobot.eventbus.EventBus;
 import org.litepal.crud.DataSupport;
 
 import java.io.File;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import butterknife.BindView;
@@ -525,7 +528,6 @@ public class DoctorDataActivity extends BaseActivity implements ILibelInfoView{
 
 
     private void initAllData(final PicBean acatarBean,PicBean certificateBean){
-
         LinkedHashMap<String,String> params = new LinkedHashMap<String, String>();
         params.put("did",did);
         params.put("token",token);

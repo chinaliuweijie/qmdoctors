@@ -56,6 +56,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -236,14 +237,25 @@ public class ContactRecyclerFragment extends BaseFragment {
             upDataList(adapter.getmAllDatas());
             return adapter.getmAllDatas();
         }else{
-            for (int i = 0; i < adapter.getDataList().size(); i++) {
-                ContactModel contactModel = adapter.getDataList().get(i);
-                if (contactModel.type == ContactAdapter.ITEM_TYPE.ITEM_TYPE_CONTACT.ordinal() && contactModel.friend != null) {
-                    if (contactModel.friend.remark_names.contains(s)) {
-                        tempExaple.add(contactModel);
-                    }
+//            for (int i = 0; i < adapter.getDataList().size(); i++) {
+//                ContactModel contactModel = adapter.getDataList().get(i);
+//                if (contactModel.type == ContactAdapter.ITEM_TYPE.ITEM_TYPE_CONTACT.ordinal() && contactModel.friend != null) {
+//                    if (contactModel.friend.remark_names.contains(s)) {
+//                        tempExaple.add(contactModel);
+//                    }
+//                }
+//            }
+//            upDataList(tempExaple);
+//            return tempExaple;
+            CharacterParser characterParser = new CharacterParser();
+            tempExaple.clear();
+            for(ContactModel contactModel : getAdapter().getmAllDatas()){
+                String name = contactModel.friend.getShowName();
+                if(name!=null && (name.indexOf(s.toString()) != -1 || characterParser.getSelling(name).startsWith(s.toString()))){
+                    tempExaple.add(contactModel);
                 }
             }
+            Collections.sort(tempExaple, new PinyinComparator());
             upDataList(tempExaple);
             return tempExaple;
         }
