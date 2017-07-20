@@ -1,5 +1,7 @@
 package com.qingmiao.qmdoctor.fragment;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
@@ -24,6 +26,7 @@ import com.github.jdsjlzx.recyclerview.ProgressStyle;
 import com.hyphenate.easeui.utils.GlideUtils;
 import com.hyphenate.util.DateUtils;
 import com.hyphenate.util.DensityUtil;
+import com.mylhyl.superdialog.SuperDialog;
 import com.qingmiao.qmdoctor.R;
 import com.qingmiao.qmdoctor.activity.AboutUsActivity;
 import com.qingmiao.qmdoctor.activity.AddLabelActivity;
@@ -41,10 +44,12 @@ import com.qingmiao.qmdoctor.base.SuperViewHolder;
 import com.qingmiao.qmdoctor.bean.DoctorDataBean;
 import com.qingmiao.qmdoctor.bean.HomeDocindexBean;
 import com.qingmiao.qmdoctor.bean.TagsListBean;
+import com.qingmiao.qmdoctor.bean.VersionBean;
 import com.qingmiao.qmdoctor.global.KeyOrValueGlobal;
 import com.qingmiao.qmdoctor.global.MyApplication;
 import com.qingmiao.qmdoctor.global.UrlGlobal;
 import com.qingmiao.qmdoctor.utils.ACache;
+import com.qingmiao.qmdoctor.utils.DownloadUtils;
 import com.qingmiao.qmdoctor.utils.GetTime;
 import com.qingmiao.qmdoctor.utils.GsonUtil;
 import com.qingmiao.qmdoctor.utils.LogUtil;
@@ -83,7 +88,72 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EventBus.getDefault().register(this);
+        // 自动检测新版本
+        OkHttpUtils.post()
+                .url(UrlGlobal.GET_VERSION)
+                .addParams("sign", MD5Util.MD5(GetTime.getTimestamp()))
+                .addParams("type","2")
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        System.out.println(e.toString());
+                    //    ToastUtils.showLongToast(AboutUsActivity.this,"当前已经是最新版本!");
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        try {
+                            final VersionBean versionBean = GsonUtil.getInstance().fromJson(response,VersionBean.class);
+                            if(versionBean.code == 0){
+                                int mVersion = getVersion();
+                                int sVersion = Integer.parseInt(versionBean.data.get(0).android_version);
+                                if(sVersion>=mVersion){
+                                    int[] contentPadding = {20, 0, 20, 20};
+                                    new SuperDialog.Builder(getActivity()).setTitle("提示",getResources().getColor(R.color.black_1), (int) getResources().getDimension(R.dimen.tv_sitem_title))
+                                            .setBackgroundColor(getResources().getColor(R.color.white)).setMessage("发现新版本,是否更新!",getResources().getColor(R.color.black_1),(int) getResources().getDimension(R.dimen.tv_sitem_content),contentPadding)
+                                            .setNegativeButton("确定", getResources().getColor(R.color.green),(int) getResources().getDimension(R.dimen.tv_sitem_title),-1,new SuperDialog.OnClickNegativeListener(){
+
+                                                @Override
+                                                public void onClick(View v) {
+                                                    DownloadUtils downloadUtils = new DownloadUtils(getActivity());
+                                                    downloadUtils.download(versionBean.data.get(0).android_url);
+                                                }
+                                            }).setWidth(0.7f)
+                                            .setPositiveButton("取消", getResources().getColor(R.color.green),(int) getResources().getDimension(R.dimen.tv_sitem_title),-1,new SuperDialog.OnClickPositiveListener() {
+                                                @Override
+                                                public void onClick(View v) {
+                                                }
+                                            }).build();
+                                }else{
+                                 //   ToastUtils.showLongToast(getActivity(),"当前已经是最新版本!");
+                                }
+                            }
+                        }catch (Exception e){
+                            e.printStackTrace();
+                          //  ToastUtils.showLongToast(AboutUsActivity.this,"当前已经是最新版本!");
+                        }
+
+                    }
+                });
     }
+
+    /**
+     * 获取版本号
+     * @return 当前应用的版本号
+     */
+    public int getVersion() {
+        try {
+            PackageManager manager = this.getActivity().getPackageManager();
+            PackageInfo info = manager.getPackageInfo(this.getActivity().getPackageName(), 0);
+            int version = info.versionCode;
+            return  version;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        }
+    }
+
 
     @Subscribe(threadMode = ThreadMode.MAIN) //在ui线程执行
     public void onDataSynEvent(String event) {
