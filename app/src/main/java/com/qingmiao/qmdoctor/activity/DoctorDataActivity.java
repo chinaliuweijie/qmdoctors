@@ -312,7 +312,7 @@ public class DoctorDataActivity extends BaseActivity implements ILibelInfoView{
                 case R.id.ll_nichen:
                     // @"住院医师",@"主治医师",@"副主任医师",@"主任医师"
                     hideSoftKeyboard();
-                    final String [] strs = {"住院医师","主治医师","副主任医师","主任医师"};
+                    final String [] strs = {"住院医师","主治医师","副主任医师","主任医师","护士"};
                     new SuperDialog.Builder(this)
                             .setBackgroundColor(getResources().getColor(R.color.white))
                             .setTitle("选择职称", getResources().getColor(R.color.text), (int) getResources().getDimension(R.dimen.tv_sview_title))

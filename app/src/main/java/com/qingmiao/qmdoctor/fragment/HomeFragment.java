@@ -108,7 +108,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener{
                             if(versionBean.code == 0){
                                 int mVersion = getVersion();
                                 int sVersion = Integer.parseInt(versionBean.data.get(0).android_version);
-                                if(sVersion>=mVersion){
+                                if(sVersion>mVersion){
                                     int[] contentPadding = {20, 0, 20, 20};
                                     new SuperDialog.Builder(getActivity()).setTitle("提示",getResources().getColor(R.color.black_1), (int) getResources().getDimension(R.dimen.tv_sitem_title))
                                             .setBackgroundColor(getResources().getColor(R.color.white)).setMessage("发现新版本,是否更新!",getResources().getColor(R.color.black_1),(int) getResources().getDimension(R.dimen.tv_sitem_content),contentPadding)
