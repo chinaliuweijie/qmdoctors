@@ -8,7 +8,7 @@ import android.widget.LinearLayout;
 
 /**
  * company : 青苗
- * Created by 杜新 on 2017/3/8.
+ * Created by 刘伟杰 on 2017/3/8.
  */
 
 public class CustomLL extends LinearLayout implements AdapterView.OnItemClickListener {

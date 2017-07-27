@@ -4,7 +4,7 @@ import java.util.List;
 
 /**
  * company : 青苗
- * Created by 杜新 on 2017/3/3.
+ * Created by  on 2017/3/3.
  */
 public class CircleCatePagerBean extends BaseBean{
     /**

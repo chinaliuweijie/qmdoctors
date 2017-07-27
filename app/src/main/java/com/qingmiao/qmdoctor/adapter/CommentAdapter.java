@@ -21,7 +21,7 @@ import butterknife.ButterKnife;
 
 /**
  * company : 青苗
- * Created by 杜新 on 2017/2/24.
+ * Created by  on 2017/2/24.
  */
 
 public class CommentAdapter extends BaseAdapter {

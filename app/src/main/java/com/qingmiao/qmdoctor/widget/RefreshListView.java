@@ -10,7 +10,7 @@ import com.qingmiao.qmdoctor.R;
 
 /**
  * company : 青苗
- * Created by 杜新 on 2017/3/14.
+ * Created by 刘伟杰 on 2017/3/14.
  */
 public class RefreshListView extends ListView {
     private View footerView;

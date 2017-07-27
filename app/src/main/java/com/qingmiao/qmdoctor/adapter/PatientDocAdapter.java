@@ -14,7 +14,7 @@ import butterknife.ButterKnife;
 
 /**
  * company : 青苗
- * Created by 杜新 on 2017/3/21.
+ * Created by  on 2017/3/21.
  */
 
 public class PatientDocAdapter extends BaseAdapter {

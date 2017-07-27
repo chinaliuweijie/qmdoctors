@@ -40,7 +40,7 @@ import butterknife.ButterKnife;
 
 /**
  * company : 青苗
- * Created by 杜新 on 2017/2/3.
+ * Created by  on 2017/2/3.
  */
 
 public class BaseActivity extends FragmentActivity implements IBaseView,View.OnClickListener{

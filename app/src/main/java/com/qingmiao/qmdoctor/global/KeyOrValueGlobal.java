@@ -4,7 +4,7 @@ import com.qingmiao.qmdoctor.utils.PrefUtils;
 
 /**
  * company : 青苗
- * Created by 杜新 on 2017/3/22.
+ * Created by 刘伟杰 on 2017/3/22.
  */
 
 public class KeyOrValueGlobal {

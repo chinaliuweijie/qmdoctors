@@ -2,7 +2,7 @@ package com.qingmiao.qmdoctor.widget;
 
 /**
  * company : 青苗
- * Created by 杜新 on 2017/3/30.
+ * Created by 刘伟杰 on 2017/3/30.
  */
 
 import android.content.Context;
@@ -23,7 +23,7 @@ import java.util.List;
 
 /**
  * company : 青苗
- * Created by 杜新 on 2017/2/21.
+ * Created by 刘伟杰 on 2017/2/21.
  */
 
 public class LineView extends View {
