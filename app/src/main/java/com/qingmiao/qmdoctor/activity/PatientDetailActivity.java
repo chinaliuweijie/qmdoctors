@@ -1,22 +1,31 @@
 package com.qingmiao.qmdoctor.activity;
 
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.github.jdsjlzx.ItemDecoration.DividerDecoration;
+import com.github.jdsjlzx.interfaces.OnItemClickListener;
 import com.github.jdsjlzx.interfaces.OnLoadMoreListener;
 import com.github.jdsjlzx.interfaces.OnNetWorkErrorListener;
 import com.github.jdsjlzx.interfaces.OnRefreshListener;
 import com.github.jdsjlzx.recyclerview.LRecyclerView;
 import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter;
 import com.github.jdsjlzx.recyclerview.ProgressStyle;
+import com.hyphenate.chat.EMTextMessageBody;
 import com.qingmiao.qmdoctor.R;
+import com.qingmiao.qmdoctor.utils.MediaPlayUtil;
+import com.qingmiao.qmdoctor.widget.IconFontTextview;
 import com.qingmiao.qmdoctor.widget.SwipeMenuView;
 import com.qingmiao.qmdoctor.base.ListBaseAdapter;
 import com.qingmiao.qmdoctor.base.SuperViewHolder;
@@ -47,7 +56,7 @@ public class PatientDetailActivity extends BaseActivity implements ILibelInfoVie
     @BindView(R.id.lRecycleView_sick_desc)
     LRecyclerView lRecyclerViewSickDesc;
     private String uid;
-    private ListBaseAdapter sickDescAdapter;
+    private ListBaseAdapter<PatientDescListBean.DescData> sickDescAdapter;
     private LRecyclerViewAdapter mLRecyclerViewAdapter;
     LinearLayoutManager linearLayoutManager;
     //当前分页
@@ -57,6 +66,11 @@ public class PatientDetailActivity extends BaseActivity implements ILibelInfoVie
     private int mPageCount = 1;
     private LibelInfoPresenter libelInfoPresenter;
     private int deletePosition = 0;
+    private MediaPlayUtil mMediaPlayUtil;
+    private AnimationDrawable mImageAnim;
+    // 上次的播放音频的view
+    private ImageView mIvVoice,mIvVoiceAnim;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,16 +93,16 @@ public class PatientDetailActivity extends BaseActivity implements ILibelInfoVie
 
     private void getInitData() {
         uid = getIntent().getStringExtra("uid");
-//        LinkedHashMap<String,String> linkedHashMap = new LinkedHashMap<>();
-//        linkedHashMap.put("did",did);
-//        linkedHashMap.put("token",token);
-//        linkedHashMap.put("sign",MD5Util.MD5(GetTime.getTimestamp()));
-//        linkedHashMap.put("uid",uid);
-//        linkedHashMap.put("page",1+"");
-//        startLoad(UrlGlobal.GET_PATIENT_DESCLIST,linkedHashMap);
         sickDescAdapter.clear();
-        lRecyclerViewSickDesc.refresh();
-        lRecyclerViewSickDesc.smoothScrollToPosition(0);
+       // lRecyclerViewSickDesc.refresh();
+       // lRecyclerViewSickDesc.smoothScrollToPosition(0);
+        LinkedHashMap<String,String> linkedHashMap = new LinkedHashMap<>();
+        linkedHashMap.put("did", did);
+        linkedHashMap.put("token", token);
+        linkedHashMap.put("uid", uid);
+        linkedHashMap.put("sign", MD5Util.MD5(GetTime.getTimestamp()));
+        linkedHashMap.put("page",mPage+"");
+        startLoad(UrlGlobal.GET_PATIENT_DESCLIST,linkedHashMap);
     }
 
     private void initView() {
@@ -105,17 +119,13 @@ public class PatientDetailActivity extends BaseActivity implements ILibelInfoVie
             }
         });
         libelInfoPresenter = new LibelInfoPresenter(this);
+        mMediaPlayUtil = MediaPlayUtil.getInstance();
     }
 
     private void initRecycleView() {
         linearLayoutManager = new LinearLayoutManager(this);
         lRecyclerViewSickDesc.setLayoutManager(linearLayoutManager);
         lRecyclerViewSickDesc.setItemAnimator(new DefaultItemAnimator());
-        DividerDecoration divider = new DividerDecoration.Builder(this)
-                .setColorResource(R.color.backdrop).setHeight(20f)
-                .build();
-        lRecyclerViewSickDesc.addItemDecoration(divider);
-
         sickDescAdapter = new ListBaseAdapter<PatientDescListBean.DescData>(this) {
             @Override
             public int getLayoutId() {
@@ -125,22 +135,75 @@ public class PatientDetailActivity extends BaseActivity implements ILibelInfoVie
             @Override
             public void onBindItemHolder(SuperViewHolder holder, final int position) {
                 SwipeMenuView swipe = holder.getView(R.id.swipe_content);
+                IconFontTextview deleteView = holder.getView(R.id.delete);
                 if(did.equals(getDataList().get(position).did)){
                     swipe.setSwipeEnable(true);
                     swipe.setIos(false).setLeftSwipe(true);
+                    deleteView.setVisibility(View.VISIBLE);
                 }else{
                     swipe.setSwipeEnable(false);
                     swipe.setIos(false).setLeftSwipe(false);
+                    deleteView.setVisibility(View.GONE);
                 }
                 TextView tvTime = holder.getView(R.id.tv_time);
                 TextView tvContent = holder.getView(R.id.tv_content);
+                ImageView ivContent = holder.getView(R.id.iv_content);
+                RelativeLayout voiceLayout = holder.getView(R.id.voice_layout);
+
+               if(!TextUtils.isEmpty(getDataList().get(position).pic)){
+                    tvContent.setVisibility(View.GONE);
+                    ivContent.setVisibility(View.VISIBLE);
+                    voiceLayout.setVisibility(View.GONE);
+                    String path [] = getDataList().get(position).thumb_pic.split(",");
+                    GlideUtils.LoadImageFull(PatientDetailActivity.this,path[0],ivContent);
+                }else if(!TextUtils.isEmpty(getDataList().get(position).sound)){
+                    TextView voiceLen = holder.getView(R.id.chat_tv_voice_len);
+                    final ImageView mIvVoice = holder.getView(R.id.iv_voice_image);
+                    final ImageView mIvVoiceAnim = holder.getView(R.id.iv_voice_image_anim);
+                    tvContent.setVisibility(View.GONE);
+                    ivContent.setVisibility(View.GONE);
+                    voiceLayout.setVisibility(View.VISIBLE);
+                    voiceLen.setText(getDataList().get(position).sound_time+"秒");
+                    voiceLayout.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            if(!TextUtils.isEmpty(getDataList().get(position).sound)){
+                                String path [] = getDataList().get(position).sound.split(",");
+                                if (mMediaPlayUtil.isPlaying()) {
+                                    mMediaPlayUtil.stop();
+                                    mImageAnim.stop();
+                                    PatientDetailActivity.this.mIvVoice.setVisibility(View.VISIBLE);
+                                    PatientDetailActivity.this.mIvVoiceAnim.setVisibility(View.GONE);
+                                    // 播放
+                                    startAnim(mIvVoice ,mIvVoiceAnim);
+                                    mMediaPlayUtil.play(path[0]);
+                                    // 记录上次的view
+                                    PatientDetailActivity.this.mIvVoice = mIvVoice;
+                                    PatientDetailActivity.this.mIvVoiceAnim = mIvVoiceAnim;
+                                } else {
+                                    startAnim(mIvVoice ,mIvVoiceAnim);
+                                    mMediaPlayUtil.play(path[0]);
+                                // 记录上次的view
+                                    PatientDetailActivity.this.mIvVoice = mIvVoice;
+                                    PatientDetailActivity.this.mIvVoiceAnim = mIvVoiceAnim;
+                                }
+                            }
+                        }
+                    });
+                }else if(!TextUtils.isEmpty(getDataList().get(position).sick_desc)){
+                   tvContent.setText(getDataList().get(position).sick_desc);
+                   tvContent.setVisibility(View.VISIBLE);
+                   ivContent.setVisibility(View.GONE);
+                   voiceLayout.setVisibility(View.GONE);
+               }
+
                 String time = TimeUtils.getStrTime(getDataList().get(position).time);
                 if(TextUtils.isEmpty(time)){
                     tvTime.setText(getDataList().get(position).time);
                 }else{
                     tvTime.setText(time);
                 }
-                tvContent.setText(getDataList().get(position).sick_desc);
+
                 ImageView ivHead = holder.getView(R.id.iv_head_portrait);
                 GlideUtils.LoadCircleAvatarImage(PatientDetailActivity.this,getDataList().get(position).avatar,ivHead);
                 TextView tvName = holder.getView(R.id.tv_name);
@@ -153,6 +216,45 @@ public class PatientDetailActivity extends BaseActivity implements ILibelInfoVie
                         deletePosition = position;
                     }
                 });
+                deleteView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        deleteItemClick(getDataList().get(position));
+                        deletePosition = position;
+                    }
+                });
+                LinearLayout llMore = holder.getView(R.id.ll_more);
+                llMore.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        PatientDescListBean.DescData descData = sickDescAdapter.getDataList().get(position);
+                        Intent intent = new Intent(PatientDetailActivity.this,PatientDescribeItemActivity.class);
+
+//                        String nickName = descData.d_name;
+//                        if(!TextUtils.isEmpty(descData.sick_desc)){
+//                            intent.putExtra("data",descData.sick_desc);
+//                            intent.putExtra("type",0);
+//                        }else if(!TextUtils.isEmpty(descData.pic)){
+//                            intent.putExtra("data",descData.pic);
+//                            intent.putExtra("type",2);
+//                        }else if(!TextUtils.isEmpty(descData.sound)){
+//                            intent.putExtra("data",descData.sound);
+//                            intent.putExtra("type",1);
+//                        }
+
+
+//                        intent.putExtra("avatar",descData.avatar);
+//                        intent.putExtra("nickname",nickName);
+//                        intent.putExtra("msg",descData.msg);
+//                        intent.putExtra("time",descData.time);
+
+                        intent.putExtra("uid",uid);
+                        intent.putExtra("obj",descData);
+                        startActivity(intent);
+                    }
+                });
+
+
             }
         };
         mLRecyclerViewAdapter = new LRecyclerViewAdapter(sickDescAdapter);
@@ -177,10 +279,6 @@ public class PatientDetailActivity extends BaseActivity implements ILibelInfoVie
                 mPage = 1;
             }
         });
-         //设置底部加载文字提示
-      //  lRecyclerViewSickDesc.setFooterViewHint("拼命加载中","已经全部为你呈现了","网络不给力啊，点击再试一次吧");
-
-      //  recyclerView.setNestedScrollingEnabled(false);
     }
 
     private void deleteItemClick(PatientDescListBean.DescData descData) {
@@ -191,6 +289,8 @@ public class PatientDetailActivity extends BaseActivity implements ILibelInfoVie
         linkedHashMap.put("id",descData.id);
         libelInfoPresenter.startLoad(UrlGlobal.DELPATIENT_SICKDESC,linkedHashMap);
     }
+
+
 
     private void requestData(final int type) {
         OkHttpUtils.post()
@@ -232,6 +332,28 @@ public class PatientDetailActivity extends BaseActivity implements ILibelInfoVie
                     }
                 });
     }
+
+    /**
+     * 语音播放效果
+     *
+     */
+    public void startAnim(final ImageView mIvVoice ,final ImageView mIvVoiceAnim ) {
+        if(mImageAnim!=null && mImageAnim.isRunning()){
+            mImageAnim.stop();
+        }
+        mImageAnim = (AnimationDrawable) mIvVoiceAnim.getBackground();
+        mIvVoiceAnim.setVisibility(View.VISIBLE);
+        mIvVoice.setVisibility(View.GONE);
+        mImageAnim.start();
+        mMediaPlayUtil.setPlayOnCompleteListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mediaPlayer) {
+                mIvVoice.setVisibility(View.VISIBLE);
+                mIvVoiceAnim.setVisibility(View.GONE);
+            }
+        });
+    }
+
 
     @Override
     public void initData(String data) {
@@ -296,5 +418,15 @@ public class PatientDetailActivity extends BaseActivity implements ILibelInfoVie
     protected void onDestroy() {
         super.onDestroy();
         EventBus.getDefault().unregister(this);//取消注册
+    }
+
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (mMediaPlayUtil!=null && mMediaPlayUtil.isPlaying()) {
+            mMediaPlayUtil.stop();
+            mImageAnim.stop();
+        }
     }
 }

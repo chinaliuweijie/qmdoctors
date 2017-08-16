@@ -151,6 +151,9 @@ public class AddLabelActivity extends BaseActivity implements ILibelInfoView {
     public void initData(String data) {
         super.initData(data);
         TagDataInfoBean tagDataInfoBean = GsonUtil.getInstance().fromJson(data,TagDataInfoBean.class);
+        if(tagDataInfoBean.data == null || tagDataInfoBean.data.user_info==null){
+            return;
+        }
         List<ContactModel> models = filledData(tagDataInfoBean.data.user_info);
         contactRecyclerFragment.upDataList(models);
         tvContentSize.setText("标签成员("+models.size()+")");
@@ -185,6 +188,7 @@ public class AddLabelActivity extends BaseActivity implements ILibelInfoView {
                 } else {
                     contactModel.sortLetters = "#";
                 }
+                contactModel.pinyinName = characterParser.getSelling(contactModel.friend.getShowName());
                 contactModel.type = ContactAdapter.ITEM_TYPE.ITEM_TYPE_CONTACT.ordinal();
                 mSortList.add(contactModel);
             }

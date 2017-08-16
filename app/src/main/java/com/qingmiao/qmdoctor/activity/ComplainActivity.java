@@ -32,15 +32,16 @@ public class ComplainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_complain);
+        tvCenter.setText("投诉");
         tvRight.setVisibility(View.VISIBLE);
-        tvRight.setText("发布");
+        tvRight.setText("发送");
         tvRight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String uid = getIntent().getStringExtra("uid");
-                String title = complainTitleEt.getText().toString();
+            //    String title = complainTitleEt.getText().toString();
                 String content = complainContentEt.getText().toString();
-                if (TextUtils.isEmpty(title) || TextUtils.isEmpty(content)) {
+                if (TextUtils.isEmpty(content)) {
                     ToastUtils.showLongToast(ComplainActivity.this, "标题或者内容不能为空!");
                     return;
                 }
@@ -52,7 +53,7 @@ public class ComplainActivity extends BaseActivity {
                         .addParams("token", token)
                         .addParams("uid", uid)
                         .addParams("content", content)
-                        .addParams("title", title)
+                     //   .addParams("title", title)
                         .build()
                         .execute(new StringCallback() {
                             @Override

@@ -1,5 +1,7 @@
 package com.qingmiao.qmdoctor.presenter;
 
+import java.io.File;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 
 /**
@@ -8,4 +10,8 @@ import java.util.LinkedHashMap;
 public interface BasePresenter {
 
     void startLoad(String uri, LinkedHashMap<String,String> linkedHashMap);
+
+
+    void loadFileParems(String uri, LinkedHashMap<String,String> linkedHashMap,String fileKey, HashMap<String,File> fileHashMap);
+
 }

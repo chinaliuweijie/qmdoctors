@@ -92,22 +92,17 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
                 }
                 break;
             case R.id.rl_clear_cache :
-                int[] contentPadding = {20, 0, 20, 20};
-                new SuperDialog.Builder(this).setTitle("提示",getResources().getColor(R.color.black_1), (int) getResources().getDimension(R.dimen.tv_sitem_title))
-                        .setBackgroundColor(getResources().getColor(R.color.white)).setMessage("是否清理缓存!",getResources().getColor(R.color.black_1),(int) getResources().getDimension(R.dimen.tv_sitem_content),contentPadding)
-                        .setNegativeButton("确定", getResources().getColor(R.color.green),(int) getResources().getDimension(R.dimen.tv_sitem_title),-1,new SuperDialog.OnClickNegativeListener(){
+                showAlertDialog("提示", "是否清理缓存!", "取消", new SuperDialog.OnClickNegativeListener() {
+                    @Override
+                    public void onClick(View v) {
 
-                            @Override
-                            public void onClick(View v) {
-                                deleteCacheFile();
-                            }
-                        }).setWidth(0.7f)
-                        .setPositiveButton("取消", getResources().getColor(R.color.green),(int) getResources().getDimension(R.dimen.tv_sitem_title),-1,new SuperDialog.OnClickPositiveListener() {
-                            @Override
-                            public void onClick(View v) {
-
-                            }
-                        }).build();
+                    }
+                }, "确定", new SuperDialog.OnClickPositiveListener() {
+                    @Override
+                    public void onClick(View v) {
+                        deleteCacheFile();
+                    }
+                });
                 break;
             case R.id.rl_evaluate_we :
                 try{
@@ -125,22 +120,17 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
                 break;
             case R.id.rl_quit_login :
                 if(!TextUtils.isEmpty(token) && !TextUtils.isEmpty(did)){
-                    int[] contentPaddings = {20, 0, 20, 20};
-                    new SuperDialog.Builder(this).setTitle("提示",getResources().getColor(R.color.black_1), (int) getResources().getDimension(R.dimen.tv_sitem_title))
-                            .setBackgroundColor(getResources().getColor(R.color.white)).setMessage("您确定退出登录吗!",getResources().getColor(R.color.black_1),(int) getResources().getDimension(R.dimen.tv_sitem_content),contentPaddings)
-                            .setNegativeButton("确定", getResources().getColor(R.color.green),(int) getResources().getDimension(R.dimen.tv_sitem_title),-1,new SuperDialog.OnClickNegativeListener(){
+                    showAlertDialog("提示", "您确定退出登录吗!", "取消", new SuperDialog.OnClickNegativeListener() {
+                        @Override
+                        public void onClick(View v) {
 
-                                @Override
-                                public void onClick(View v) {
-                                    initHttp();
-                                }
-                            }).setWidth(0.7f)
-                            .setPositiveButton("取消", getResources().getColor(R.color.green),(int) getResources().getDimension(R.dimen.tv_sitem_title),-1,new SuperDialog.OnClickPositiveListener() {
-                                @Override
-                                public void onClick(View v) {
-
-                                }
-                            }).build();
+                        }
+                    }, "确定", new SuperDialog.OnClickPositiveListener() {
+                        @Override
+                        public void onClick(View v) {
+                            initHttp();
+                        }
+                    });
                 }else{
                     ToastUtils.showLongToast(SettingActivity.this,"当前的状态未登录");
                 }

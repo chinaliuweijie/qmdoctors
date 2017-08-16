@@ -85,4 +85,24 @@ public class TimeUtils {
             return number.matches(num);
         }
     }
+
+
+    /**
+     * @param time 时间数据
+     * @param format  时间戳的格式
+     * @return 返回10位的时间戳
+     */
+    public static long getLongTime(String time,String format){
+        try {
+            if(TextUtils.isEmpty(format)){
+                format = "yyyy-MM-dd HH:mm:ss";
+            }
+            Date date = new SimpleDateFormat(format).parse(time);
+            return date.getTime()/1000;
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return System.currentTimeMillis()/1000;
+    }
+
 }

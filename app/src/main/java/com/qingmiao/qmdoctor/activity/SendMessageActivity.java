@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.nanchen.compresshelper.CompressHelper;
 import com.qingmiao.qmdoctor.R;
+import com.qingmiao.qmdoctor.bean.BaseBean;
 import com.qingmiao.qmdoctor.bean.SendMessageBean;
 import com.qingmiao.qmdoctor.global.UrlGlobal;
 import com.qingmiao.qmdoctor.utils.GetTime;
@@ -239,7 +240,8 @@ public class SendMessageActivity extends BaseActivity {
                                 startActivity(intent);
                                 finish();
                             } else {
-                                ToastUtils.showLongToast(SendMessageActivity.this, "发帖失败");
+                                BaseBean baseBean = GsonUtil.getInstance().fromJson(string,BaseBean.class);
+                                ToastUtils.showLongToast(SendMessageActivity.this, baseBean.msg);
                             }
 
 

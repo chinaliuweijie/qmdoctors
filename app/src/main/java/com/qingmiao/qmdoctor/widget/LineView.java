@@ -21,10 +21,6 @@ import android.view.View;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * company : 青苗
- * Created by 刘伟杰 on 2017/2/21.
- */
 
 public class LineView extends View {
 

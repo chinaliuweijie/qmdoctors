@@ -7,9 +7,9 @@ package com.qingmiao.qmdoctor.bean;
 public class PicBean extends BaseBean{
     public int code;
     public String status;
-    //缩略图
+    //图
     public String img_url;
-    //原图
+    //缩略图
     public String thumb_url;
 
 

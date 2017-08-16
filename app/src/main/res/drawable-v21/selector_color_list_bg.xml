@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ripple xmlns:android="http://schemas.android.com/apk/res/android"
-    android:color="@color/heavy_white">
+    android:color="@color/light_gray">
     <item>
         <selector xmlns:android="http://schemas.android.com/apk/res/android">
             <!--<item android:drawable="@color/backdrop" android:state_pressed="true" />-->

@@ -1,5 +1,6 @@
 package com.qingmiao.qmdoctor.bean;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -14,7 +15,7 @@ public class PatientDescListBean extends BaseBean{
     public List<DescData> data;
 
 
-    public static class DescData{
+    public static class DescData implements Serializable{
         public String id;
         public String uid;
         public String sick_desc;
@@ -22,6 +23,11 @@ public class PatientDescListBean extends BaseBean{
         public String time;
         public String d_name;
         public String avatar;
+        public String msg;
+        public String pic;
+        public String thumb_pic;
+        public String sound;
+        public String sound_time;
     }
 
 }

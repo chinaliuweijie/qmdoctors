@@ -24,7 +24,7 @@ public class GetTime {
 
 
     public static String getCurrentTime(){
-        SimpleDateFormat  formatter = new SimpleDateFormat   ("yyyy-MM-dd HH:mm");
+        SimpleDateFormat  formatter = new SimpleDateFormat   ("yyyy-MM-dd HH:mm:ss");
         formatter.setTimeZone(TimeZone.getTimeZone("GMT+08"));
         String ee = formatter.format(new Date());
         return ee;

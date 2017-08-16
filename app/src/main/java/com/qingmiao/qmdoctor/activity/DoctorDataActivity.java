@@ -290,24 +290,19 @@ public class DoctorDataActivity extends BaseActivity implements ILibelInfoView{
                 case R.id.ll_sex:
                     // 隐藏输入法
                     hideSoftKeyboard();
-                    int[] contentPadding = {20, 0, 20, 20};
-                    new SuperDialog.Builder(this).setTitle("提示",getResources().getColor(R.color.black_1), (int) getResources().getDimension(R.dimen.tv_sitem_title))
-                            .setBackgroundColor(getResources().getColor(R.color.white)).setMessage("选择性别",getResources().getColor(R.color.black_1),(int) getResources().getDimension(R.dimen.tv_sitem_content),contentPadding)
-                            .setNegativeButton("男", getResources().getColor(R.color.green),(int) getResources().getDimension(R.dimen.tv_sitem_title),-1,new SuperDialog.OnClickNegativeListener(){
-
-                                @Override
-                                public void onClick(View v) {
-                                    tvSex.setText(R.string.text_boy);
-                                    sex = "0";
-                                }
-                            }).setWidth(0.7f)
-                            .setPositiveButton("女", getResources().getColor(R.color.green),(int) getResources().getDimension(R.dimen.tv_sitem_title),-1,new SuperDialog.OnClickPositiveListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    tvSex.setText(R.string.text_woman);
-                                    sex = "1";
-                                }
-                            }).build();
+                    showAlertDialog("提示", "选择性别", "男", new SuperDialog.OnClickNegativeListener() {
+                        @Override
+                        public void onClick(View v) {
+                            tvSex.setText(R.string.text_boy);
+                            sex = "0";
+                        }
+                    }, "女", new SuperDialog.OnClickPositiveListener() {
+                        @Override
+                        public void onClick(View v) {
+                            tvSex.setText(R.string.text_woman);
+                            sex = "1";
+                        }
+                    });
                     break;
                 case R.id.ll_nichen:
                     // @"住院医师",@"主治医师",@"副主任医师",@"主任医师"
@@ -412,6 +407,12 @@ public class DoctorDataActivity extends BaseActivity implements ILibelInfoView{
                             .setShowCamera(true)
                             .setShowGif(true)
                             .setPreviewEnabled(false)
+                            //开启裁剪
+                            .setCrop(true)
+                            //设置裁剪比例(X,Y)
+                            .setCropXY(1, 1)
+                            //设置裁剪界面标题栏颜色，设置裁剪界面状态栏颜色
+                            .setCropColors(R.color.colorPrimary, R.color.colorPrimaryDark)
                             .start(this, PhotoPicker.REQUEST_CODE+1);
                     break;
             }
@@ -434,11 +435,10 @@ public class DoctorDataActivity extends BaseActivity implements ILibelInfoView{
             return ;
         }else if(resultCode == RESULT_OK && requestCode == PhotoPicker.REQUEST_CODE+1){
             if (data != null) {
-                ArrayList<String> photos = data.getStringArrayListExtra(PhotoPicker.KEY_SELECTED_PHOTOS);
                 Glide.with(this)
-                        .load(photos.get(0)).centerCrop()
+                        .load(data.getStringExtra(PhotoPicker.KEY_CAMEAR_PATH)).centerCrop()
                         .into(ivMedataIcon);
-                avatarUri = photos.get(0);
+                avatarUri =data.getStringExtra(PhotoPicker.KEY_CAMEAR_PATH);
             }
             return ;
         }
@@ -541,7 +541,8 @@ public class DoctorDataActivity extends BaseActivity implements ILibelInfoView{
         params.put("nickname",nickname);
         params.put("sign", MD5Util.MD5(GetTime.getTimestamp()));
         if(acatarBean!=null){
-            params.put("avatar",acatarBean.thumb_url);
+            params.put("avatar",acatarBean.img_url);
+            params.put("thumb_avatar",acatarBean.thumb_url);
         }else{
             try {
                 if(doctorDataBean.data.avatar!=null) {
@@ -597,7 +598,7 @@ public class DoctorDataActivity extends BaseActivity implements ILibelInfoView{
                             }
                             try {
                                 if(acatarBean!=null){
-                                    hxUserData.setAvatar(UrlGlobal.SERVER_URL+acatarBean.thumb_url);
+                                    hxUserData.setAvatar(acatarBean.thumb_url);
                                 }else{
                                     hxUserData.setAvatar(doctorDataBean.data.avatar);
                                 }

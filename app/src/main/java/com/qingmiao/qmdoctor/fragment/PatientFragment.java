@@ -425,6 +425,7 @@ public class PatientFragment extends BaseFragment {
 				contactModel.friend = friend;
 				contactModel.type = ContactAdapter.ITEM_TYPE.ITEM_TYPE_CONTACT.ordinal();
 				contactModel.sortLetters = KeyOrValueGlobal.KEY_BIAOXINHUANZHE;
+				contactModel.pinyinName = characterParser.getSelling(contactModel.friend.getShowName());
 				contactModel.friendLibeType = 1;
 				contactModels.add(contactModel);
 			}
@@ -439,6 +440,7 @@ public class PatientFragment extends BaseFragment {
 				} else {
 					contactModel.sortLetters = characterParser.getSelling(contactModel.friend.getShowName()).substring(0, 1).toUpperCase();
 				}
+				contactModel.pinyinName = characterParser.getSelling(contactModel.friend.getShowName());
 				boolean iGoto = false;
 				if (date.marked_u != null) {
 					for (UserFriendBean markFriend : date.marked_u) {

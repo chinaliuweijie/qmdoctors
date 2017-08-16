@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true"
+    android:background="@color/bg"
+    >
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ll_picker"
+        android:background="@drawable/selector_color_list_bg"
+        android:orientation="horizontal">
+
+        <com.qingmiao.qmdoctor.widget.IconFontTextview
+            android:id="@+id/iv_alarm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="13dp"
+            android:text="@string/icons_alarm"
+            android:textColor="@color/text"
+            android:textSize="16dp"
+            android:gravity="center"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            />
+
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@color/text"
+            android:textSize="@dimen/tv_sview_data"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="16dp"
+            />
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/text" />
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
+        >
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_user_avatar"
+            android:id="@+id/iv_acatar"
+            android:layout_marginLeft="13dp"
+            />
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginLeft="20dp"
+             android:text="用户昵称"
+             android:textColor="@color/black_1"
+             android:textSize="@dimen/tv_sview_title_detail"
+             android:layout_gravity="center_vertical"
+             android:singleLine="true"
+             android:id="@+id/tv_nick"
+             />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/ll_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="16dp">
+
+        <com.qingmiao.qmdoctor.widget.AutoSplitTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black_1"
+            android:textSize="@dimen/tv_sview_title_detail"
+            android:id="@+id/tv_data"
+            android:text=""
+            android:ellipsize="end"
+            />
+     </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/text" />
+
+
+
+     <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:singleLine="true"
+         android:textColor="@color/text"
+         android:layout_marginTop="15dp"
+         android:layout_marginLeft="13dp"
+         android:textSize="@dimen/tv_sview_data"
+         android:text="备注说明"
+         />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:text=""
+        android:minHeight="90dp"
+        android:maxLength="200"
+        android:id="@+id/et_detail"
+        android:hint="添加患者备注说明"
+        android:textColor="@color/text"
+        android:textSize="@dimen/tv_sview_data"
+        android:background="@drawable/edittext_common"
+        android:gravity="top"
+        android:layout_marginTop="14dp"
+        android:layout_marginLeft="13dp"
+        android:layout_marginRight="13dp"
+        />
+
+</LinearLayout>
+</ScrollView>

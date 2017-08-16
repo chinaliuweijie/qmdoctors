@@ -69,6 +69,10 @@ public class PatientAllInfoBean extends BaseBean {
             public String sick_desc;
             public String did;
             public String time;
+            public String pic;
+            public String thumb_pic;
+            public String sound;
+            public String sound_time;
         }
     }
 

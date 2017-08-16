@@ -52,7 +52,7 @@ public class ContactAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         characterList = new ArrayList<>();
         mLayoutInflater = LayoutInflater.from(context);
         mContactNames = contactNames;
-        this.mAllDatas = mContactNames;
+         this.mAllDatas = mContactNames;
         initContact();
     }
 
@@ -63,6 +63,12 @@ public class ContactAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     public void setmAllDatas(List<ContactModel> mAllDatas) {
         this.mAllDatas = mAllDatas;
     }
+
+
+    public List<ContactModel> getContactNames(){
+        return mContactNames;
+    }
+
 
     private void initContact() {
         List<ContactModel> newModels = new ArrayList<>();
@@ -148,12 +154,16 @@ public class ContactAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                 ((ContactHolder) holder).ll_content.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if(mContactNames.get(position).isCheck){
-                            ((ContactHolder) holder).cbChecked.setChecked(false);
-                            mContactNames.get(position).isCheck = false;
-                        }else{
-                            ((ContactHolder) holder).cbChecked.setChecked(true);
-                            mContactNames.get(position).isCheck = true;
+                        try{
+                            if(mContactNames.get(position).isCheck){
+                                ((ContactHolder) holder).cbChecked.setChecked(false);
+                                mContactNames.get(position).isCheck = false;
+                            }else{
+                                ((ContactHolder) holder).cbChecked.setChecked(true);
+                                mContactNames.get(position).isCheck = true;
+                            }
+                        }catch (Exception e){
+                            e.printStackTrace();
                         }
                     }
                 });
@@ -164,6 +174,21 @@ public class ContactAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                 ((ContactHolder) holder).ll_content.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+
+                        if( ((ContactHolder) holder).isShowCheck){
+                            try{
+                                if(mContactNames.get(position).isCheck){
+                                    ((ContactHolder) holder).cbChecked.setChecked(false);
+                                    mContactNames.get(position).isCheck = false;
+                                }else{
+                                    ((ContactHolder) holder).cbChecked.setChecked(true);
+                                    mContactNames.get(position).isCheck = true;
+                                }
+                            }catch (Exception e){
+                                e.printStackTrace();
+                            }
+                            ((ContactHolder) holder).cbChecked.setChecked(mContactNames.get(position).isCheck);
+                        }
                         ContactModel contactModel = mContactNames.get(position);
                         if(contactModel!=null && contactModel.friend!=null){
                             onItemClickListener.onItemClick(v,position,contactModel);

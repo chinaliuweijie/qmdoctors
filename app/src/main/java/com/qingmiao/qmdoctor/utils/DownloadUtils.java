@@ -65,6 +65,7 @@ public class DownloadUtils {
             DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
             request.setAllowedOverRoaming(false);
 
+
             //通知栏显示
             request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
             request.setTitle("肾一生医生端");
@@ -123,7 +124,7 @@ public class DownloadUtils {
 
     /**
      */
-    private void installAPK() {
+    public void installAPK() {
         File apkFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "shenyishengyishengduan.apk");
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

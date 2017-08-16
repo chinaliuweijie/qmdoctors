@@ -92,13 +92,7 @@ public class PatientDividerDecoration extends RecyclerView.ItemDecoration {
                 }
                 c.restore();
             }
-
-
-
         }
-
-
-
     }
 
     /**
@@ -118,10 +112,31 @@ public class PatientDividerDecoration extends RecyclerView.ItemDecoration {
         int position = parent.getChildAdapterPosition(view);
 
         if (lRecyclerViewAdapter.isRefreshHeader(position) || lRecyclerViewAdapter. isHeader(position) || lRecyclerViewAdapter.isFooter(position)) {
-            outRect.bottom = mHeight;
+            outRect.bottom = 0;
             outRect.set(0, 0, 0, 0);
         } else {
-            outRect.set(0, 0, 0, mHeight);
+            int Dcount = lRecyclerViewAdapter.getHeaderViewsCount() + 1;
+            if(lRecyclerViewAdapter.getItemViewType(position - Dcount)==ITEM_TYPE.ITEM_TYPE_CHARACTER.ordinal()){
+                outRect.set(0, 0, 0, 0);
+            }else if(lRecyclerViewAdapter.getItemViewType(position - Dcount)==ITEM_TYPE.ITEM_TYPE_CONTACT.ordinal()){
+                // 判断下一个view 是不是顶部标题  如果是顶部标题  不要绘制分割线   如果是内容 继续绘制分割线
+                try{
+                    if(lRecyclerViewAdapter.getItemViewType(position - lRecyclerViewAdapter.getHeaderViewsCount())==ITEM_TYPE.ITEM_TYPE_CHARACTER.ordinal()){
+                        outRect.set(0, 0, 0, 0);
+                    }else if(lRecyclerViewAdapter.getItemViewType(position - lRecyclerViewAdapter.getHeaderViewsCount())==ITEM_TYPE.ITEM_TYPE_CONTACT.ordinal()){
+                        outRect.set(0, 0, 0, mHeight);
+                    }else{
+                        outRect.set(0, 0, 0, 0);
+                    }
+                }catch (Exception e){
+                    e.printStackTrace();
+                    outRect.set(0, 0, 0, 0);
+                }
+            }else{
+                outRect.set(0, 0, 0, 0);
+            }
+
+          //  outRect.set(0, 0, 0, mHeight);
         }
 
     }

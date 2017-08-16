@@ -5,10 +5,24 @@
     android:id="@+id/ll_item"
     android:background="@color/bg">
 
+    <com.qingmiao.qmdoctor.widget.IconFontTextview
+        android:id="@+id/icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="12dp"
+        android:text="@string/icons_xinhao"
+        android:textColor="@color/text"
+        android:visibility="gone"
+        android:textSize="23dp" />
+
+
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/icon"
         android:layout_marginLeft="12dp"
         android:text="尿蛋白定量"
         android:id="@+id/tv_sick_desc"
@@ -17,9 +31,16 @@
         android:textSize="@dimen/tv_sview_data" />
 
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:layout_alignParentBottom="true"
-        android:background="@color/text" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="12dp"
+        android:text="5s"
+        android:visibility="gone"
+        android:id="@+id/tv_voice_time"
+        android:layout_alignParentRight="true"
+        android:textColor="@color/text"
+        android:singleLine="true"
+        android:textSize="@dimen/tv_sview_data" />
 </RelativeLayout>

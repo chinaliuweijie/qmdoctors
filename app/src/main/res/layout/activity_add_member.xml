@@ -1,29 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom_attr="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/white"
     android:orientation="vertical" >
 
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/layout_default"
         android:layout_width="match_parent"
-        android:background="@color/backdrop"
+        android:orientation="horizontal"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         android:layout_height="wrap_content">
+
+        <com.qingmiao.qmdoctor.widget.CustomFramlayout
+            android:id="@+id/customFram"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:id="@+id/scollview"
+            android:scrollbars="none" >
+
+            <LinearLayout
+                android:id="@+id/id_gallery"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="horizontal" >
+            </LinearLayout>
+        </HorizontalScrollView>
+        </com.qingmiao.qmdoctor.widget.CustomFramlayout>
+
+
+
         <com.qingmiao.qmdoctor.widget.ClearEditText
             android:id="@+id/filter_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:minWidth="100dp"
             android:textSize="@dimen/tv_sview_title_detail"
             android:drawablePadding="3dp"
             android:paddingLeft="10dp"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
+            android:gravity="center_vertical"
             android:drawableLeft="@drawable/iv_seach"
             android:background="@drawable/edittext_common"
             android:hint="搜索" />
 
-    </RelativeLayout>
+    </LinearLayout>
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -33,6 +63,15 @@
         android:id="@+id/frameLayout"
         >
     </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@color/transparent_while"
+            android:id="@+id/ll_search"
+            android:visibility="gone"
+            ></LinearLayout>
         <TextView
             android:id="@+id/noResult"
             android:layout_width="match_parent"

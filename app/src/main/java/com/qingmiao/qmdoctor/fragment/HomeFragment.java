@@ -89,53 +89,55 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener{
         super.onCreate(savedInstanceState);
         EventBus.getDefault().register(this);
         // 自动检测新版本
-        OkHttpUtils.post()
-                .url(UrlGlobal.GET_VERSION)
-                .addParams("sign", MD5Util.MD5(GetTime.getTimestamp()))
-                .addParams("type","2")
-                .build()
-                .execute(new StringCallback() {
-                    @Override
-                    public void onError(Call call, Exception e, int id) {
-                        System.out.println(e.toString());
-                    //    ToastUtils.showLongToast(AboutUsActivity.this,"当前已经是最新版本!");
-                    }
-
-                    @Override
-                    public void onResponse(String response, int id) {
-                        try {
-                            final VersionBean versionBean = GsonUtil.getInstance().fromJson(response,VersionBean.class);
-                            if(versionBean.code == 0){
-                                int mVersion = getVersion();
-                                int sVersion = Integer.parseInt(versionBean.data.get(0).android_version);
-                                if(sVersion>mVersion){
-                                    int[] contentPadding = {20, 0, 20, 20};
-                                    new SuperDialog.Builder(getActivity()).setTitle("提示",getResources().getColor(R.color.black_1), (int) getResources().getDimension(R.dimen.tv_sitem_title))
-                                            .setBackgroundColor(getResources().getColor(R.color.white)).setMessage("发现新版本,是否更新!",getResources().getColor(R.color.black_1),(int) getResources().getDimension(R.dimen.tv_sitem_content),contentPadding)
-                                            .setNegativeButton("确定", getResources().getColor(R.color.green),(int) getResources().getDimension(R.dimen.tv_sitem_title),-1,new SuperDialog.OnClickNegativeListener(){
-
-                                                @Override
-                                                public void onClick(View v) {
-                                                    DownloadUtils downloadUtils = new DownloadUtils(getActivity());
-                                                    downloadUtils.download(versionBean.data.get(0).android_url);
-                                                }
-                                            }).setWidth(0.7f)
-                                            .setPositiveButton("取消", getResources().getColor(R.color.green),(int) getResources().getDimension(R.dimen.tv_sitem_title),-1,new SuperDialog.OnClickPositiveListener() {
-                                                @Override
-                                                public void onClick(View v) {
-                                                }
-                                            }).build();
-                                }else{
-                                 //   ToastUtils.showLongToast(getActivity(),"当前已经是最新版本!");
-                                }
-                            }
-                        }catch (Exception e){
-                            e.printStackTrace();
-                          //  ToastUtils.showLongToast(AboutUsActivity.this,"当前已经是最新版本!");
-                        }
-
-                    }
-                });
+//        OkHttpUtils.post()
+//                .url(UrlGlobal.GET_VERSION)
+//                .addParams("sign", MD5Util.MD5(GetTime.getTimestamp()))
+//                .addParams("type","2")
+//                .build()
+//                .execute(new StringCallback() {
+//                    @Override
+//                    public void onError(Call call, Exception e, int id) {
+//                        System.out.println(e.toString());
+//                    //    ToastUtils.showLongToast(AboutUsActivity.this,"当前已经是最新版本!");
+//                    }
+//
+//                    @Override
+//                    public void onResponse(String response, int id) {
+//                        try {
+//                            final VersionBean versionBean = GsonUtil.getInstance().fromJson(response,VersionBean.class);
+//                            if(versionBean.code == 0){
+//                                int mVersion = getVersion();
+//                                int sVersion = Integer.parseInt(versionBean.data.get(0).android_version);
+//                                if(sVersion>mVersion){
+//                                    int[] contentPadding = {20, 0, 20, 20};
+//                                    new SuperDialog.Builder(getActivity()).setTitle("提示",getResources().getColor(R.color.black_1), (int) getResources().getDimension(R.dimen.tv_sitem_title))
+//                                            .setBackgroundColor(getResources().getColor(R.color.white)).setMessage("发现新版本,是否更新!",getResources().getColor(R.color.black_1),(int) getResources().getDimension(R.dimen.tv_sitem_content),contentPadding)
+//                                            .setNegativeButton("确定", getResources().getColor(R.color.green),(int) getResources().getDimension(R.dimen.tv_sitem_title),-1,new SuperDialog.OnClickNegativeListener(){
+//
+//                                                @Override
+//                                                public void onClick(View v) {
+//                                                    DownloadUtils downloadUtils = new DownloadUtils(getActivity());
+//                                                    downloadUtils.download(versionBean.data.get(0).android_url);
+//                                                }
+//                                            }).setWidth(0.7f)
+//                                            .setPositiveButton("取消", getResources().getColor(R.color.green),(int) getResources().getDimension(R.dimen.tv_sitem_title),-1,new SuperDialog.OnClickPositiveListener() {
+//                                                @Override
+//                                                public void onClick(View v) {
+//                                                    //  推出应用
+//                                                    getActivity().finish();
+//                                                }
+//                                            }).build();
+//                                }else{
+//                                 //   ToastUtils.showLongToast(getActivity(),"当前已经是最新版本!");
+//                                }
+//                            }
+//                        }catch (Exception e){
+//                            e.printStackTrace();
+//                          //  ToastUtils.showLongToast(AboutUsActivity.this,"当前已经是最新版本!");
+//                        }
+//
+//                    }
+//                });
     }
 
     /**

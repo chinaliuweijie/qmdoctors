@@ -13,7 +13,7 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-   <!-- <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />-->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -56,83 +56,88 @@
                 <action android:name="android.intent.action.USER_PRESENT" />
             </intent-filter>
         </receiver>
-        <activity android:name=".activity.SplashActivity"
-            android:theme="@style/SplashTheme"
-            android:screenOrientation="portrait">
+
+        <activity
+            android:name=".activity.SplashActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.WelcomeActivity"/>
-        <activity android:name=".activity.MainActivity"
+        <activity android:name=".activity.WelcomeActivity" />
+        <activity
+            android:name=".activity.MainActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan|stateHidden">
-        </activity>
-        <activity android:name=".activity.LoginActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activity.RegisterActivity"
-            android:screenOrientation="portrait"/>
+            android:windowSoftInputMode="adjustPan|stateHidden"></activity>
+        <activity
+            android:name=".activity.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.RegisterActivity"
+            android:screenOrientation="portrait" />
         <activity android:name=".activity.DoctorDataActivity" />
         <activity android:name=".activity.SettingActivity" />
         <activity android:name=".activity.AddPatientActivity" />
         <activity android:name=".activity.AddLabelActivity" />
-        <activity android:name=".activity.PatientDataActivity"
-            android:launchMode="singleTask"/>
+        <activity
+            android:name=".activity.PatientDataActivity" />
         <activity android:name=".activity.ComplainActivity" />
         <activity android:name=".activity.PatientDetailActivity" />
         <activity android:name=".activity.RenalCirclePagerActivity" />
         <activity android:name=".activity.WebViewZActivity" />
         <activity android:name=".activity.SendMessageActivity" />
-        <activity android:name=".activity.AddMemberActivity"
-            android:windowSoftInputMode="adjustPan|stateHidden"/>
+        <activity
+            android:name=".activity.AddMemberActivity"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity android:name=".activity.LabelListActivity" />
-        <activity android:name=".activity.PatientInfoDetailsActivity"/>
-        <activity android:name=".activity.PatientCaseTestActivity"/>
-        <activity android:name=".activity.PatientBySelfActivity"/>
-        <activity android:name=".activity.CaseDataInfoActivity"/>
-        <activity android:name=".activity.WebViewCircleActivity"/>
-        <activity android:name="com.hyphenate.easeui.ui.EaseShowBigImageActivity"></activity>
-        <activity android:name="com.hyphenate.easeui.ui.EaseShowNormalFileActivity"></activity>
-        <activity android:name=".activity.ResetPwdActivity"/>
-        <activity android:name=".activity.FeedBackActivity"/>
-        <activity android:name=".activity.AboutUsActivity"/>
-        <activity android:name=".activity.MyPatientActivity"/>
-        <activity android:name=".activity.MyCollectDocumentActivity"/>
-        <activity android:name=".activity.FindPwdActivity"/>
-        <activity android:name=".activity.DocumentTalkActivity"/>
-        <activity android:name=".activity.InstitutePrevueActivity"></activity>
-        <activity android:name=".activity.TalkPatientCaseActivity"></activity>
-        <activity android:name=".activity.TalkDocuterActivity"></activity>
-        <activity android:name=".activity.PDFWebViewActivity"></activity>
-        <activity android:name=".activity.CaseIconActivity"></activity>
-        <activity android:name=".activity.BigCaseIconActivity"
-            android:screenOrientation="landscape"
-            ></activity>
-        <activity android:name=".activity.NewPatientListActivity"></activity>
+        <activity android:name=".activity.PatientInfoDetailsActivity" />
+        <activity android:name=".activity.PatientCaseTestActivity" />
+        <activity android:name=".activity.PatientBySelfActivity" />
+        <activity android:name=".activity.CaseDataInfoActivity" />
+        <activity android:name=".activity.WebViewCircleActivity" />
+        <activity android:name="com.hyphenate.easeui.ui.EaseShowBigImageActivity" />
+        <activity android:name="com.hyphenate.easeui.ui.EaseShowNormalFileActivity" />
+        <activity android:name=".activity.ResetPwdActivity" />
+        <activity android:name=".activity.FeedBackActivity" />
+        <activity android:name=".activity.AboutUsActivity" />
+        <activity android:name=".activity.MyPatientActivity" />
+        <activity android:name=".activity.MyCollectDocumentActivity" />
+        <activity android:name=".activity.FindPwdActivity" />
+        <activity android:name=".activity.DocumentTalkActivity" />
+        <activity android:name=".activity.InstitutePrevueActivity" />
+        <activity android:name=".activity.TalkPatientCaseActivity" />
+        <activity android:name=".activity.TalkDocuterActivity" />
+        <activity android:name=".activity.PDFWebViewActivity" />
+        <activity android:name=".activity.CaseIconActivity" />
+        <activity
+            android:name=".activity.BigCaseIconActivity"
+            android:screenOrientation="landscape" />
+        <activity android:name=".activity.NewPatientListActivity" />
+        <activity
+            android:name="me.iwf.photopicker.PhotoPickerActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name="me.iwf.photopicker.PhotoPagerActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity android:name=".activity.WebCommentActivity" />
+        <activity
+            android:name=".activity.ChatActivity"
+            android:launchMode="singleTask" />
+        <activity android:name=".activity.UserRuleWebActivity" />
+        <activity android:name=".activity.PatientDescribeActivity"/>
+        <activity android:name=".activity.PatientDescribeItemActivity"/>
 
-
-        <activity android:name="me.iwf.photopicker.PhotoPickerActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
-            />
-
-        <activity android:name="me.iwf.photopicker.PhotoPagerActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
-
-        <activity android:name=".activity.WebCommentActivity"/>
-        <activity android:name=".activity.ChatActivity"
-            android:launchMode="singleTask"/>
-        <activity android:name=".activity.UserRuleWebActivity"/>
-
-        <!--友盟登录分享设置-->
+        <!-- 友盟登录分享设置 -->
         <meta-data
             android:name="UMENG_APPKEY"
-            android:value="5919336b2ae85b29420006bf" >
-        </meta-data>
-
-        <meta-data android:value="Channel ID" android:name="UMENG_CHANNEL"/>
+            android:value="5919336b2ae85b29420006bf"></meta-data>
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="Channel ID" />
 
         <activity
             android:name=".wxapi.WXEntryActivity"
@@ -143,7 +148,7 @@
         <activity
             android:name="com.umeng.qq.tencent.AuthActivity"
             android:launchMode="singleTask"
-            android:noHistory="true" >
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -155,26 +160,42 @@
         </activity>
         <activity
             android:name="com.umeng.qq.tencent.AssistActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:configChanges="orientation|keyboardHidden|screenSize"/>
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity
             android:name="com.umeng.socialize.editorpage.ShareActivity"
-            android:excludeFromRecents="true"
-            />
+            android:excludeFromRecents="true" />
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
         <receiver
             android:name=".receiver.MyJPushReceiver"
-            android:exported="false"
-            android:enabled="true">
+            android:enabled="true"
+            android:exported="false">
             <intent-filter>
-                <action android:name="cn.jpush.android.intent.REGISTRATION" /> <!--Required  用户注册SDK的intent-->
-                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED" /> <!--Required  用户接收SDK消息的intent-->
-                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" /> <!--Required  用户接收SDK通知栏信息的intent-->
-                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" /> <!--Required  用户打开自定义通知栏的intent-->
-                <action android:name="cn.jpush.android.intent.CONNECTION" /><!-- 接收网络变化 连接/断开 since 1.6.3 -->
+                <action android:name="cn.jpush.android.intent.REGISTRATION" /> <!-- Required  用户注册SDK的intent -->
+                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED" /> <!-- Required  用户接收SDK消息的intent -->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" /> <!-- Required  用户接收SDK通知栏信息的intent -->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" /> <!-- Required  用户打开自定义通知栏的intent -->
+                <action android:name="cn.jpush.android.intent.CONNECTION" /> <!-- 接收网络变化 连接/断开 since 1.6.3 -->
                 <category android:name="com.qingmiao.qmdoctor" />
             </intent-filter>
         </receiver>
+        <!--监听安装完apk 删除apk-->
+        <receiver
+            android:name="com.qingmiao.qmdoctor.receiver.InitApkBroadCastReceiver"
+            android:enabled="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REPLACED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+
     </application>
 
 </manifest>

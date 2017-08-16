@@ -35,13 +35,28 @@ public class GlideUtils {
             Glide.with(mContext).load(R.drawable.ic_load_deferent).centerCrop().into(imageview);
             return;
         }
-        if(!path.contains("http")){
-            Glide.with(mContext).load(SERVER_URL+path).error(R.drawable.ic_load_deferent).centerCrop().into(imageview);
-        }else{
-            Glide.with(mContext).load(path).error(R.drawable.ic_load_deferent).centerCrop()
-                    .into(imageview);
-        }
+        Glide.with(mContext).load(path).error(R.drawable.ic_load_deferent).centerCrop()
+                .into(imageview);
     }
+
+
+    /**
+     * 加载网络图片
+     * @param mContext
+     * @param path
+     * @param imageview
+     */
+    public static void LoadImageFull(Context mContext, String path,
+                                 ImageView imageview) {
+        if(TextUtils.isEmpty(path)){
+            Glide.with(mContext).load(R.drawable.ic_load_deferent).into(imageview);
+            return;
+        }
+        Glide.with(mContext).load(path).error(R.drawable.ic_load_deferent).into(imageview);
+    }
+
+
+
 
     /**
      * 加载带尺寸的图片
@@ -63,7 +78,7 @@ public class GlideUtils {
      * @param path
      * @param imageview
      */
-    public static void LoadImageWithLocation(Context mContext, Integer path,
+    public static void LoadImageWithLocation(Context mContext, String path,
                                              ImageView imageview) {
         Glide.with(mContext).load(path).diskCacheStrategy(DiskCacheStrategy.SOURCE)
                 .into(imageview);

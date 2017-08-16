@@ -8,60 +8,27 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.text.TextUtils;
 import android.view.Display;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.github.jdsjlzx.ItemDecoration.DividerDecoration;
-import com.github.jdsjlzx.interfaces.OnItemClickListener;
-import com.github.jdsjlzx.interfaces.OnLoadMoreListener;
 import com.github.jdsjlzx.interfaces.OnRefreshListener;
 import com.github.jdsjlzx.recyclerview.LRecyclerView;
 import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter;
 import com.github.jdsjlzx.recyclerview.ProgressStyle;
-import com.hyphenate.easeui.utils.GlideUtils;
 import com.qingmiao.qmdoctor.R;
-import com.qingmiao.qmdoctor.activity.MyCollectDocumentActivity;
-import com.qingmiao.qmdoctor.activity.WebViewCircleActivity;
-import com.qingmiao.qmdoctor.activity.WebViewZActivity;
 import com.qingmiao.qmdoctor.adapter.ContactAdapter;
-import com.qingmiao.qmdoctor.base.ListBaseAdapter;
-import com.qingmiao.qmdoctor.base.SuperViewHolder;
-import com.qingmiao.qmdoctor.bean.CollectDocumentBean;
 import com.qingmiao.qmdoctor.bean.ContactModel;
-import com.qingmiao.qmdoctor.bean.PatientFriendListBean;
-import com.qingmiao.qmdoctor.bean.UserFriendBean;
-import com.qingmiao.qmdoctor.global.KeyOrValueGlobal;
-import com.qingmiao.qmdoctor.global.UrlGlobal;
-import com.qingmiao.qmdoctor.utils.GetTime;
-import com.qingmiao.qmdoctor.utils.MD5Util;
 import com.qingmiao.qmdoctor.utils.PrefUtils;
-import com.qingmiao.qmdoctor.utils.TimeUtils;
-import com.qingmiao.qmdoctor.utils.ToastUtils;
 import com.qingmiao.qmdoctor.widget.CharacterParser;
 import com.qingmiao.qmdoctor.widget.PatientDividerDecoration;
 import com.qingmiao.qmdoctor.widget.PinyinComparator;
 import com.qingmiao.qmdoctor.widget.SideBar;
-import com.qingmiao.qmdoctor.widget.SwipeMenuView;
-import com.zhy.http.okhttp.OkHttpUtils;
-import com.zhy.http.okhttp.callback.StringCallback;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import okhttp3.Call;
-
 
 public class ContactRecyclerFragment extends BaseFragment {
 
@@ -237,16 +204,6 @@ public class ContactRecyclerFragment extends BaseFragment {
             upDataList(adapter.getmAllDatas());
             return adapter.getmAllDatas();
         }else{
-//            for (int i = 0; i < adapter.getDataList().size(); i++) {
-//                ContactModel contactModel = adapter.getDataList().get(i);
-//                if (contactModel.type == ContactAdapter.ITEM_TYPE.ITEM_TYPE_CONTACT.ordinal() && contactModel.friend != null) {
-//                    if (contactModel.friend.remark_names.contains(s)) {
-//                        tempExaple.add(contactModel);
-//                    }
-//                }
-//            }
-//            upDataList(tempExaple);
-//            return tempExaple;
             CharacterParser characterParser = new CharacterParser();
             tempExaple.clear();
             for(ContactModel contactModel : getAdapter().getmAllDatas()){

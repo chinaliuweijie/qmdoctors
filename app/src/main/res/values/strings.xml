@@ -18,7 +18,6 @@
     <string name="icons_add">&#xe78a;</string>
     <string name="icons_home">&#xe652;</string>
     <string name="icons_who">&#xe9e9;</string>
-    <string name="icons_delete">&#xe655;</string>
     <string name="icons_doctor">&#xe693;</string>
     <string name="icons_case">&#xe60c;</string>
     <string name="icons_me">&#xe611;</string>
@@ -58,9 +57,19 @@
     <string name="icons_data">&#xe79f;</string>
     <string name="icons_tag">&#xe748;</string>
     <string name="icons_add_mianban">&#xe64a;</string>
+    <string name="icons_alarm">&#xe61c;</string>
+    <string name="icons_delete">&#xe655;</string>
+    <string name="icons_take_picture">&#xe632;</string>
+    <string name="icons_picture">&#xe65c;</string>
+    <string name="icons_voice">&#xe60f;</string>
+    <string name="icons_xinhao">&#xe78c;</string>
+    <string name="icons_pic">&#xe666;</string>
+    
     <string name="text_phone">手机号码非法</string>
     <string name="text_numberpassword">账号和密码不能为空</string>
     <string name="loading">数据加载中...</string>
     <string name="aboutText">西安青苗生物科技有限公司版权所有</string>
 
+    <string name="position"></string>
+    <string name="istrans"></string>
 </resources>

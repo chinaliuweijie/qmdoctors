@@ -145,6 +145,7 @@ public class PatientDataActivity extends BaseActivity implements View.OnClickLis
         recyclerviewCaseTest.setArrowImageView(R.drawable.ic_pulltorefresh_arrow);
         recyclerviewCaseTest.setPullRefreshEnabled(false);
         mLRecyclerViewAdapter.removeFooterView();
+        rvSickDesc.addItemDecoration(divider);
         rvSickDesc.setLayoutManager(new LinearLayoutManager(this));
         rvSickDesc.setItemAnimator(new DefaultItemAnimator());
         patientSickDescAdapter = new ListBaseAdapter<PatientAllInfoBean.PatientData.PatientSickDesc>(this) {
@@ -156,8 +157,26 @@ public class PatientDataActivity extends BaseActivity implements View.OnClickLis
 
             @Override
             public void onBindItemHolder(SuperViewHolder holder, int position) {
+                PatientAllInfoBean.PatientData.PatientSickDesc patientSickDesc = getDataList().get(position);
                 TextView tvSickSesc = holder.getView(R.id.tv_sick_desc);
-                tvSickSesc.setText(getDataList().get(position).sick_desc);
+                IconFontTextview icon = holder.getView(R.id.icon);
+                TextView tvTime = holder.getView(R.id.tv_voice_time);
+                if(!TextUtils.isEmpty(patientSickDesc.pic)){
+                    icon.setText(R.string.icons_pic);
+                    icon.setVisibility(View.VISIBLE);
+                    tvSickSesc.setText("图片");
+                    tvTime.setVisibility(View.GONE);
+                }else if(!TextUtils.isEmpty(patientSickDesc.sound)){
+                    icon.setText(R.string.icons_xinhao);
+                    icon.setVisibility(View.VISIBLE);
+                    tvSickSesc.setText("语音");
+                    tvTime.setVisibility(View.VISIBLE);
+                    tvTime.setText(patientSickDesc.sound_time+"s");
+                }else{
+                    tvSickSesc.setText(getDataList().get(position).sick_desc);
+                    tvTime.setVisibility(View.GONE);
+                    icon.setVisibility(View.GONE);
+                }
             }
         };
 

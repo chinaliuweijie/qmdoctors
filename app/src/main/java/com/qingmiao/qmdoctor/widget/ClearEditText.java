@@ -26,8 +26,8 @@ public class ClearEditText extends EditText implements
     	this(context, null); 
     } 
  
-    public ClearEditText(Context context, AttributeSet attrs) { 
-    	//���ﹹ�췽��Ҳ����Ҫ����������ܶ����Բ�����XML���涨��
+    public ClearEditText(Context context, AttributeSet attrs) {
+
     	this(context, attrs, android.R.attr.editTextStyle); 
     } 
     
@@ -37,8 +37,8 @@ public class ClearEditText extends EditText implements
     }
     
     
-    private void init() { 
-    	//��ȡEditText��DrawableRight,����û���������Ǿ�ʹ��Ĭ�ϵ�ͼƬ
+    private void init() {
+
     	mClearDrawable = getCompoundDrawables()[2]; 
         if (mClearDrawable == null) { 
         	mClearDrawable = getResources() 

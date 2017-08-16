@@ -76,22 +76,18 @@ public class AboutUsActivity extends BaseActivity {
                                         int mVersion = getVersion();
                                         int sVersion = Integer.parseInt(versionBean.data.get(0).android_version);
                                         if(sVersion>mVersion){
-                                            int[] contentPadding = {20, 0, 20, 20};
-                                            new SuperDialog.Builder(AboutUsActivity.this).setTitle("提示",getResources().getColor(R.color.black_1), (int) getResources().getDimension(R.dimen.tv_sitem_title))
-                                                    .setBackgroundColor(getResources().getColor(R.color.white)).setMessage("发现新版本,是否更新!",getResources().getColor(R.color.black_1),(int) getResources().getDimension(R.dimen.tv_sitem_content),contentPadding)
-                                                    .setNegativeButton("确定", getResources().getColor(R.color.green),(int) getResources().getDimension(R.dimen.tv_sitem_title),-1,new SuperDialog.OnClickNegativeListener(){
+                                            showAlertDialog("提示", "发现新版本,是否更新!", "取消", new SuperDialog.OnClickNegativeListener() {
+                                                @Override
+                                                public void onClick(View v) {
 
-                                                        @Override
-                                                        public void onClick(View v) {
-                                                            DownloadUtils downloadUtils = new DownloadUtils(AboutUsActivity.this);
-                                                            downloadUtils.download(versionBean.data.get(0).android_url);
-                                                        }
-                                                    }).setWidth(0.7f)
-                                                    .setPositiveButton("取消", getResources().getColor(R.color.green),(int) getResources().getDimension(R.dimen.tv_sitem_title),-1,new SuperDialog.OnClickPositiveListener() {
-                                                        @Override
-                                                        public void onClick(View v) {
-                                                        }
-                                                    }).build();
+                                                }
+                                            }, "确定", new SuperDialog.OnClickPositiveListener() {
+                                                @Override
+                                                public void onClick(View v) {
+                                                    DownloadUtils downloadUtils = new DownloadUtils(AboutUsActivity.this);
+                                                    downloadUtils.download(versionBean.data.get(0).android_url);
+                                                }
+                                            });
                                         }else{
                                             ToastUtils.showLongToast(AboutUsActivity.this,"当前已经是最新版本!");
                                         }
@@ -100,7 +96,6 @@ public class AboutUsActivity extends BaseActivity {
                                     e.printStackTrace();
                                     ToastUtils.showLongToast(AboutUsActivity.this,"当前已经是最新版本!");
                                 }
-
                             }
                         });
 

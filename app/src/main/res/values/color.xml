@@ -28,9 +28,12 @@
     <color name="light_green_book">#92DDA2</color>
     <color name="alpha">#0000</color>
     <color name="orange">#FF9A58</color>
+    <color name="transparent_while">#ddffffff</color>
+     <color name="voice_bg">#F9F9F9</color>
 
     <drawable name="green">#1ed06d</drawable>
     <drawable name="gray">#777</drawable>
+
 
 
 </resources>

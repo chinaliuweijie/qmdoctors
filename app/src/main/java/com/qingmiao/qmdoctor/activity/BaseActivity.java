@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentActivity;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -17,8 +18,10 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.github.jdsjlzx.progressindicator.AVLoadingIndicatorView;
+import com.mylhyl.superdialog.SuperDialog;
 import com.qingmiao.qmdoctor.R;
 import com.qingmiao.qmdoctor.global.MyApplication;
 import com.qingmiao.qmdoctor.presenter.SimplePresenter;
@@ -30,6 +33,7 @@ import com.qingmiao.qmdoctor.view.IBaseView;
 import com.qingmiao.qmdoctor.widget.IconFontTextview;
 import com.qingmiao.qmdoctor.widget.customdialog.SweetAlertDialog;
 import com.umeng.analytics.MobclickAgent;
+import com.zhy.http.okhttp.OkHttpUtils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -128,12 +132,12 @@ public class BaseActivity extends FragmentActivity implements IBaseView,View.OnC
         PermissionsManager.getInstance().requestAllManifestPermissionsIfNecessary(this, new PermissionsResultAction() {
             @Override
             public void onGranted() {
-				//Toast.makeText(BaseActivity.this, "All permissions have been granted", Toast.LENGTH_SHORT).show();
+			//	Toast.makeText(BaseActivity.this, "All permissions have been granted", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onDenied(String permission) {
-              //  Toast.makeText(BaseActivity.this, "Permission " + permission + " has been denied", Toast.LENGTH_SHORT).show();
+             //   Toast.makeText(BaseActivity.this, "Permission " + permission + " has been denied", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -264,9 +268,11 @@ public class BaseActivity extends FragmentActivity implements IBaseView,View.OnC
         }
     }
 
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        OkHttpUtils.getInstance().cancelTag(this);
        // RefWatcher refWatcher = MyApplication.getRefWatcher(this);
        // refWatcher.watch(this);
     }
@@ -302,6 +308,37 @@ public class BaseActivity extends FragmentActivity implements IBaseView,View.OnC
                 ((TextView) v).setEnabled(false);
                 ((TextView) v).setClickable(false);
             }
+        }
+    }
+
+
+    public void showAlertDialog(String title, String msg, String Negative, @NonNull SuperDialog.OnClickNegativeListener negativeListener, String Positive, @NonNull SuperDialog.OnClickPositiveListener positiveListener) {
+        int[] contentPadding = {20, 0, 20, 40};
+        if (TextUtils.isEmpty(title)) {
+            contentPadding = new int[]{20, 40, 20, 40};
+            new SuperDialog.Builder(this).setCancelable(true).setCanceledOnTouchOutside(true)
+                    .setBackgroundColor(getResources().getColor(R.color.white)).setMessage(msg, getResources().getColor(R.color.black), (int) getResources().getDimension(R.dimen.tv_sitem_title), contentPadding)
+                    .setNegativeButton(Negative, getResources().getColor(R.color.green), (int) getResources().getDimension(R.dimen.tv_sitem_title), -1, negativeListener).setWidth(0.7f)
+                    .setPositiveButton(Positive, getResources().getColor(R.color.green), (int) getResources().getDimension(R.dimen.tv_sitem_title), -1, positiveListener).build();
+        } else {
+            new SuperDialog.Builder(this).setCancelable(true).setCanceledOnTouchOutside(true).setTitle(title, getResources().getColor(R.color.green), (int) getResources().getDimension(R.dimen.tv_sitem_title), 40 + (int) getResources().getDimension(R.dimen.tv_sitem_title) + 20)
+                    .setBackgroundColor(getResources().getColor(R.color.white)).setMessage(msg, getResources().getColor(R.color.black), (int) getResources().getDimension(R.dimen.tv_sitem_title), contentPadding)
+                    .setNegativeButton(Negative, getResources().getColor(R.color.green), (int) getResources().getDimension(R.dimen.tv_sitem_title), -1, negativeListener).setWidth(0.7f)
+                    .setPositiveButton(Positive, getResources().getColor(R.color.green), (int) getResources().getDimension(R.dimen.tv_sitem_title), -1, positiveListener).build();
+        }
+    }
+
+    public void showAlertDialog(String title, String msg, String Positive, @NonNull SuperDialog.OnClickPositiveListener positiveListener) {
+        int[] contentPadding = {20, 0, 20, 0};
+        if (TextUtils.isEmpty(title)) {
+            contentPadding = new int[]{20, 40, 20, 0};
+            new SuperDialog.Builder(this).setCancelable(false).setCanceledOnTouchOutside(false)
+                    .setBackgroundColor(getResources().getColor(R.color.white)).setMessage(msg, getResources().getColor(R.color.black), (int) getResources().getDimension(R.dimen.tv_sitem_title), contentPadding)
+                    .setPositiveButton(Positive, getResources().getColor(R.color.green), (int) getResources().getDimension(R.dimen.tv_sitem_title), -1, positiveListener).build();
+        } else {
+            new SuperDialog.Builder(this).setCancelable(false).setCanceledOnTouchOutside(false).setTitle(title, getResources().getColor(R.color.green), (int) getResources().getDimension(R.dimen.tv_sitem_title), 40 + (int) getResources().getDimension(R.dimen.tv_sitem_title) + 20)
+                    .setBackgroundColor(getResources().getColor(R.color.white)).setMessage(msg, getResources().getColor(R.color.black), (int) getResources().getDimension(R.dimen.tv_sitem_title), contentPadding)
+                    .setPositiveButton(Positive, getResources().getColor(R.color.green), (int) getResources().getDimension(R.dimen.tv_sitem_title), -1, positiveListener).build();
         }
     }
 }

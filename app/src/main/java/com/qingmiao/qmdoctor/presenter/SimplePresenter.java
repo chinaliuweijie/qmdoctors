@@ -1,5 +1,6 @@
 package com.qingmiao.qmdoctor.presenter;
 
+import android.app.Activity;
 import android.widget.Toast;
 
 import com.qingmiao.qmdoctor.bean.BaseBean;
@@ -9,6 +10,8 @@ import com.qingmiao.qmdoctor.model.SimpleModel;
 import com.qingmiao.qmdoctor.view.IBaseView;
 import com.zhy.http.okhttp.OkHttpUtils;
 
+import java.io.File;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 
 /**
@@ -30,7 +33,15 @@ public class SimplePresenter implements BasePresenter,OnLoadDataListener {
     @Override
     public void startLoad(String uri, LinkedHashMap<String,String> linkedHashMap) {
         this.iBaseView.showProgress();
+        baseModel.setTag((Activity) iBaseView);
         baseModel.loadData(uri,linkedHashMap,this);
+    }
+
+    @Override
+    public void loadFileParems(String uri, LinkedHashMap<String, String> linkedHashMap, String fileKey, HashMap<String, File> fileHashMap) {
+        this.iBaseView.showProgress();
+        baseModel.setTag((Activity) iBaseView);
+        baseModel.loadData(uri,linkedHashMap,fileKey,fileHashMap,this);
     }
 
 

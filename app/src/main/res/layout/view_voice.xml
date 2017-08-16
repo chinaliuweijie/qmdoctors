@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:id="@+id/voice_layout"
+android:layout_width="223dp"
+android:layout_height="wrap_content"
+android:background="@drawable/shape_voice_btn"
+android:paddingTop="8dp"
+android:paddingBottom="8dp">
+
+<ImageView
+    android:id="@+id/iv_voice_image"
+    android:layout_width="30dp"
+    android:layout_height="30dp"
+    android:background="@drawable/chat_sound_item"
+    android:layout_centerVertical="true"
+    android:layout_marginLeft="10dp"
+    android:visibility="visible"
+    />
+
+<ImageView
+    android:id="@+id/iv_voice_image_anim"
+    android:layout_width="30dp"
+    android:layout_height="30dp"
+    android:background="@drawable/chat_voice_send_anim"
+    android:layout_centerVertical="true"
+    android:layout_marginLeft="10dp"
+    android:visibility="gone"
+    />
+
+<TextView
+    android:id="@+id/chat_tv_voice_len"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentRight="true"
+    android:layout_marginRight="10dp"
+    android:text="1s"
+    android:textColor="@color/text"
+    android:textSize="@dimen/tv_sview_data"
+    android:layout_centerVertical="true"
+    />
+</RelativeLayout>

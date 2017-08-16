@@ -296,6 +296,7 @@ public class EaseChatFragment extends EaseBaseFragment implements EMMessageListe
 
             @Override
             public void onUserAvatarClick(String username) {
+
                 if (chatFragmentHelper != null) {
                     chatFragmentHelper.onAvatarClick(username);
                 }

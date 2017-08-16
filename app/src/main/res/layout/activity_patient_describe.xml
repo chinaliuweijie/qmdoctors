@@ -1,59 +1,181 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:fillViewport="true"
-    android:background="@color/backdrop"
-    >
-<LinearLayout
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
+    android:fillViewport="true"
+    android:background="@color/bg"
     android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_marginLeft="12dp"
-        android:gravity="center_vertical"
-        android:text="2017-11-09 09:40"
-        android:id="@+id/tv_time"
-        android:textColor="@color/text"
-        android:textSize="@dimen/tv_sview_title_detail" />
-
-    <EditText
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:layout_centerVertical="true"
-        android:text=""
-        android:padding="12dp"
-        android:maxLength="200"
-        android:id="@+id/et_detail"
-        android:hint="请填写患者症状描述"
-        android:textColor="@color/text"
-        android:textSize="@dimen/tv_sview_title"
-        android:background="@drawable/edittext_common"
-        android:gravity="top"
-        />
+        >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ll_picker"
+            android:background="@drawable/selector_color_list_bg"
+            android:orientation="horizontal">
+
+            <com.qingmiao.qmdoctor.widget.IconFontTextview
+                android:id="@+id/iv_alarm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="13dp"
+                android:text="@string/icons_alarm"
+                android:textColor="@color/text"
+                android:textSize="16dp"
+                android:gravity="center"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                />
+
+
+            <TextView
+                android:id="@+id/tv_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2017-11-09"
+                android:textColor="@color/text"
+                android:textSize="@dimen/tv_sview_data"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="16dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text"
+                android:textSize="@dimen/tv_sview_data"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dp"
+                android:text="10:00:00"
+                android:id="@+id/tv_time"
+                />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/text" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="13dp"
+            android:text="对患者昵称的病情描述"
+            android:textColor="@color/text"
+            android:textSize="@dimen/tv_sview_title_detail"
+            android:layout_gravity="center_vertical"
+            android:singleLine="true"
+            android:id="@+id/tv_nick"
+            />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@drawable/dash_view"
+            android:layerType="software"
+            android:layout_marginLeft="13dp"
+            android:layout_marginRight="13dp"
+            />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:id="@+id/ll_content"
+            android:padding="13dp"
+            >
+        <EditText
+            android:id="@+id/et_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:minHeight="200dp"
+            android:background="@drawable/edittext_common"
+            android:gravity="top"
+            android:layout_marginTop="13dp"
+            android:hint="请填写患者症状描述"
+            android:text=""
+            android:textColor="@color/black_1"
+            android:textColorHint="@color/text"
+            android:textSize="@dimen/tv_sview_data" />
+        </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+        <com.hyphenate.easeui.widget.EaseVoiceRecorderView
+            android:id="@+id/voice_recorder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="invisible" />
+
+    </RelativeLayout>
     <View
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
         android:background="@color/text" />
 
-    <View
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:background="@color/text" />
+        android:layout_height="wrap_content">
+
+        <com.qingmiao.qmdoctor.widget.IconFontTextview
+            android:id="@+id/iv_take_picture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/icons_take_picture"
+            android:textColor="@color/text"
+            android:layout_margin="13dp"
+            android:textSize="20dp" />
+
+        <com.qingmiao.qmdoctor.widget.IconFontTextview
+            android:id="@+id/iv_picture"
+            android:layout_toRightOf="@id/iv_take_picture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/icons_picture"
+            android:textColor="@color/text"
+            android:layout_margin="13dp"
+            android:textSize="20dp" />
+
+        <com.qingmiao.qmdoctor.widget.IconFontTextview
+            android:id="@+id/iv_voice"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/icons_voice"
+            android:textColor="@color/text"
+            android:layout_margin="13dp"
+            android:textSize="20dp" />
+    </RelativeLayout>
 
     <TextView
+        android:id="@+id/tv_length"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginRight="12dp"
         android:gravity="center_vertical|right"
         android:text="0/200"
-        android:id="@+id/tv_length"
+        android:visibility="gone"
         android:textColor="@color/text"
-        android:textSize="@dimen/tv_sview_title_detail"  />
+        android:textSize="@dimen/tv_sview_title_detail" />
 </LinearLayout>
-</ScrollView>
+

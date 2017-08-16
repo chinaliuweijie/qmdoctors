@@ -7,6 +7,9 @@ public class ContactModel implements Serializable{
 	public UserFriendBean friend;
 	// 首字母显示
 	public String sortLetters;
+	// 当前的名字的拼音字母
+	public String pinyinName;
+
 	//TYPE
 	public int type;
 
