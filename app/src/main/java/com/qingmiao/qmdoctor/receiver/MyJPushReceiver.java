@@ -26,7 +26,7 @@ public class MyJPushReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-    //    ToastUtils.showLongToast(context,"收到极光的消息");
+       // ToastUtils.showLongToast(context,"收到极光的消息"+intent.getAction());
         if (null == nm) {
             nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         }

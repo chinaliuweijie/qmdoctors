@@ -5,9 +5,9 @@ package com.qingmiao.qmdoctor.global;
  */
 public class UrlGlobal {
     //服务器根地址
-   //  public static final String SERVER_URL = "https://api.green-bud.cn";
+     public static final String SERVER_URL = "https://api.green-bud.cn";
     // 新的测试地址
-     public static final String SERVER_URL = "http://192.168.70.52";
+    // public static final String SERVER_URL = "http://192.168.70.52";
 
     //医生登录接口
     public static final String LOGIN_URL = SERVER_URL + "/Api/Doctor/login";

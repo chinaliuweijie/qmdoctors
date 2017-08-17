@@ -98,7 +98,7 @@ public class PatientInfoDetailsActivity extends BaseActivity implements ILibelIn
         if(patientInfoBean.code == 0){
             etTags.setText(patientInfoBean.data.u_info.remark_names);
             tvSex.setText(patientInfoBean.data.u_info.sex.equals("0") ?"男":"女");
-            tv_address.setText(patientInfoBean.data.u_info.province + " "+patientInfoBean.data.u_info.city);
+            tv_address.setText((TextUtils.isEmpty(patientInfoBean.data.u_info.province) ? "" : patientInfoBean.data.u_info.province) + " "+ (TextUtils.isEmpty(patientInfoBean.data.u_info.city)?"":patientInfoBean.data.u_info.city));
             tvBirthday.setText(TimeUtils.getStrTime(patientInfoBean.data.u_info.birth_date,TimeUtils.BIRTHDAY_FORMAT));
             tvRelation.setText(patientInfoBean.data.u_info.relation.equals("0")?"本人":"非本人");
             tvJiuzhen.setText(patientInfoBean.data.u_info.if_vis.equals("0")?"未就诊":"就诊");

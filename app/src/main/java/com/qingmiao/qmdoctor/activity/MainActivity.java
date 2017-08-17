@@ -138,7 +138,7 @@ public class MainActivity extends BaseActivity {
                                                 @Override
                                                 public void onClick(DialogInterface dialog, int which) {
                                                     String fileName = "shenyishengyishengduan.apk";
-                                                  //  upApp(versionBean, fileName, sVersion);
+                                                    upApp(versionBean, fileName, sVersion);
                                                 }
                                             });
                                     if(!isFinishing()){

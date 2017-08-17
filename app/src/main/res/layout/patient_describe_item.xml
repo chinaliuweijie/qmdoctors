@@ -63,7 +63,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:lines="4"
-            android:text="水肿长以眼睑开始(有部分患者水肿先从下肢开始) 尿频(次数多)、尿急(憋不住尿)、尿痛(排尿时小腹及尿道痛)。尿频(次数多)、尿急(憋不住尿)、尿痛(排尿时小腹及尿道痛)尿频(次数多)、尿急(憋不住尿)、尿痛(排尿时小腹及尿道痛)"
+            android:text=""
             android:textColor="@color/black_1"
             android:id="@+id/tv_content"
             android:ellipsize="end"

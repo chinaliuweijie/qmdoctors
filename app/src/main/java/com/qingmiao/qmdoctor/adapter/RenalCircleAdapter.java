@@ -49,35 +49,35 @@ public class RenalCircleAdapter extends ListBaseAdapter<CircleCatePagerBean.Data
         TextView tvContent = holder.getView(R.id.tv_content);
         tvContent.setText(getDataList().get(position).description);
         LinearLayout llPhoto = holder.getView(R.id.ll_photo);
-        if(getDataList().get(position).imgs!=null&&getDataList().get(position).imgs.size()>0){
+        if(getDataList().get(position).thumbs!=null&&getDataList().get(position).thumbs.size()>0){
             llPhoto.setVisibility(View.VISIBLE);
             ImageView iv1 = holder.getView(R.id.renal_listView_iv1);
             ImageView iv2 = holder.getView(R.id.renal_listView_iv2);
             ImageView iv3 = holder.getView(R.id.renal_listView_iv3);
-            if(getDataList().get(position).imgs.size()==0){
+            if(getDataList().get(position).thumbs.size()==0){
                 iv1.setVisibility(View.INVISIBLE);
                 iv2.setVisibility(View.INVISIBLE);
                 iv3.setVisibility(View.INVISIBLE);
-            }else if(getDataList().get(position).imgs.size()==1){
-                GlideUtils.LoadImage(mContext,getDataList().get(position).imgs.get(0),iv1);
-             //   GlideUtils.LoadImage(mContext,UrlGlobal.SERVER_URL+ getDataList().get(position).imgs.get(1),iv2);
+            }else if(getDataList().get(position).thumbs.size()==1){
+                GlideUtils.LoadImage(mContext,getDataList().get(position).thumbs.get(0),iv1);
+             //   GlideUtils.LoadImage(mContext,UrlGlobal.SERVER_URL+ getDataList().get(position).thumbs.get(1),iv2);
                 iv1.setVisibility(View.VISIBLE);
                 iv2.setVisibility(View.INVISIBLE);
                 iv3.setVisibility(View.INVISIBLE);
-            }else if(getDataList().get(position).imgs.size()==2){
-                GlideUtils.LoadImage(mContext,getDataList().get(position).imgs.get(0),iv1);
-                GlideUtils.LoadImage(mContext, getDataList().get(position).imgs.get(1),iv2);
-             //   GlideUtils.LoadImage(mContext,UrlGlobal.SERVER_URL+ getDataList().get(position).imgs.get(2),iv3);
+            }else if(getDataList().get(position).thumbs.size()==2){
+                GlideUtils.LoadImage(mContext,getDataList().get(position).thumbs.get(0),iv1);
+                GlideUtils.LoadImage(mContext, getDataList().get(position).thumbs.get(1),iv2);
+             //   GlideUtils.LoadImage(mContext,UrlGlobal.SERVER_URL+ getDataList().get(position).thumbs.get(2),iv3);
                 iv1.setVisibility(View.VISIBLE);
                 iv2.setVisibility(View.VISIBLE);
                 iv3.setVisibility(View.INVISIBLE);
-            }else if(getDataList().get(position).imgs.size()>2){
+            }else if(getDataList().get(position).thumbs.size()>2){
                 iv1.setVisibility(View.VISIBLE);
                 iv2.setVisibility(View.VISIBLE);
                 iv3.setVisibility(View.VISIBLE);
-                GlideUtils.LoadImage(mContext,getDataList().get(position).imgs.get(0),iv1);
-                GlideUtils.LoadImage(mContext,getDataList().get(position).imgs.get(1),iv2);
-                GlideUtils.LoadImage(mContext, getDataList().get(position).imgs.get(2),iv3);
+                GlideUtils.LoadImage(mContext,getDataList().get(position).thumbs.get(0),iv1);
+                GlideUtils.LoadImage(mContext,getDataList().get(position).thumbs.get(1),iv2);
+                GlideUtils.LoadImage(mContext, getDataList().get(position).thumbs.get(2),iv3);
             }
         }else{
             llPhoto.setVisibility(View.GONE);

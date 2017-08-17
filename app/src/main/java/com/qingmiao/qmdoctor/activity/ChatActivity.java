@@ -203,6 +203,7 @@ public class ChatActivity extends BaseActivity implements ILibelInfoView {
                                         case VOICE:
                                             emVoiceMessageBody = (EMVoiceMessageBody) mMSG.getBody();
                                             String path = emVoiceMessageBody.getLocalUrl();
+                                            emVoiceMessageBody.getLength();
                                             File file = new File(path);
                                             if(!file.exists()){
                                                 ToastUtils.showLongToast(ChatActivity.this,"当前文件不存在!");
@@ -362,6 +363,7 @@ public class ChatActivity extends BaseActivity implements ILibelInfoView {
             intent.putExtra("nickname",docuterDatas.get(0).getShowName());
             intent.putExtra("type",1);
             intent.putExtra("uid",uid);
+            intent.putExtra("soundlength",emVoiceMessageBody.getLength());
             intent.putExtra("sound",soundBean);
             startActivity(intent);
         }

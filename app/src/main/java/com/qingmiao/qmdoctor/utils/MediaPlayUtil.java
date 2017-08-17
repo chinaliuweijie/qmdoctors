@@ -48,6 +48,7 @@ public class MediaPlayUtil {
 
             duration = mmr.extractMetadata(android.media.MediaMetadataRetriever.METADATA_KEY_DURATION);
         } catch (Exception ex) {
+            ex.printStackTrace();
         } finally {
             mmr.release();
         }

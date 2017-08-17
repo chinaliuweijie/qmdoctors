@@ -434,7 +434,11 @@ public class PatientBySelfActivity extends BaseActivity implements ILibelInfoVie
         super.onStop();
         if (mMediaPlayUtil!=null && mMediaPlayUtil.isPlaying()) {
             mMediaPlayUtil.stop();
-            mImageAnim.stop();
+            if(mImageAnim!=null){
+                mImageAnim.stop();
+            }
+            this.mIvVoice.setVisibility(View.VISIBLE);
+            this.mIvVoiceAnim.setVisibility(View.INVISIBLE);
         }
     }
 }

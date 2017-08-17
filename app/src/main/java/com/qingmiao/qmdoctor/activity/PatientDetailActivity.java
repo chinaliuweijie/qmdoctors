@@ -195,6 +195,15 @@ public class PatientDetailActivity extends BaseActivity implements ILibelInfoVie
                    tvContent.setVisibility(View.VISIBLE);
                    ivContent.setVisibility(View.GONE);
                    voiceLayout.setVisibility(View.GONE);
+               }else{
+                   if(!TextUtils.isEmpty(getDataList().get(position).sick_desc)){
+                       tvContent.setText(getDataList().get(position).sick_desc);
+                   }else if(!TextUtils.isEmpty(getDataList().get(position).msg)){
+                       tvContent.setText(getDataList().get(position).msg);
+                   }
+                   tvContent.setVisibility(View.VISIBLE);
+                   ivContent.setVisibility(View.GONE);
+                   voiceLayout.setVisibility(View.GONE);
                }
 
                 String time = TimeUtils.getStrTime(getDataList().get(position).time);
@@ -426,7 +435,11 @@ public class PatientDetailActivity extends BaseActivity implements ILibelInfoVie
         super.onStop();
         if (mMediaPlayUtil!=null && mMediaPlayUtil.isPlaying()) {
             mMediaPlayUtil.stop();
-            mImageAnim.stop();
+            if(mImageAnim!=null){
+                mImageAnim.stop();
+            }
+            PatientDetailActivity.this.mIvVoice.setVisibility(View.VISIBLE);
+            PatientDetailActivity.this.mIvVoiceAnim.setVisibility(View.INVISIBLE);
         }
     }
 }

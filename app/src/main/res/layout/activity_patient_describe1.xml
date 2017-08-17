@@ -90,7 +90,7 @@
             android:textColor="@color/black_1"
             android:textSize="@dimen/tv_sview_title_detail"
             android:id="@+id/tv_data"
-            android:text="此前，中国市场上受到追捧的动作片男主角色，要么是爱演大哥和帝王将相的国字脸军团、专注讨好家庭主妇的公务员专业户、开口骂娘动则拔枪的痞子英雄，要么是老实巴交的王宝强、浩气凛然的成龙李连杰、以及如今当红的一连串皮相上好的鲜肉(叨叨有话说，人吴京年轻的时候绝逼也是一枚妥妥的小鲜肉好伐！)。总结下来，大时代唯独缺少一款新型铁血直男。而吴京，就是新型铁血直男的实力代言人。并且，十分吻合当下的国民脉搏"
+            android:text=""
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:lines="4"

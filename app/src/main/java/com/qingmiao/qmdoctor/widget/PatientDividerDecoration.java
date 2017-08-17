@@ -116,14 +116,14 @@ public class PatientDividerDecoration extends RecyclerView.ItemDecoration {
             outRect.set(0, 0, 0, 0);
         } else {
             int Dcount = lRecyclerViewAdapter.getHeaderViewsCount() + 1;
-            if(lRecyclerViewAdapter.getItemViewType(position - Dcount)==ITEM_TYPE.ITEM_TYPE_CHARACTER.ordinal()){
+            if(lRecyclerViewAdapter.getItemViewType(position)==ITEM_TYPE.ITEM_TYPE_CHARACTER.ordinal()){
                 outRect.set(0, 0, 0, 0);
-            }else if(lRecyclerViewAdapter.getItemViewType(position - Dcount)==ITEM_TYPE.ITEM_TYPE_CONTACT.ordinal()){
+            }else if(lRecyclerViewAdapter.getItemViewType(position)==ITEM_TYPE.ITEM_TYPE_CONTACT.ordinal()){
                 // 判断下一个view 是不是顶部标题  如果是顶部标题  不要绘制分割线   如果是内容 继续绘制分割线
                 try{
-                    if(lRecyclerViewAdapter.getItemViewType(position - lRecyclerViewAdapter.getHeaderViewsCount())==ITEM_TYPE.ITEM_TYPE_CHARACTER.ordinal()){
+                    if(lRecyclerViewAdapter.getItemViewType(position + lRecyclerViewAdapter.getHeaderViewsCount())==ITEM_TYPE.ITEM_TYPE_CHARACTER.ordinal()){
                         outRect.set(0, 0, 0, 0);
-                    }else if(lRecyclerViewAdapter.getItemViewType(position - lRecyclerViewAdapter.getHeaderViewsCount())==ITEM_TYPE.ITEM_TYPE_CONTACT.ordinal()){
+                    }else if(lRecyclerViewAdapter.getItemViewType(position + lRecyclerViewAdapter.getHeaderViewsCount())==ITEM_TYPE.ITEM_TYPE_CONTACT.ordinal()){
                         outRect.set(0, 0, 0, mHeight);
                     }else{
                         outRect.set(0, 0, 0, 0);

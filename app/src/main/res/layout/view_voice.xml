@@ -24,7 +24,7 @@ android:paddingBottom="8dp">
     android:background="@drawable/chat_voice_send_anim"
     android:layout_centerVertical="true"
     android:layout_marginLeft="10dp"
-    android:visibility="gone"
+    android:visibility="invisible"
     />
 
 <TextView

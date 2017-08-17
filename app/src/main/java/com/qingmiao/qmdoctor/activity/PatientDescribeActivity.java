@@ -139,7 +139,8 @@ public class PatientDescribeActivity extends BaseActivity implements ILibelInfoV
                         hashMap.put("did", did);
                         hashMap.put("token", token);
                         hashMap.put("sound",soundBean.sound);
-                        hashMap.put("sound_time",MediaPlayUtil.getRingDuring(data)+"");
+                        int length = getIntent().getIntExtra("soundlength",0);
+                        hashMap.put("sound_time",length==0?MediaPlayUtil.getRingDuring(data)+"":length+"");
                         hashMap.put("msg",edDetail.getText().toString());
                         hashMap.put("time",TimeUtils.getLongTime(strTime,"yyyy-MM-dd HH:mm:ss")+"");
                         libelInfoPresenter.startLoad(UrlGlobal.SET_PATIENT_DESC,hashMap);
@@ -177,7 +178,8 @@ public class PatientDescribeActivity extends BaseActivity implements ILibelInfoV
         }else if(type == 1){
             mMediaPlayUtil = MediaPlayUtil.getInstance();
             // 设置文件时间长
-            tvVoiceLength.setText(MediaPlayUtil.getRingDuring(data)+"秒");
+            int length = getIntent().getIntExtra("soundlength",0);
+            tvVoiceLength.setText(length==0?MediaPlayUtil.getRingDuring(data)+"秒":length+"秒");
             tvData.setVisibility(View.GONE);
             ivData.setVisibility(View.GONE);
             voiceLayout.setVisibility(View.VISIBLE);
@@ -282,9 +284,11 @@ public class PatientDescribeActivity extends BaseActivity implements ILibelInfoV
         super.onStop();
         if (mMediaPlayUtil!=null && mMediaPlayUtil.isPlaying()) {
             mMediaPlayUtil.stop();
-            mImageAnim.stop();
+            if(mImageAnim!=null){
+                mImageAnim.stop();
+            }
             mIvVoice.setVisibility(View.VISIBLE);
-            mIvVoiceAnim.setVisibility(View.GONE);
+            mIvVoiceAnim.setVisibility(View.INVISIBLE);
         }
     }
 
